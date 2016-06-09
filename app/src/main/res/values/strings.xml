@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">StifDev_TAP</string>
+    <string name="play">PLAY</string>
+
+    <string name="title_activity_scenario_select">scenario_select</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="roomTextString">lorem ipsum absurdum roomium bingo dinosaur potential nokey what thing happen horn muppet nintendo random words hard to think</string>
+    <string name="roomTitle">The Ballroom</string>
+    <string name="btnTopString">North</string>
+    <string name="btnBottomString">South</string>
+    <string name="btnLeftString">West</string>
+    <string name="btnRightString">East</string>
+    <string name="title_activity_main2">Main2Activity</string>
+</resources>

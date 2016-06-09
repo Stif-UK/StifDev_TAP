@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Activities.roomActivity"
+    android:background="@color/dim_foreground_material_light">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="15"
+        android:id="@+id/roomText"
+        android:text="@string/roomTextString"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:layout_marginTop="37dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="20sp" />
+        <!--android:editable="false" -->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/roomTitle"
+        android:id="@+id/roomTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/stifDev_TAP_Text" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnTopString"
+        android:id="@+id/btnTop"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:layout_above="@+id/btnRight"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnBottomString"
+        android:id="@+id/btnBottom"
+        android:layout_marginBottom="46dp"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnTop"
+        android:layout_alignStart="@+id/btnTop" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnLeftString"
+        android:id="@+id/btnLeft"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:layout_above="@+id/btnBottom"
+        android:layout_toLeftOf="@+id/roomTitle"
+        android:layout_toStartOf="@+id/roomTitle" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnRightString"
+        android:id="@+id/btnRight"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:layout_above="@+id/btnBottom"
+        android:layout_toRightOf="@+id/roomTitle"
+        android:layout_toEndOf="@+id/roomTitle" />
+
+</RelativeLayout>

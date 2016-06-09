@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Activities.MainActivity"
+    android:background="@color/dim_foreground_material_light"
+    android:onClick="setContentView"
+    android:nestedScrollingEnabled="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stifDev_TAP"
+        android:id="@+id/mainpageTitle"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:layout_marginTop="71dp"
+        android:textSize="@dimen/abc_text_size_headline_material"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text Adventure Project"
+        android:id="@+id/appTitle_subheading"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:textSize="@dimen/abc_text_size_headline_material"
+        android:layout_below="@+id/mainpageTitle"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/play"
+        android:id="@+id/playClick"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:layout_marginTop="147dp"
+        android:textSize="@dimen/abc_text_size_headline_material"
+        android:layout_below="@+id/appTitle_subheading"
+        android:layout_centerHorizontal="true"
+        android:onClick="setContentView" />
+
+</RelativeLayout>
