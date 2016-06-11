@@ -31,6 +31,7 @@ public class Controller {
         if(currentGame.moveRoom(direction)){
             this.setRoomTitle(currentGame.getCurrentRoom().getTitle());
             this.setRoomDescription(currentGame.getCurrentRoom().getRoomDescription());
+            //TODO: implement updates to the other variables.
         }
 
     }

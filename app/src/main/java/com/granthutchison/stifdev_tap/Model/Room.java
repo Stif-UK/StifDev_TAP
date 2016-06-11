@@ -34,7 +34,7 @@ public class Room {
     private String right;
     private boolean rightLocked;
 
-    public Room(String title, String containsItem, String initialDescription, String itemCollectedDescription, String roomsUnlockedDescription, String top, boolean topLocked, String bottom, boolean bottomLocked, String left, boolean leftLocked, String right, boolean rightLocked) {
+    protected Room(String title, String containsItem, String initialDescription, String itemCollectedDescription, String roomsUnlockedDescription, String top, boolean topLocked, String bottom, boolean bottomLocked, String left, boolean leftLocked, String right, boolean rightLocked) {
         this.title = title;
         this.containsItem = containsItem;
         this.roomLockedDescription = initialDescription;
@@ -74,9 +74,14 @@ public class Room {
 
     }
 
+    /**
+     * The toString method of the Room class simply returns the rooms title.
+     * @return - The title of the room
+     */
+    @Override
+    public String toString() {
+        return this.getTitle();
+    }
 
 
-
-
-    //TODO: Implement a toString method that returns the room title - this will be used to generate the Key when rooms are added to the Map.
 }
