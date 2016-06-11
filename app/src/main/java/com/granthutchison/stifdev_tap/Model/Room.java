@@ -8,8 +8,7 @@ public class Room {
 
 
     private String title;
-    private Boolean isLocked;
-    private Item containsItem; //TODO: Implement Item class.
+    private String containsItem = ""; //TODO: Implement Item class.
     //Do we need this attribute?
 
     //Room descriptions
@@ -17,21 +16,46 @@ public class Room {
     private String itemCollectedDescription; //An updated description if an item is picked up in the room.
     private String roomsUnlockedDescription; //An updated description if all adjacent rooms have been unlocked.
 
-    //Adjacent Rooms
-    private Room roomNorth;
-    private Room roomSouth;
-    private Room roomEast;
-    private Room roomWest;
+    //Adjacent Rooms and the lock status of the 'door'.
+    private String top;
+    private Boolean topLocked;
+
+    private String bottom;
+    private Boolean bottomLocked;
+
+    private String left;
+    private Boolean leftLocked;
+
+    private String right;
+    private Boolean rightLocked;
+
+    public Room(String title, String containsItem, String initialDescription, String itemCollectedDescription, String roomsUnlockedDescription, String top, Boolean topLocked, String bottom, Boolean bottomLocked, String left, Boolean leftLocked, String right, Boolean rightLocked) {
+        this.title = title;
+        this.containsItem = containsItem;
+        this.initialDescription = initialDescription;
+        this.itemCollectedDescription = itemCollectedDescription;
+        this.roomsUnlockedDescription = roomsUnlockedDescription;
+        this.top = top;
+        this.topLocked = topLocked;
+        this.bottom = bottom;
+        this.bottomLocked = bottomLocked;
+        this.left = left;
+        this.leftLocked = leftLocked;
+        this.right = right;
+        this.rightLocked = rightLocked;
+    }
+
+    /**
+     * getTitle is a getter method to return the title of the Room.
+     * @return String - the title of the room
+     */
+    protected String getTitle(){
+        return this.title;
+    }
 
 
-//  Implement an overridden equals() method to compare room title only.
-//    @Override
-//    public boolean equals(Object o) {
-//        if(o.getClass() == Room) {
-//            return this.title.equals(o.getTitle());
-//        }
-//        else{
-//            return false;
-//        }
-//    }
+
+
+
+    //TODO: Implement a toString method that returns the room title - this will be used to generate the Key when rooms are added to the Map.
 }
