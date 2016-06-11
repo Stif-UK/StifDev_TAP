@@ -92,6 +92,11 @@ public class Scenario {
 
     }
 
+    protected String checkRoomForItem(){
+        //TODO:Write code to check for item, add to the inventory and return a string.
+        return "update this";
+    }
+
     protected Room getCurrentRoom() {
         return currentRoom;
     }
