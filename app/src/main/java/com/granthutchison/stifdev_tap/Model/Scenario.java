@@ -93,8 +93,16 @@ public class Scenario {
     }
 
     protected String checkRoomForItem(){
-        //TODO:Write code to check for item, add to the inventory and return a string.
-        return "update this";
+        String itemID = currentRoom.getContainsItem();
+        String emptyString = "";
+        if(itemID.length() <1){
+            return emptyString;
+        }else{
+            Item roomItem = this.gameItems.get(itemID);
+            inventory.add(roomItem);
+            return roomItem.getName() + " found!";
+        }
+
     }
 
     protected Room getCurrentRoom() {

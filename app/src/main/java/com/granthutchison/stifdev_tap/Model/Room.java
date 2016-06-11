@@ -108,6 +108,11 @@ public class Room {
         return rightLocked;
     }
 
+
+    protected String getContainsItem() {
+        return containsItem;
+    }
+
     /**
      * The toString method of the Room class simply returns the rooms title.
      * @return - The title of the room

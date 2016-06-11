@@ -13,17 +13,23 @@ public class Item {
     private String name;
     private Boolean used;
     private String unlocks; //The String title of the room it unlocks
+    private String description;
 
     private String usedText; //The description to be displayed when the item is used - perhaps should be a parameter in Room?
     private String failText; //The text to be displayed when an attempt is made to use the item but fails.
 
 
-    public Item(String name, String unlocks, String usedText, String failText) {
+    public Item(String name, String unlocks, String description,String usedText, String failText) {
         this.name = name;
         this.used = false;
         this.unlocks = unlocks;
+        this.description = description;
         this.usedText = usedText;
         this.failText = failText;
+    }
+
+    protected String getName(){
+        return this.name;
     }
 
 
