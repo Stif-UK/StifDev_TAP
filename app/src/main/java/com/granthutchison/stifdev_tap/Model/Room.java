@@ -34,10 +34,10 @@ public class Room {
     private String right;
     private boolean rightLocked;
 
-    protected Room(String title, String containsItem, String initialDescription, String itemCollectedDescription, String roomsUnlockedDescription, String top, boolean topLocked, String bottom, boolean bottomLocked, String left, boolean leftLocked, String right, boolean rightLocked) {
+    public Room(String title, String containsItem, String roomLockedDescription, String itemCollectedDescription, String roomsUnlockedDescription, String top, boolean topLocked, String bottom, boolean bottomLocked, String left, boolean leftLocked, String right, boolean rightLocked) {
         this.title = title;
         this.containsItem = containsItem;
-        this.roomLockedDescription = initialDescription;
+        this.roomLockedDescription = roomLockedDescription;
         this.itemCollectedDescription = itemCollectedDescription;
         this.roomsUnlockedDescription = roomsUnlockedDescription;
         this.top = top;
@@ -72,6 +72,40 @@ public class Room {
             return this.roomsUnlockedDescription;
         }
 
+    }
+
+    //Getters for the directions/exits
+    protected String getTop() {
+        return top;
+    }
+
+    protected String getBottom() {
+        return bottom;
+    }
+
+    protected String getLeft() {
+        return left;
+    }
+
+    protected String getRight() {
+        return right;
+    }
+
+    //Getters for the locked status of the exits
+    protected boolean isTopLocked() {
+        return topLocked;
+    }
+
+    protected boolean isBottomLocked() {
+        return bottomLocked;
+    }
+
+    protected boolean isLeftLocked() {
+        return leftLocked;
+    }
+
+    protected boolean isRightLocked() {
+        return rightLocked;
     }
 
     /**

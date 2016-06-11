@@ -46,17 +46,42 @@ public class Scenario {
 
     }
 
-    //TODO: Implement moveRoom() in Scenario
     public Boolean moveRoom(String direction){
+        String newRoomTitle;
         switch (direction.toLowerCase()){
             case "top":
-                break;
+                newRoomTitle = currentRoom.getTop();
+                if(!currentRoom.isTopLocked()){
+                    this.setCurrentRoom(newRoomTitle);
+                    return true;
+                }else{
+                    return false;
+                }
+
             case "bottom":
-                break;
+                newRoomTitle = currentRoom.getBottom();
+                if(!currentRoom.isTopLocked()){
+                    this.setCurrentRoom(newRoomTitle);
+                    return true;
+                }else{
+                    return false;
+                }
             case "left":
-                break;
+                newRoomTitle = currentRoom.getLeft();
+                if(!currentRoom.isTopLocked()){
+                    this.setCurrentRoom(newRoomTitle);
+                    return true;
+                }else{
+                    return false;
+                }
             case "right":
-                break;
+                newRoomTitle = currentRoom.getRight();
+                if(!currentRoom.isTopLocked()){
+                    this.setCurrentRoom(newRoomTitle);
+                    return true;
+                }else{
+                    return false;
+                }
 
             default:
                 return false;
@@ -71,5 +96,14 @@ public class Scenario {
         return currentRoom;
     }
 
-
+    /**
+     * The setter method for the Scenarios currentRoom takes a String as an arguement.
+     * This should be the name of the room to be set as the current room of the map.
+     * The map is then searched for the new Room object and this is assigned as the new currentRoom.
+     * @param newRoomTitle - the title of the room which is to be set as the current room
+     */
+    protected void setCurrentRoom(String newRoomTitle) {
+        Room newCurrentRoom = this.map.get(newRoomTitle);
+        this.currentRoom = newCurrentRoom;
+    }
 }
