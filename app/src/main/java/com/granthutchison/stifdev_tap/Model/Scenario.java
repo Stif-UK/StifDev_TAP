@@ -5,6 +5,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * The Scenario class represents a current Game of the text adventure.
+ * This class is responsible for creating all of the room and item objects to be used in the game
+ * and maintains the games inventory.
  * Created by Stifler on 08/06/2016.
  */
 public class Scenario {
@@ -45,7 +48,7 @@ public class Scenario {
 
     //TODO: Implement moveRoom() in Scenario
     public Boolean moveRoom(String direction){
-        switch (direction){
+        switch (direction.toLowerCase()){
             case "top":
                 break;
             case "bottom":
@@ -67,4 +70,6 @@ public class Scenario {
     protected Room getCurrentRoom() {
         return currentRoom;
     }
+
+
 }
