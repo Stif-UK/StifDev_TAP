@@ -1,5 +1,7 @@
 package com.granthutchison.stifdev_tap.Model;
 
+import java.lang.reflect.Constructor;
+
 /**
  * The Controller object manages the interaction between the application view and the implementation model.
  * It's role is to prevent the view from having access to the objects in the model, thus avoiding the
@@ -19,6 +21,9 @@ public class Controller {
     public static Controller getInstance() {
         return ourInstance;
     }
+
+    //Hide the constructor to prevent other objects creating instances of Controller
+    private Controller(){};
 
     private Scenario currentGame = new Scenario();
 
