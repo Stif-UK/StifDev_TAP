@@ -16,6 +16,12 @@ public class ControllerUnitTests {
         assertEquals(null, myCont.getRoomTitle());
     }
 
+    @Test
+    public void getCurrentRoomTest(){
+        myCont.startGame("Test");
+        assertEquals("Entrance Hall",myCont.getRoomTitle());
+    }
+
 
 
 

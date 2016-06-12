@@ -8,14 +8,20 @@ package com.granthutchison.stifdev_tap.Model;
  */
 public class Controller {
 
-    private Scenario currentGame;
+    private Scenario currentGame = new Scenario();
 
     //Variables to store info about the current room to pass to the GUI
     private String roomTitle;
     private String roomDescription;
 
-    public Boolean startGame(String scenario){
-       return currentGame.startGame(scenario);
+    public boolean startGame(String scenario){
+
+        boolean result = currentGame.startGame(scenario);
+        this.setRoomTitle(currentGame.getCurrentRoom().getTitle());
+        this.setRoomDescription(currentGame.getCurrentRoom().getRoomDescription());
+        //TODO: Implement code to set other required instance variables
+
+        return result;
     }
 
     /**
@@ -35,6 +41,8 @@ public class Controller {
         }
 
     }
+
+
 
     /**
      * checkRoomForItem() is used to determine if the currentRoom object has an item in it,
