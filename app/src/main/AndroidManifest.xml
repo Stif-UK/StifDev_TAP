@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.roomActivity"
+            android:name=".Activities.RoomActivity"
             android:label="@string/roomTitle"
             android:theme="@style/AppTheme"></activity>
         <activity
