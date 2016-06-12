@@ -62,4 +62,12 @@ public class Controller {
     protected void setRoomDescription(String description){
         this.roomDescription = description;
     }
+
+    public String getRoomTitle() {
+        return roomTitle;
+    }
+
+    public String getRoomDescription() {
+        return roomDescription;
+    }
 }

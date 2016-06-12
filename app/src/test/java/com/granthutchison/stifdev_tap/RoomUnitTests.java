@@ -1,4 +1,4 @@
-package com.granthutchison.stifdev_tap;
+package com.granthutchison.stifdev_tap.Model;
 
 import com.granthutchison.stifdev_tap.Model.Room;
 
@@ -20,7 +20,7 @@ public class RoomUnitTests {
     public void roomToString(){
         assertEquals("Hall", unlockedRoom.toString());
     }
-    //To test room description tests first make that method public
+
     @Test
     public void roomGetDescription1(){
         assertEquals("Hall", unlockedRoom.toString());
