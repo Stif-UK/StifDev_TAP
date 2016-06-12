@@ -38,20 +38,25 @@ public class Room {
     private String rightRoomName;
     private boolean rightLocked;
 
-    public Room(String title, String containsItem, String roomLockedDescription, String itemCollectedDescription, String roomsUnlockedDescription, String topRoomName, boolean topLocked, String bottomBtnText, String bottomRoomName, boolean bottomLocked, String leftBtnText, String leftRoomName, boolean leftLocked, String rightBtnText, String rightRoomName, boolean rightLocked) {
+    public Room(String title, String containsItem, String roomLockedDescription, String itemCollectedDescription, String roomsUnlockedDescription, String topBtnText, String topRoomName, boolean topLocked, String bottomBtnText, String bottomRoomName, boolean bottomLocked, String leftBtnText, String leftRoomName, boolean leftLocked, String rightBtnText, String rightRoomName, boolean rightLocked) {
         this.title = title;
         this.containsItem = containsItem;
         this.roomLockedDescription = roomLockedDescription;
         this.itemCollectedDescription = itemCollectedDescription;
         this.roomsUnlockedDescription = roomsUnlockedDescription;
+        //Top room info
+        this.topBtnText = topBtnText;
         this.topRoomName = topRoomName;
         this.topLocked = topLocked;
+        //Bottom room info
         this.bottomBtnText = bottomBtnText;
         this.bottomRoomName = bottomRoomName;
         this.bottomLocked = bottomLocked;
+        //Left room info
         this.leftBtnText = leftBtnText;
         this.leftRoomName = leftRoomName;
         this.leftLocked = leftLocked;
+        //Right room info
         this.rightBtnText = rightBtnText;
         this.rightRoomName = rightRoomName;
         this.rightLocked = rightLocked;
