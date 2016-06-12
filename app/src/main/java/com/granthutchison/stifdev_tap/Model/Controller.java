@@ -8,7 +8,13 @@ package com.granthutchison.stifdev_tap.Model;
  */
 public class Controller {
     //Implement the controller as a singleton to prevent the View from creating multiple controllers
-    private static Controller ourInstance = new Controller();
+    private static Controller ourInstance;
+
+    public static void initInstance(){
+        if(ourInstance = null){
+            ourInstance = new Controller();
+        }
+    }
 
     public static Controller getInstance() {
         return ourInstance;
