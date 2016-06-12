@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.granthutchison.stifdev_tap.Model.Controller;
 import com.granthutchison.stifdev_tap.R;
@@ -53,15 +54,46 @@ public class RoomActivity extends AppCompatActivity {
         btnTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(myCont.moveRoom("Top")) {
-                    refreshView();
-                }
-                else {
-                    //TODO: Add code to display a toast message
-
+                if(!btnTopTxt.equals("")) {
+                    if (myCont.moveRoom("Top")) {
+                        refreshView();
+                    }
                 }
 
 
+            }
+        });
+
+        btnBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!btnTopTxt.equals("")) {
+                    if (myCont.moveRoom("bottom")) {
+                        refreshView();
+                    }
+                }
+            }
+        });
+
+        btnLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!btnTopTxt.equals("")) {
+                    if (myCont.moveRoom("left")) {
+                        refreshView();
+                    }
+                }
+            }
+        });
+
+        btnRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!btnTopTxt.equals("")) {
+                    if (myCont.moveRoom("right")) {
+                        refreshView();
+                    }
+                }
             }
         });
 
