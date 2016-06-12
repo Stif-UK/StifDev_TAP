@@ -54,32 +54,32 @@ public class Scenario {
                 //Create objects for each room in the game and add all of these to the map.
                 Room room1 = new Room(roomName1, "", "You're in a large entrance hall. All of the doors are locked",
                         "", "You find yourself in a large entrance hall. There are exits to the North, East and West",
-                        "Go North:"+roomName2,false,"",false,"Go West:"+roomName3,false,"Go East:"+roomName5,false );
+                        "Go North",roomName2,false,"","",false,"Go West",roomName3,false,"Go Eas",roomName5,false );
                 map.put(roomName1, room1);
 
                 Room room2 = new Room(roomName2, "", "You're in a pantry. All of the doors are locked",
                         "", "This appears to be a pantry. You wonder if there's any food here. There are exits to the South and East.",
-                        "",false,"Go South:"+roomName1,false,"",false,"Go East:"+roomName4,false );
+                        "","",false,"Go South",roomName1,false,"","",false,"Go East",roomName4,false );
                 map.put(roomName2, room2);
 
                 Room room3 = new Room(roomName3, "", "You're in a dining room. All of the doors are locked",
                         "", "What a grand dining room! The candles flicker...someone must be getting ready for dinner. There are exits to the East and North.",
-                        "Go North:"+roomName6,false,"",false,"",false,"Go East:"+roomName1,false );
+                        "Go North",roomName6,false,"","",false,"","",false,"Go East",roomName1,false );
                 map.put(roomName3, room3);
 
                 Room room4 = new Room(roomName4, "", "You're in the servant's quarters. All of the doors are locked",
                         "", "You find yourself in the servant's quarters. There are exits to the South and West.",
-                        "",false,"Go South:"+roomName5,false,"Go West:"+roomName2,false,"",false );
+                        "","",false,"Go South",roomName5,false,"Go West",roomName2,false,"","",false );
                 map.put(roomName4, room4);
 
                 Room room5 = new Room(roomName5, "", "This room is tiny. All of the doors are locked",
                         "", "This room is tiny. A small computer sits in the corner, the monitor's green glow illuminating a small desk. There is an exit to the South.",
-                        "",false,"Go South:"+roomName3,false,"",false,"",false );
+                        "","",false,"Go South",roomName3,false,"","",false,"","",false );
                 map.put(roomName5, room5);
 
                 Room room6 = new Room(roomName6, "", "The entertainment room. All of the doors are locked",
                         "", "I've never seen a TV that size before! Is that a Playstation Neo!. There are exits to the North and West.",
-                        "Go North:"+roomName4,false,"",false,"Go West:"+roomName1,false,"",false );
+                        "Go North",roomName4,false,"","",false,"Go West",roomName1,false,"","",false );
                 map.put(roomName6, room6);
 
                 //Set the starting room
@@ -103,7 +103,7 @@ public class Scenario {
         String newRoomTitle;
         switch (direction.toLowerCase()){
             case "top":
-                newRoomTitle = currentRoom.getTop();
+                newRoomTitle = currentRoom.getTopRoomName();
                 if(!currentRoom.isTopLocked()){
                     this.setCurrentRoom(newRoomTitle);
                     return true;
@@ -112,7 +112,7 @@ public class Scenario {
                 }
 
             case "bottom":
-                newRoomTitle = currentRoom.getBottom();
+                newRoomTitle = currentRoom.getBottomRoomName();
                 if(!currentRoom.isTopLocked()){
                     this.setCurrentRoom(newRoomTitle);
                     return true;
@@ -120,7 +120,7 @@ public class Scenario {
                     return false;
                 }
             case "left":
-                newRoomTitle = currentRoom.getLeft();
+                newRoomTitle = currentRoom.getLeftRoomName();
                 if(!currentRoom.isTopLocked()){
                     this.setCurrentRoom(newRoomTitle);
                     return true;
@@ -128,7 +128,7 @@ public class Scenario {
                     return false;
                 }
             case "right":
-                newRoomTitle = currentRoom.getRight();
+                newRoomTitle = currentRoom.getRightRoomName();
                 if(!currentRoom.isTopLocked()){
                     this.setCurrentRoom(newRoomTitle);
                     return true;
