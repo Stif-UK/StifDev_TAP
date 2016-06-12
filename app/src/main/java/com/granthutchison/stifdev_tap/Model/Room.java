@@ -22,31 +22,38 @@ public class Room {
     private String roomsUnlockedDescription; //An updated description if all adjacent rooms have been unlocked.
 
     //Adjacent Rooms and the lock status of the 'door'.
-    private String top;
+    private String topBtnText;
+    private String topRoomName;
     private boolean topLocked;
 
-    private String bottom;
+    private String bottomBtnText;
+    private String bottomRoomName;
     private boolean bottomLocked;
 
-    private String left;
+    private String leftBtnText;
+    private String leftRoomName;
     private boolean leftLocked;
 
-    private String right;
+    private String rightBtnText;
+    private String rightRoomName;
     private boolean rightLocked;
 
-    public Room(String title, String containsItem, String roomLockedDescription, String itemCollectedDescription, String roomsUnlockedDescription, String top, boolean topLocked, String bottom, boolean bottomLocked, String left, boolean leftLocked, String right, boolean rightLocked) {
+    public Room(String title, String containsItem, String roomLockedDescription, String itemCollectedDescription, String roomsUnlockedDescription, String topRoomName, boolean topLocked, String bottomBtnText, String bottomRoomName, boolean bottomLocked, String leftBtnText, String leftRoomName, boolean leftLocked, String rightBtnText, String rightRoomName, boolean rightLocked) {
         this.title = title;
         this.containsItem = containsItem;
         this.roomLockedDescription = roomLockedDescription;
         this.itemCollectedDescription = itemCollectedDescription;
         this.roomsUnlockedDescription = roomsUnlockedDescription;
-        this.top = top;
+        this.topRoomName = topRoomName;
         this.topLocked = topLocked;
-        this.bottom = bottom;
+        this.bottomBtnText = bottomBtnText;
+        this.bottomRoomName = bottomRoomName;
         this.bottomLocked = bottomLocked;
-        this.left = left;
+        this.leftBtnText = leftBtnText;
+        this.leftRoomName = leftRoomName;
         this.leftLocked = leftLocked;
-        this.right = right;
+        this.rightBtnText = rightBtnText;
+        this.rightRoomName = rightRoomName;
         this.rightLocked = rightLocked;
     }
 
@@ -75,20 +82,35 @@ public class Room {
     }
 
     //Getters for the directions/exits
-    protected String getTop() {
-        return top;
+    protected String getTopBtnText() {
+        return topBtnText;
+    }
+    protected String getTopRoomName(){
+        return topRoomName;
     }
 
-    protected String getBottom() {
-        return bottom;
+    protected String getBottomBtnText() {
+        return bottomBtnText;
     }
 
-    protected String getLeft() {
-        return left;
+    protected String getBottomRoomName(){
+        return bottomRoomName;
     }
 
-    protected String getRight() {
-        return right;
+    public String getLeftBtnText() {
+        return leftBtnText;
+    }
+
+    public String getLeftRoomName() {
+        return leftRoomName;
+    }
+
+    public String getRightBtnText() {
+        return rightBtnText;
+    }
+
+    public String getRightRoomName() {
+        return rightRoomName;
     }
 
     //Getters for the locked status of the exits
@@ -112,6 +134,8 @@ public class Room {
     protected String getContainsItem() {
         return containsItem;
     }
+
+
 
     /**
      * The toString method of the Room class simply returns the rooms title.
