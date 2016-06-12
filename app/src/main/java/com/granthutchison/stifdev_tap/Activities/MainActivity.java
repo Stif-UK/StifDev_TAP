@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.granthutchison.stifdev_tap.Model.Controller;
 import com.granthutchison.stifdev_tap.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Controller.initInstance();
         setContentView(R.layout.activity_main);
         btnPlay = (TextView) findViewById(R.id.playClick);
 
