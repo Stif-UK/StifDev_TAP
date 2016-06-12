@@ -13,13 +13,38 @@ public class Controller {
     //Variables to store info about the current room to pass to the GUI
     private String roomTitle;
     private String roomDescription;
+    //Variables to hold info about the direction buttons and map
+    //Button text
+    private String topBtnTxt;
+    private String bottomBtnTxt;
+    private String leftBtnTxt;
+    private String rightBtnTxt;
+
+    //No need for the Constructor to know the adjacent rooms - the scenario and room know these.
+    //Just need button text to be consistant, e.g. empty string if no adjacent rooms exist.
+
+    //Door locked status
+    private boolean topLocked;
+    private boolean bottomLocked;
+    private boolean leftLocked;
+    private boolean rightLocked;
 
     public boolean startGame(String scenario){
 
         boolean result = currentGame.startGame(scenario);
+        //Set the title and description of the room
         this.setRoomTitle(currentGame.getCurrentRoom().getTitle());
         this.setRoomDescription(currentGame.getCurrentRoom().getRoomDescription());
-        //TODO: Implement code to set other required instance variables
+        //Set the button text values
+        this.setTopBtnTxt(currentGame.getCurrentRoom().getTopBtnText());
+        this.setBottomBtnTxt(currentGame.getCurrentRoom().getBottomBtnText());
+        this.setLeftBtnTxt(currentGame.getCurrentRoom().getLeftBtnText());
+        this.setRightBtnTxt(currentGame.getCurrentRoom().getRightBtnText());
+        //Set the door locked statuses
+        this.setTopLocked(currentGame.getCurrentRoom().isTopLocked());
+        this.setBottomLocked(currentGame.getCurrentRoom().isBottomLocked());
+        this.setLeftLocked(currentGame.getCurrentRoom().isLeftLocked());
+        this.setRightLocked(currentGame.getCurrentRoom().isRightLocked());
 
         return result;
     }
@@ -37,7 +62,16 @@ public class Controller {
         if(currentGame.moveRoom(direction)){
             this.setRoomTitle(currentGame.getCurrentRoom().getTitle());
             this.setRoomDescription(currentGame.getCurrentRoom().getRoomDescription());
-            //TODO: implement updates to the other variables.
+            //Set the button text values
+            this.setTopBtnTxt(currentGame.getCurrentRoom().getTopBtnText());
+            this.setBottomBtnTxt(currentGame.getCurrentRoom().getBottomBtnText());
+            this.setLeftBtnTxt(currentGame.getCurrentRoom().getLeftBtnText());
+            this.setRightBtnTxt(currentGame.getCurrentRoom().getRightBtnText());
+            //Set the door locked statuses
+            this.setTopLocked(currentGame.getCurrentRoom().isTopLocked());
+            this.setBottomLocked(currentGame.getCurrentRoom().isBottomLocked());
+            this.setLeftLocked(currentGame.getCurrentRoom().isLeftLocked());
+            this.setRightLocked(currentGame.getCurrentRoom().isRightLocked());
         }
 
     }
@@ -69,6 +103,45 @@ public class Controller {
      */
     protected void setRoomDescription(String description){
         this.roomDescription = description;
+    }
+
+    //Setters for the room buttons
+
+
+    protected void setTopBtnTxt(String topBtnTxt) {
+        this.topBtnTxt = topBtnTxt;
+    }
+
+    protected void setBottomBtnTxt(String bottomBtnTxt) {
+        this.bottomBtnTxt = bottomBtnTxt;
+    }
+
+    protected void setLeftBtnTxt(String leftBtnTxt) {
+        this.leftBtnTxt = leftBtnTxt;
+    }
+
+    protected void setRightBtnTxt(String rightBtnTxt) {
+        this.rightBtnTxt = rightBtnTxt;
+    }
+
+
+    //Setters for the door locked statuses
+
+
+    public void setTopLocked(boolean topLocked) {
+        this.topLocked = topLocked;
+    }
+
+    public void setBottomLocked(boolean bottomLocked) {
+        this.bottomLocked = bottomLocked;
+    }
+
+    public void setLeftLocked(boolean leftLocked) {
+        this.leftLocked = leftLocked;
+    }
+
+    public void setRightLocked(boolean rightLocked) {
+        this.rightLocked = rightLocked;
     }
 
     public String getRoomTitle() {
