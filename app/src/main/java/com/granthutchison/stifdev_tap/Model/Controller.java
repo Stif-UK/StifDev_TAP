@@ -7,6 +7,12 @@ package com.granthutchison.stifdev_tap.Model;
  * Created by Stifler on 08/06/2016.
  */
 public class Controller {
+    //Implement the controller as a singleton to prevent the View from creating multiple controllers
+    private static Controller ourInstance = new Controller();
+
+    public static Controller getInstance() {
+        return ourInstance;
+    }
 
     private Scenario currentGame = new Scenario();
 
