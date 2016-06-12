@@ -75,7 +75,7 @@ public class Controller {
      *
      * @param direction - this should always be either "Top", "Bottom", "Left" or "Right".
      */
-    public void moveRoom(String direction){
+    public boolean moveRoom(String direction){
         if(currentGame.moveRoom(direction)){
             this.setRoomTitle(currentGame.getCurrentRoom().getTitle());
             this.setRoomDescription(currentGame.getCurrentRoom().getRoomDescription());
@@ -89,6 +89,11 @@ public class Controller {
             this.setBottomLocked(currentGame.getCurrentRoom().isBottomLocked());
             this.setLeftLocked(currentGame.getCurrentRoom().isLeftLocked());
             this.setRightLocked(currentGame.getCurrentRoom().isRightLocked());
+
+            return true;
+        }
+        else {
+            return false;
         }
 
     }

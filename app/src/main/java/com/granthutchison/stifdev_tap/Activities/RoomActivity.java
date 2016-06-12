@@ -2,6 +2,7 @@ package com.granthutchison.stifdev_tap.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -10,32 +11,78 @@ import com.granthutchison.stifdev_tap.R;
 
 public class RoomActivity extends AppCompatActivity {
 
+    private Controller myCont;
+    private TextView roomTitle;
+    private TextView roomDesc;
+    private Button btnTop;
+    private Button btnBottom;
+    private Button btnLeft;
+    private Button btnRight;
+    private String btnTopTxt;
+    private String btnBottomTxt;
+    private String btnLeftTxt;
+    private String btnRightTxt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Controller myCont = Controller.getInstance();
+        myCont = Controller.getInstance();
         setContentView(R.layout.activity_room);
         //Link the elements of the view.
-        TextView roomTitle = (TextView) findViewById(R.id.roomTitle);
-        TextView roomDesc = (TextView) findViewById(R.id.roomText);
-        Button btnTop = (Button) findViewById(R.id.btnTop);
-        Button btnBottom = (Button) findViewById(R.id.btnBottom);
-        Button btnLeft = (Button) findViewById(R.id.btnLeft);
-        Button btnRight = (Button) findViewById(R.id.btnRight);
+        roomTitle = (TextView) findViewById(R.id.roomTitle);
+        roomDesc = (TextView) findViewById(R.id.roomText);
+        btnTop = (Button) findViewById(R.id.btnTop);
+        btnBottom = (Button) findViewById(R.id.btnBottom);
+        btnLeft = (Button) findViewById(R.id.btnLeft);
+        btnRight = (Button) findViewById(R.id.btnRight);
 
         roomTitle.setText(myCont.getRoomTitle());
         roomDesc.setText(myCont.getRoomDescription());
 
         //Get the button text values and store as variables
-        String btnTopTxt = myCont.getTopBtnTxt();
-        String btnBottomTxt = myCont.getBottomBtnTxt();
-        String btnLeftTxt = myCont.getLeftBtnTxt();
-        String btnRightTxt = myCont.getRightBtnTxt();
+        btnTopTxt = myCont.getTopBtnTxt();
+        btnBottomTxt = myCont.getBottomBtnTxt();
+        btnLeftTxt = myCont.getLeftBtnTxt();
+        btnRightTxt = myCont.getRightBtnTxt();
 
         btnTop.setText(btnTopTxt);
         btnBottom.setText(btnBottomTxt);
         btnLeft.setText(btnLeftTxt);
         btnRight.setText(btnRightTxt);
 
+        btnTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(myCont.moveRoom("Top")) {
+                    refreshView();
+                }
+                else {
+                    //TODO: Add code to display a toast message
+
+                }
+
+
+            }
+        });
+
     }
+
+    protected void refreshView(){
+        roomTitle.setText(myCont.getRoomTitle());
+        roomDesc.setText(myCont.getRoomDescription());
+
+        btnTopTxt = myCont.getTopBtnTxt();
+        btnBottomTxt = myCont.getBottomBtnTxt();
+        btnLeftTxt = myCont.getLeftBtnTxt();
+        btnRightTxt = myCont.getRightBtnTxt();
+
+        btnTop.setText(btnTopTxt);
+        btnBottom.setText(btnBottomTxt);
+        btnLeft.setText(btnLeftTxt);
+        btnRight.setText(btnRightTxt);
+
+
+    }
+
+
 }

@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Activities.roomActivity"
+    tools:context=".Activities.RoomActivity"
     android:background="@color/dim_foreground_material_light">
 
     <TextView
@@ -24,6 +24,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:paddingTop="25dp"
         android:textSize="20sp" />
         <!--android:editable="false" -->
 
