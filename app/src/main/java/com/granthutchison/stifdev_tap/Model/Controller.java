@@ -11,7 +11,7 @@ public class Controller {
     private static Controller ourInstance;
 
     public static void initInstance(){
-        if(ourInstance = null){
+        if(ourInstance == null){
             ourInstance = new Controller();
         }
     }
