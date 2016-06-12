@@ -42,7 +42,7 @@ public class Scenario {
                 String roomName3 = "The Dining Room";
                 String roomName4 = "The Servant's Quarters";
                 String roomName5 = "Entertainment Room";
-                String roomName6 = "The Computer Room";
+                String roomName6 = "Computer Room";
 
                 //Next, clear the map if not already empty:
                 if(!map.isEmpty()){
@@ -72,14 +72,14 @@ public class Scenario {
                         "","",false,"Go South",roomName5,false,"Go West",roomName2,false,"","",false );
                 map.put(roomName4, room4);
 
-                Room room5 = new Room(roomName5, "", "This room is tiny. All of the doors are locked",
-                        "", "This room is tiny. A small computer sits in the corner, the monitor's green glow illuminating a small desk. There is an exit to the South.",
-                        "","",false,"Go South",roomName3,false,"","",false,"","",false );
-                map.put(roomName5, room5);
-
-                Room room6 = new Room(roomName6, "", "The entertainment room. All of the doors are locked",
+                Room room5 = new Room(roomName5, "", "The entertainment room. All of the doors are locked",
                         "", "I've never seen a TV that size before! Is that a Playstation Neo!. There are exits to the North and West.",
                         "Go North",roomName4,false,"","",false,"Go West",roomName1,false,"","",false );
+                map.put(roomName5, room5);
+
+                Room room6 = new Room(roomName6, "", "This room is tiny. All of the doors are locked",
+                        "", "This room is tiny. A small computer sits in the corner, the monitor's green glow illuminating a small desk. There is an exit to the South.",
+                        "","",false,"Go South",roomName3,false,"","",false,"","",false );
                 map.put(roomName6, room6);
 
                 //Set the starting room

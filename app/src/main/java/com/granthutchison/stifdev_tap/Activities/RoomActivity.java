@@ -2,6 +2,7 @@ package com.granthutchison.stifdev_tap.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -55,8 +56,11 @@ public class RoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!btnTopTxt.equals("")) {
+                    Log.d("MovingRoom","TopButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("Top")) {
+
                         refreshView();
+                        Log.d("MovingRoom","View refreshed");
                     }
                 }
 
@@ -68,8 +72,11 @@ public class RoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!btnTopTxt.equals("")) {
+                    Log.d("MovingRoom","BottomButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("bottom")) {
+
                         refreshView();
+                        Log.d("MovingRoom","View refreshed");
                     }
                 }
             }
@@ -79,8 +86,11 @@ public class RoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!btnTopTxt.equals("")) {
+                    Log.d("MovingRoom","LeftButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("left")) {
+
                         refreshView();
+                        Log.d("MovingRoom","View refreshed");
                     }
                 }
             }
@@ -90,8 +100,11 @@ public class RoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!btnTopTxt.equals("")) {
+                    Log.d("MovingRoom","RightButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("right")) {
+
                         refreshView();
+                        Log.d("MovingRoom","View refreshed");
                     }
                 }
             }
