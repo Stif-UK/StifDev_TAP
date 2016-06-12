@@ -54,7 +54,7 @@ public class Scenario {
                 //Create objects for each room in the game and add all of these to the map.
                 Room room1 = new Room(roomName1, "", "You're in a large entrance hall. All of the doors are locked",
                         "", "You find yourself in a large entrance hall. There are exits to the North, East and West",
-                        "Go North",roomName2,false,"","",false,"Go West",roomName3,false,"Go Eas",roomName5,false );
+                        "Go North",roomName2,false,"","",false,"Go West",roomName3,false,"Go East",roomName5,false );
                 map.put(roomName1, room1);
 
                 Room room2 = new Room(roomName2, "", "You're in a pantry. All of the doors are locked",

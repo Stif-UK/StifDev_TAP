@@ -126,29 +126,60 @@ public class Controller {
 
 
     //Setters for the door locked statuses
-
-
-    public void setTopLocked(boolean topLocked) {
+    protected void setTopLocked(boolean topLocked) {
         this.topLocked = topLocked;
     }
 
-    public void setBottomLocked(boolean bottomLocked) {
+    protected void setBottomLocked(boolean bottomLocked) {
         this.bottomLocked = bottomLocked;
     }
 
-    public void setLeftLocked(boolean leftLocked) {
+    protected void setLeftLocked(boolean leftLocked) {
         this.leftLocked = leftLocked;
     }
 
-    public void setRightLocked(boolean rightLocked) {
+    protected void setRightLocked(boolean rightLocked) {
         this.rightLocked = rightLocked;
     }
 
+    //public getters
     public String getRoomTitle() {
         return roomTitle;
     }
 
     public String getRoomDescription() {
         return roomDescription;
+    }
+
+    public String getTopBtnTxt() {
+        return topBtnTxt;
+    }
+
+    public String getBottomBtnTxt() {
+        return bottomBtnTxt;
+    }
+
+    public String getLeftBtnTxt() {
+        return leftBtnTxt;
+    }
+
+    public String getRightBtnTxt() {
+        return rightBtnTxt;
+    }
+
+    public boolean isTopLocked() {
+        return topLocked;
+    }
+
+    public boolean isBottomLocked() {
+        return bottomLocked;
+    }
+
+    public boolean isLeftLocked() {
+        return leftLocked;
+    }
+
+    public boolean isRightLocked() {
+        return rightLocked;
     }
 }
