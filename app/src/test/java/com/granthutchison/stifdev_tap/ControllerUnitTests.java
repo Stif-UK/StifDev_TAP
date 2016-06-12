@@ -27,6 +27,18 @@ public class ControllerUnitTests {
         assertEquals("Go East",myCont.getRightBtnTxt());
     }
 
+    @Test
+    public void moveRoomTest(){
+        myCont.startGame("Test");
+        myCont.moveRoom("TOP");
+        assertEquals("The Pantry",myCont.getRoomTitle());
+        //Validate that the surrounding room button info is set correctly
+        assertEquals("Go South",myCont.getBottomBtnTxt());
+        assertEquals("",myCont.getTopBtnTxt());
+        assertEquals("",myCont.getLeftBtnTxt());
+        assertEquals("Go East",myCont.getRightBtnTxt());
+    }
+
 
 
 
