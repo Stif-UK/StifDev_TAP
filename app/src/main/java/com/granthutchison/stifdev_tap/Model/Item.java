@@ -17,6 +17,7 @@ public class Item {
 
     private String usedText; //The description to be displayed when the item is used - perhaps should be a parameter in Room?
     private String failText; //The text to be displayed when an attempt is made to use the item but fails.
+    private String pickupText; //Text to display when the item is collected.
 
 
     public Item(String name, String unlocks, String description,String usedText, String failText) {
@@ -30,6 +31,10 @@ public class Item {
 
     protected String getName(){
         return this.name;
+    }
+
+    protected String getPickupText(){
+        return this.pickupText;
     }
 
 

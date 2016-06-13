@@ -158,6 +158,20 @@ public class Scenario {
 
     }
 
+    /**
+     * Helper method - if there is an item in the room this method returns pickup text to the Controller.
+     * @return - Pickup text to be displayed on item collection, or an empty String.
+     */
+    protected String checkRoom(){
+        if(checkRoomForItem()){
+            String foundName = currentRoom.getContainsItem();
+            String itemPickupText = gameItems.get(foundName).getPickupText();
+            return itemPickupText;
+        }else{
+            return "";
+        }
+    }
+
     protected Room getCurrentRoom() {
         return currentRoom;
     }
