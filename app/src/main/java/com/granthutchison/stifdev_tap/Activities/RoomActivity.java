@@ -71,7 +71,7 @@ public class RoomActivity extends AppCompatActivity {
         btnBottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!btnTopTxt.equals("")) {
+                if(!btnBottomTxt.equals("")) {
                     Log.d("MovingRoom","BottomButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("bottom")) {
 
@@ -85,7 +85,7 @@ public class RoomActivity extends AppCompatActivity {
         btnLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!btnTopTxt.equals("")) {
+                if(!btnLeftTxt.equals("")) {
                     Log.d("MovingRoom","LeftButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("left")) {
 
@@ -99,7 +99,7 @@ public class RoomActivity extends AppCompatActivity {
         btnRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!btnTopTxt.equals("")) {
+                if(!btnRightTxt.equals("")) {
                     Log.d("MovingRoom","RightButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("right")) {
 
