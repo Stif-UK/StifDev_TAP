@@ -103,10 +103,9 @@ public class Controller {
     /**
      * checkRoomForItem() is used to determine if the currentRoom object has an item in it,
      * and whether or not the user already holds this item.
-     * @return - Text to be displayed if an item is found. An empty string is returned if no item
-     * was found in the room
+     * @return - A boolean value which confirms if a new (uncarried) item is in the room.
      */
-    public String checkRoomForItem(){
+    public boolean checkRoomForItem(){
         return this.currentGame.checkRoomForItem();
     }
 

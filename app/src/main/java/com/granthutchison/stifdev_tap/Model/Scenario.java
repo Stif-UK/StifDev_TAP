@@ -145,16 +145,16 @@ public class Scenario {
 
     }
 
-    protected String checkRoomForItem(){
-        String itemID = currentRoom.getContainsItem();
-        String emptyString = "";
-        if(itemID.length() <1){
-            return emptyString;
-        }else{
-            Item roomItem = this.gameItems.get(itemID);
-            inventory.add(roomItem);
-            return roomItem.getName() + " found!";
+    protected boolean checkRoomForItem(){
+        String itemInRoom = currentRoom.getContainsItem();
+        if(itemInRoom.equals("")){
+            return false;
         }
+        else{
+            //Attempt to add the item to the inventory - if it already exists in there false is returned.
+            return inventory.add(gameItems.get(itemInRoom));
+        }
+
 
     }
 
