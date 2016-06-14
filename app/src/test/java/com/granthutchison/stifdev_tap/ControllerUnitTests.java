@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
  */
 public class ControllerUnitTests {
     //Useless test created to allow me to mark this as a 'test' class in Gradle
-    Controller myCont = new Controller();
+    Controller myCont = Controller.getInstance();
     @Test
     public void getTitleTest(){
         assertEquals(null, myCont.getRoomTitle());

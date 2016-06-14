@@ -20,13 +20,14 @@ public class Item {
     private String pickupText; //Text to display when the item is collected.
 
 
-    public Item(String name, String unlocks, String description,String usedText, String failText) {
+    public Item(String name, String unlocks, String description,String usedText, String failText, String pickupText) {
         this.name = name;
         this.used = false;
         this.unlocks = unlocks;
         this.description = description;
         this.usedText = usedText;
         this.failText = failText;
+        this.pickupText = pickupText;
     }
 
     protected String getName(){

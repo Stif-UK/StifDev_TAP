@@ -1,5 +1,6 @@
 package com.granthutchison.stifdev_tap.Model;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -17,7 +18,7 @@ public class Scenario {
     private HashMap<String,Room> map = new HashMap<>(); //Contains all created Room objects
     private HashMap<String,Item> gameItems = new HashMap<>();//Contains all Items in the game
 
-    private Set<Item> inventory; //No need for an Inventory object type - hold all in this set.
+    private Set<Item> inventory = new HashSet<Item>(); //No need for an Inventory object type - hold all in this set.
 
     private Room currentRoom;
 
@@ -44,6 +45,8 @@ public class Scenario {
                 String roomName5 = "Entertainment Room";
                 String roomName6 = "Computer Room";
 
+                String itemName1 = "Hammer";
+
                 //Next, clear the map if not already empty:
                 if(!map.isEmpty()){
                     map.clear();
@@ -57,7 +60,7 @@ public class Scenario {
                         "Go North",roomName2,false,"","",false,"Go West",roomName3,false,"Go East",roomName5,false );
                 map.put(roomName1, room1);
 
-                Room room2 = new Room(roomName2, "", "You're in a pantry. All of the doors are locked",
+                Room room2 = new Room(roomName2, itemName1, "You're in a pantry. All of the doors are locked",
                         "", "This appears to be a pantry. You wonder if there's any food here. There are exits to the South and East.",
                         "","",false,"Go South",roomName1,false,"","",false,"Go East",roomName4,false );
                 map.put(roomName2, room2);
@@ -84,6 +87,11 @@ public class Scenario {
 
                 //Set the starting room
                 this.setCurrentRoom(roomName1);
+
+                //Create the items
+                Item item1 = new Item(itemName1,roomName6,"A claw hammer. The head is coated in dried blood...","You used the hammer","This item can't be used here", "You've found the hammer!");
+                gameItems.put(itemName1, item1);
+
 
                 return true;
 
@@ -189,5 +197,10 @@ public class Scenario {
 
     protected Map<String,Room> getMap(){
         return new HashMap<String, Room>(map);
+    }
+
+    protected Set<Item> getInventory() {
+        return Collections.unmodifiableSet(inventory);
+
     }
 }
