@@ -29,6 +29,7 @@ public class RoomActivity extends AppCompatActivity {
     private String btnBottomTxt;
     private String btnLeftTxt;
     private String btnRightTxt;
+    private Button btnInventory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class RoomActivity extends AppCompatActivity {
         btnBottom = (Button) findViewById(R.id.btnBottom);
         btnLeft = (Button) findViewById(R.id.btnLeft);
         btnRight = (Button) findViewById(R.id.btnRight);
+        btnInventory = (Button) findViewById(R.id.btnInventory);
 
         roomTitle.setText(myCont.getRoomTitle());
         roomDesc.setText(myCont.getRoomDescription());
@@ -63,7 +65,7 @@ public class RoomActivity extends AppCompatActivity {
                 if(!btnTopTxt.equals("")) {
                     Log.d("MovingRoom","TopButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("Top")) {
-
+                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -79,7 +81,7 @@ public class RoomActivity extends AppCompatActivity {
                 if(!btnBottomTxt.equals("")) {
                     Log.d("MovingRoom","BottomButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("bottom")) {
-
+                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -93,7 +95,7 @@ public class RoomActivity extends AppCompatActivity {
                 if(!btnLeftTxt.equals("")) {
                     Log.d("MovingRoom","LeftButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("left")) {
-
+                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -107,7 +109,7 @@ public class RoomActivity extends AppCompatActivity {
                 if(!btnRightTxt.equals("")) {
                     Log.d("MovingRoom","RightButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("right")) {
-
+                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -130,6 +132,11 @@ public class RoomActivity extends AppCompatActivity {
         btnBottom.setText(btnBottomTxt);
         btnLeft.setText(btnLeftTxt);
         btnRight.setText(btnRightTxt);
+        int itemCount = myCont.getInventory().size();
+        if(itemCount > 0){
+            btnInventory.setText(Integer.toString(itemCount));
+        }
+
 
 
     }

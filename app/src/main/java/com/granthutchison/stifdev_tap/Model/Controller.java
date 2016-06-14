@@ -1,6 +1,7 @@
 package com.granthutchison.stifdev_tap.Model;
 
 import java.lang.reflect.Constructor;
+import java.util.Set;
 
 /**
  * The Controller object manages the interaction between the application view and the implementation model.
@@ -203,5 +204,9 @@ public class Controller {
 
     public boolean isRightLocked() {
         return rightLocked;
+    }
+
+    public Set<Item> getInventory(){
+        return currentGame.getInventory();
     }
 }
