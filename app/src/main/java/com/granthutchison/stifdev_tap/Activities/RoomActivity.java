@@ -1,7 +1,9 @@
 package com.granthutchison.stifdev_tap.Activities;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.ArraySet;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +12,9 @@ import android.widget.Toast;
 
 import com.granthutchison.stifdev_tap.Model.Controller;
 import com.granthutchison.stifdev_tap.R;
+
+import java.util.HashSet;
+import java.util.Random;
 
 public class RoomActivity extends AppCompatActivity {
 
@@ -129,5 +134,29 @@ public class RoomActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        HashSet<String> backComments = new HashSet<>();
+        backComments.add("You can't navigate using the back button");
+        backComments.add("When we get to 88mph, you're going to see some serious shit!");
+        backComments.add("Oh, no no no!");
+        backComments.add("Something tells you that you should press onwards");
+        backComments.add("I think I'll just keep going forwards...");
+        backComments.add("Aww, please stay a while longer!");
+        backComments.add("What's the matter, not l33t enough?");
 
+        int size = backComments.size();
+        int item = new Random().nextInt(size); // In real life, the Random object should be rather more shared than this
+        int i = 0;
+        String backComment = "You should never see this! My code is broken!";
+        for(String str : backComments)
+        {
+            if (i == item)
+                backComment = str;
+            i = i + 1;
+        }
+
+
+        Snackbar.make(roomTitle, backComment, Snackbar.LENGTH_LONG).show();
+    }
 }
