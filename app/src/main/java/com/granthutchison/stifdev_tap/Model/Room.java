@@ -20,6 +20,8 @@ public class Room {
     private String roomLockedDescription; //An initial description displayed for the room.
     private String itemCollectedDescription; //An updated description if an item is picked up in the room. - may not be required.
     private String roomsUnlockedDescription; //An updated description if all adjacent rooms have been unlocked.
+    private String itemPickupText;
+
 
     //Adjacent Rooms and the lock status of the 'door'.
     private String topBtnText;
@@ -38,9 +40,10 @@ public class Room {
     private String rightRoomName;
     private boolean rightLocked;
 
-    public Room(String title, String containsItem, String roomLockedDescription, String itemCollectedDescription, String roomsUnlockedDescription, String topBtnText, String topRoomName, boolean topLocked, String bottomBtnText, String bottomRoomName, boolean bottomLocked, String leftBtnText, String leftRoomName, boolean leftLocked, String rightBtnText, String rightRoomName, boolean rightLocked) {
+    public Room(String title, String containsItem, String itemPickupText, String roomLockedDescription, String itemCollectedDescription, String roomsUnlockedDescription, String topBtnText, String topRoomName, boolean topLocked, String bottomBtnText, String bottomRoomName, boolean bottomLocked, String leftBtnText, String leftRoomName, boolean leftLocked, String rightBtnText, String rightRoomName, boolean rightLocked) {
         this.title = title;
         this.containsItem = containsItem;
+        this.itemPickupText = itemPickupText;
         this.roomLockedDescription = roomLockedDescription;
         this.itemCollectedDescription = itemCollectedDescription;
         this.roomsUnlockedDescription = roomsUnlockedDescription;
@@ -140,6 +143,7 @@ public class Room {
         return containsItem;
     }
 
+    protected String getItemPickupText() { return itemPickupText;}
 
 
     /**
@@ -150,6 +154,8 @@ public class Room {
     public String toString() {
         return this.getTitle();
     }
+
+
 
 
 }

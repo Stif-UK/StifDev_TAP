@@ -65,7 +65,7 @@ public class RoomActivity extends AppCompatActivity {
                 if(!btnTopTxt.equals("")) {
                     Log.d("MovingRoom","TopButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("Top")) {
-                        myCont.checkRoom();
+//                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -81,7 +81,7 @@ public class RoomActivity extends AppCompatActivity {
                 if(!btnBottomTxt.equals("")) {
                     Log.d("MovingRoom","BottomButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("bottom")) {
-                        myCont.checkRoom();
+//                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -95,7 +95,7 @@ public class RoomActivity extends AppCompatActivity {
                 if(!btnLeftTxt.equals("")) {
                     Log.d("MovingRoom","LeftButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("left")) {
-                        myCont.checkRoom();
+//                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -109,7 +109,7 @@ public class RoomActivity extends AppCompatActivity {
                 if(!btnRightTxt.equals("")) {
                     Log.d("MovingRoom","RightButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("right")) {
-                        myCont.checkRoom();
+//                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -120,8 +120,15 @@ public class RoomActivity extends AppCompatActivity {
     }
 
     protected void refreshView(){
+        String itemText = myCont.checkRoom();
+        String eol = System.getProperty("line.separator");
+        String surround = "****";
         roomTitle.setText(myCont.getRoomTitle());
         roomDesc.setText(myCont.getRoomDescription());
+
+        if(itemText.length() > 1){
+            roomDesc.append(eol + eol + surround +" "+itemText + " " + surround);
+        }
 
         btnTopTxt = myCont.getTopBtnTxt();
         btnBottomTxt = myCont.getBottomBtnTxt();

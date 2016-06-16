@@ -46,6 +46,7 @@ public class Scenario {
                 String roomName6 = "Computer Room";
 
                 String itemName1 = "Hammer";
+                String itemName2 = "An old Nokia T610";
 
                 //Next, clear the map if not already empty:
                 if(!map.isEmpty()){
@@ -55,32 +56,32 @@ public class Scenario {
                 //top,bottom,left,right
 
                 //Create objects for each room in the game and add all of these to the map.
-                Room room1 = new Room(roomName1, "", "You're in a large entrance hall. All of the doors are locked",
+                Room room1 = new Room(roomName1, "","", "You're in a large entrance hall. All of the doors are locked",
                         "", "You find yourself in a large entrance hall. There are exits to the North, East and West",
                         "Go North",roomName2,false,"","",false,"Go West",roomName3,false,"Go East",roomName5,false );
                 map.put(roomName1, room1);
 
-                Room room2 = new Room(roomName2, itemName1, "You're in a pantry. All of the doors are locked",
+                Room room2 = new Room(roomName2, itemName1,"You found a Hammer!", "You're in a pantry. All of the doors are locked",
                         "", "This appears to be a pantry. You wonder if there's any food here. There are exits to the South and East.",
                         "","",false,"Go South",roomName1,false,"","",false,"Go East",roomName4,false );
                 map.put(roomName2, room2);
 
-                Room room3 = new Room(roomName3, "", "You're in a dining room. All of the doors are locked",
+                Room room3 = new Room(roomName3, "", "","You're in a dining room. All of the doors are locked",
                         "", "What a grand dining room! The candles flicker...someone must be getting ready for dinner. There are exits to the East and North.",
                         "Go North",roomName6,false,"","",false,"","",false,"Go East",roomName1,false );
                 map.put(roomName3, room3);
 
-                Room room4 = new Room(roomName4, "", "You're in the servant's quarters. All of the doors are locked",
+                Room room4 = new Room(roomName4, "", "","You're in the servant's quarters. All of the doors are locked",
                         "", "You find yourself in the servant's quarters. There are exits to the South and West.",
                         "","",false,"Go South",roomName5,false,"Go West",roomName2,false,"","",false );
                 map.put(roomName4, room4);
 
-                Room room5 = new Room(roomName5, "", "The entertainment room. All of the doors are locked",
+                Room room5 = new Room(roomName5, "","", "The entertainment room. All of the doors are locked",
                         "", "I've never seen a TV that size before! Is that a Playstation Neo!. There are exits to the North and West.",
                         "Go North",roomName4,false,"","",false,"Go West",roomName1,false,"","",false );
                 map.put(roomName5, room5);
 
-                Room room6 = new Room(roomName6, "", "This room is tiny. All of the doors are locked",
+                Room room6 = new Room(roomName6, itemName2, "You've found a Nokia N95!","This room is tiny. All of the doors are locked",
                         "", "This room is tiny. A small computer sits in the corner, the monitor's green glow illuminating a small desk. There is an exit to the South.",
                         "","",false,"Go South",roomName3,false,"","",false,"","",false );
                 map.put(roomName6, room6);
@@ -89,8 +90,9 @@ public class Scenario {
                 this.setCurrentRoom(roomName1);
 
                 //Create the items
-                Item item1 = new Item(itemName1,roomName6,"A claw hammer. The head is coated in dried blood...","You used the hammer","This item can't be used here", "You've found the hammer!");
+                Item item1 = new Item(itemName1,roomName6,"A claw hammer. The head is coated in dried blood...","You used the hammer","This item can't be used here");
                 gameItems.put(itemName1, item1);
+                Item item2 = new Item(itemName2, roomName4, "An old Nokia phone...the battery still holds a charge!", "You try to call for help...", "No signal...typical!");
 
 
                 return true;
@@ -173,7 +175,7 @@ public class Scenario {
     protected String checkRoom(){
         if(checkRoomForItem()){
             String foundName = currentRoom.getContainsItem();
-            String itemPickupText = gameItems.get(foundName).getPickupText();
+            String itemPickupText = currentRoom.getItemPickupText();
             return itemPickupText;
         }else{
             return "";
