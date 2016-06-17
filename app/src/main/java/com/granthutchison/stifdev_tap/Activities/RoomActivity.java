@@ -18,6 +18,8 @@ import com.granthutchison.stifdev_tap.Model.Controller;
 import com.granthutchison.stifdev_tap.Model.Item;
 import com.granthutchison.stifdev_tap.R;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
@@ -70,6 +72,10 @@ public class RoomActivity extends AppCompatActivity {
 
         //Get the elements for the inventory
         inventoryDrawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
+        //Convert the inventory Set to a List to allow it to be displayed in order
+        inventoryList = new ArrayList<Item>();
+        inventoryList.addAll(myCont.getInventory());
+        Collections.sort(inventoryList);
 
 
         //Set a DrawerListener to listen for open and close events for the inventory view

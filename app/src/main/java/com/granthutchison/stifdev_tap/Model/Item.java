@@ -8,7 +8,7 @@ package com.granthutchison.stifdev_tap.Model;
  * methods are made public.
  * Created by Stifler on 08/06/2016.
  */
-public class Item {
+public class Item implements Comparable{
 
     private String name;
     private Boolean used;
@@ -32,6 +32,10 @@ public class Item {
         return this.name;
     }
 
+    @Override
+    public int compareTo(Object another) {
+        return this.toString().compareTo(another.toString());
+    }
 
     @Override
     public String toString() {
