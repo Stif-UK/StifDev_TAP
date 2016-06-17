@@ -78,6 +78,8 @@ public class RoomActivity extends AppCompatActivity {
         Collections.sort(inventoryList);
 
 
+
+
         //Set a DrawerListener to listen for open and close events for the inventory view
         inventoryDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
