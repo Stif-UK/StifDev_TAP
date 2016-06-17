@@ -1,11 +1,13 @@
 package com.granthutchison.stifdev_tap.Activities;
 
+import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.ArraySet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -76,6 +78,8 @@ public class RoomActivity extends AppCompatActivity {
         inventoryList = new ArrayList<Item>();
         inventoryList.addAll(myCont.getInventory());
         Collections.sort(inventoryList);
+
+
 
 
 
@@ -189,6 +193,12 @@ public class RoomActivity extends AppCompatActivity {
         int itemCount = myCont.getInventory().size();
         if(itemCount > 0){
             btnInventory.setText(Integer.toString(itemCount));
+            btnInventory.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    inventoryDrawerLayout.openDrawer(Gravity.RIGHT);
+                }
+            });
         }
 
 
