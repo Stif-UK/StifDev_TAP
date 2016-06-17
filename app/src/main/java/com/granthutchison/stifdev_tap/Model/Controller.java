@@ -1,6 +1,8 @@
 package com.granthutchison.stifdev_tap.Model;
 
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -207,6 +209,8 @@ public class Controller {
     }
 
     public Set<Item> getInventory(){
+
         return currentGame.getInventory();
+
     }
 }

@@ -1,19 +1,25 @@
 package com.granthutchison.stifdev_tap.Activities;
 
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.ArraySet;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.granthutchison.stifdev_tap.Model.Controller;
+import com.granthutchison.stifdev_tap.Model.Item;
 import com.granthutchison.stifdev_tap.R;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 
 public class RoomActivity extends AppCompatActivity {
@@ -30,6 +36,10 @@ public class RoomActivity extends AppCompatActivity {
     private String btnLeftTxt;
     private String btnRightTxt;
     private Button btnInventory;
+    //Elements for the inventory drawer
+    private List<Item> inventoryList;
+    private DrawerLayout inventoryDrawerLayout;
+    private ListView inventoryListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +54,6 @@ public class RoomActivity extends AppCompatActivity {
         btnLeft = (Button) findViewById(R.id.btnLeft);
         btnRight = (Button) findViewById(R.id.btnRight);
         btnInventory = (Button) findViewById(R.id.btnInventory);
-
         roomTitle.setText(myCont.getRoomTitle());
         roomDesc.setText(myCont.getRoomDescription());
 
@@ -58,6 +67,36 @@ public class RoomActivity extends AppCompatActivity {
         btnBottom.setText(btnBottomTxt);
         btnLeft.setText(btnLeftTxt);
         btnRight.setText(btnRightTxt);
+
+        //Get the elements for the inventory
+        inventoryDrawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
+
+
+        //Set a DrawerListener to listen for open and close events for the inventory view
+        inventoryDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
+
+
+
 
         btnTop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,4 +212,13 @@ public class RoomActivity extends AppCompatActivity {
 
         Snackbar.make(roomTitle, backComment, Snackbar.LENGTH_LONG).show();
     }
+
+    //Create a discrete class to handle the drawer clicks:
+//    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+//        @Override
+//        public void onItemClick(AdapterView parent, View view, int position, long id) {
+//            //selectItem(position);
+//            Snackbar.make(roomTitle, "You pressed a button!", Snackbar.LENGTH_LONG).show();
+//        }
+//    }
 }

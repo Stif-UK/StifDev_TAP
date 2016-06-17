@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 public class ControllerUnitTests {
     //Useless test created to allow me to mark this as a 'test' class in Gradle
     Controller myCont = Controller.getInstance();
+
     @Test
     public void getTitleTest(){
         assertEquals(null, myCont.getRoomTitle());
@@ -37,6 +38,14 @@ public class ControllerUnitTests {
         assertEquals("",myCont.getTopBtnTxt());
         assertEquals("",myCont.getLeftBtnTxt());
         assertEquals("Go East",myCont.getRightBtnTxt());
+    }
+
+    @Test
+    public void getInventoryTest(){
+        myCont.startGame("Test");
+        myCont.moveRoom("Top");
+        System.out.println(myCont.getInventory().size());
+//        assertEquals(1,myCont.getInventory().size());
     }
 
 

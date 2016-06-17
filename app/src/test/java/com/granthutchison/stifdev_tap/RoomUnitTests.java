@@ -13,8 +13,8 @@ import static org.junit.Assert.*;
  * Created by Stifler on 11/06/2016.
  */
 public class RoomUnitTests {
-    Room unlockedRoom = new Room("Hall", "Hammer", "The door is locked", "You picked up the Hammer","The doors are unlocked", "North","Room1", false, "South","Room2", false, "West","Room3", false,"East", "Room4", false);
-    Room lockedRoom = new Room("Hall", "Hammer", "The door is locked", "You picked up the Hammer","The doors are unlocked", "North","Room1", false, "South","Room2", true, "West","Room3", false, "East","Room4", false);
+    Room unlockedRoom = new Room("Hall", "Hammer", "You found a hammer","The door is locked", "You picked up the Hammer","The doors are unlocked", "North","Room1", false, "South","Room2", false, "West","Room3", false,"East", "Room4", false);
+    Room lockedRoom = new Room("Hall", "Hammer", "You found a hammer","The door is locked", "You picked up the Hammer","The doors are unlocked", "North","Room1", false, "South","Room2", true, "West","Room3", false, "East","Room4", false);
 
     @Test
     public void roomToString(){
