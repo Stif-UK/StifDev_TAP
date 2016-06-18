@@ -81,6 +81,9 @@ public class RoomActivity extends AppCompatActivity {
         inventoryList.addAll(myCont.getInventory());
         Collections.sort(inventoryList);
 
+        //Add header to the view before creating the adapter
+        View header = getLayoutInflater().inflate(R.layout.inventorytitle, null);
+        inventoryListView.addHeaderView(header);
         //Create an adapter for the view
         itemArrayAdapter= new ArrayAdapter<Item>(inventoryDrawerLayout.getContext(), R.layout.inventoryliststyle, inventoryList);
         inventoryListView.setAdapter(itemArrayAdapter);

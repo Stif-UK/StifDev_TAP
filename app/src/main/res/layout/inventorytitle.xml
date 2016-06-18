@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="match_parent"
+    android:background="@color/StifDev_TAP_Background"
+    android:text="Inventory"
+    android:textAlignment="center"
+    android:textColor="@color/stifDev_TAP_Text"
+    android:textSize="35dp"
+    android:paddingBottom="30dp"
+    android:textStyle="italic">
+
+</TextView>

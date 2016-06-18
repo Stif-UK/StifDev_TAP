@@ -4,7 +4,8 @@
     android:id="@+id/InventoryItem"
     android:textColor="@color/stifDev_TAP_Text"
     android:textSize="20sp"
-    android:paddingBottom="15dp"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
     android:textAlignment="center">
 
 </TextView>

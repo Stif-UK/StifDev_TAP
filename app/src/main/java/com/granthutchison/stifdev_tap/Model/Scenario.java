@@ -82,7 +82,7 @@ public class Scenario {
                 map.put(roomName5, room5);
 
                 Room room6 = new Room(roomName6, itemName2, "You've found a Nokia N95!","This room is tiny. All of the doors are locked",
-                        "", "This room is tiny. A small computer sits in the corner, the monitor's green glow illuminating a small desk. There is an exit to the South.",
+                        "", "This room is tiny. A small computer sits in the corner, the monitors green glow illuminating a small desk. There is an exit to the South.",
                         "","",false,"Go South",roomName3,false,"","",false,"","",false );
                 map.put(roomName6, room6);
 
