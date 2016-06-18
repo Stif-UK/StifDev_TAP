@@ -82,7 +82,7 @@ public class RoomActivity extends AppCompatActivity {
         Collections.sort(inventoryList);
 
         //Create an adapter for the view
-        itemArrayAdapter= new ArrayAdapter<Item>(inventoryDrawerLayout.getContext(), android.R.layout.simple_list_item_1, inventoryList);
+        itemArrayAdapter= new ArrayAdapter<Item>(inventoryDrawerLayout.getContext(), R.layout.inventoryliststyle, inventoryList);
         inventoryListView.setAdapter(itemArrayAdapter);
 
 
