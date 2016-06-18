@@ -8,4 +8,6 @@
     <color name="stifDev_TAP_Text">#e4e4e4</color>
     <color name="StifDev_TAP_Background">#323232</color>
     <color name="StifDev_TAP_ListSelected">#666464</color>
+    <color name="StifDev_TAP_DarkBlack">#000000</color>
+    <color name="StifDev_TAP_Underline">#4c4949</color>
 </resources>

@@ -2,11 +2,11 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content" android:layout_height="match_parent"
     android:background="@color/StifDev_TAP_Background"
-    android:text="Inventory"
+    android:text="@string/inventory"
     android:textAlignment="center"
     android:textColor="@color/stifDev_TAP_Text"
-    android:textSize="35dp"
-    android:paddingBottom="30dp"
+    android:textSize="35sp"
+    android:paddingBottom="5dp"
     android:textStyle="italic">
 
 </TextView>
