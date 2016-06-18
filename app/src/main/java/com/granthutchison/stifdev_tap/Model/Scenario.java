@@ -93,6 +93,7 @@ public class Scenario {
                 Item item1 = new Item(itemName1,roomName6,"A claw hammer. The head is coated in dried blood...","You used the hammer","This item can't be used here");
                 gameItems.put(itemName1, item1);
                 Item item2 = new Item(itemName2, roomName4, "An old Nokia phone...the battery still holds a charge!", "You try to call for help...", "No signal...typical!");
+                gameItems.put(itemName2, item2);
 
 
                 return true;

@@ -44,6 +44,7 @@ public class RoomActivity extends AppCompatActivity {
     private List<Item> inventoryList;
     private DrawerLayout inventoryDrawerLayout;
     private ListView inventoryListView;
+    ArrayAdapter<Item> itemArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +75,15 @@ public class RoomActivity extends AppCompatActivity {
 
         //Get the elements for the inventory
         inventoryDrawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
+        inventoryListView = (ListView) findViewById(R.id.inventory_drawer);
         //Convert the inventory Set to a List to allow it to be displayed in order
         inventoryList = new ArrayList<Item>();
         inventoryList.addAll(myCont.getInventory());
-        Collections.sort(inventoryList);
+//        Collections.sort(inventoryList);
+
+        //Create an adapter for the view
+        itemArrayAdapter= new ArrayAdapter<Item>(inventoryDrawerLayout.getContext(), android.R.layout.simple_list_item_1, inventoryList);
+        inventoryListView.setAdapter(itemArrayAdapter);
 
 
 
@@ -190,7 +196,11 @@ public class RoomActivity extends AppCompatActivity {
         btnBottom.setText(btnBottomTxt);
         btnLeft.setText(btnLeftTxt);
         btnRight.setText(btnRightTxt);
-        int itemCount = myCont.getInventory().size();
+        //Get the inventory again Convert the inventory Set to a List to allow it to be displayed in order
+        inventoryList = new ArrayList<Item>();
+        inventoryList.addAll(myCont.getInventory());
+//        Collections.sort(inventoryList);
+        int itemCount = inventoryList.size();
         if(itemCount > 0){
             btnInventory.setText(Integer.toString(itemCount));
             btnInventory.setOnClickListener(new View.OnClickListener() {
@@ -200,7 +210,14 @@ public class RoomActivity extends AppCompatActivity {
                 }
             });
         }
-
+        //Refresh the inventory view
+        try {
+            itemArrayAdapter.clear();
+            itemArrayAdapter.addAll(inventoryList);
+        } catch (Exception e) {
+            Log.d("RefreshInventory", "An exception was thrown");
+            e.printStackTrace();
+        }
 
 
     }
