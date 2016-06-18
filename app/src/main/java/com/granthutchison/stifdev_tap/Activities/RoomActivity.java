@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.granthutchison.stifdev_tap.Model.Controller;
 import com.granthutchison.stifdev_tap.Model.Item;
 import com.granthutchison.stifdev_tap.R;
+import com.granthutchison.stifdev_tap.Util.FontManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -204,8 +205,12 @@ public class RoomActivity extends AppCompatActivity {
         inventoryList.addAll(myCont.getInventory());
         Collections.sort(inventoryList);
         int itemCount = inventoryList.size();
+
+        //Set FontAwesome icon font
+        btnInventory.setTypeface(FontManager.getTypeface(btnInventory.getContext(),FontManager.FONTAWESOME));
+
         if(itemCount > 0){
-            btnInventory.setText(Integer.toString(itemCount));
+            btnInventory.setText(R.string.fa_icon_folder);
             btnInventory.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -102,7 +102,7 @@
         android:textColor="@color/stifDev_TAP_Text"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:paddingTop="27dp"
+        android:paddingTop="30dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignRight="@+id/roomText"
         android:layout_alignEnd="@+id/roomText" />
