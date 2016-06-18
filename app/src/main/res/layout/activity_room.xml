@@ -119,5 +119,5 @@
         android:background="@color/StifDev_TAP_Background"
         android:paddingTop="30dp"
         android:textAlignment="center"
-        android:listSelector="@color/stifDev_TAP_Text"/>
+        />
 </android.support.v4.widget.DrawerLayout>
