@@ -79,7 +79,7 @@ public class RoomActivity extends AppCompatActivity {
         //Convert the inventory Set to a List to allow it to be displayed in order
         inventoryList = new ArrayList<Item>();
         inventoryList.addAll(myCont.getInventory());
-//        Collections.sort(inventoryList);
+        Collections.sort(inventoryList);
 
         //Create an adapter for the view
         itemArrayAdapter= new ArrayAdapter<Item>(inventoryDrawerLayout.getContext(), android.R.layout.simple_list_item_1, inventoryList);
@@ -199,7 +199,7 @@ public class RoomActivity extends AppCompatActivity {
         //Get the inventory again Convert the inventory Set to a List to allow it to be displayed in order
         inventoryList = new ArrayList<Item>();
         inventoryList.addAll(myCont.getInventory());
-//        Collections.sort(inventoryList);
+        Collections.sort(inventoryList);
         int itemCount = inventoryList.size();
         if(itemCount > 0){
             btnInventory.setText(Integer.toString(itemCount));

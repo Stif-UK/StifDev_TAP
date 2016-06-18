@@ -46,7 +46,7 @@ public class Scenario {
                 String roomName6 = "Computer Room";
 
                 String itemName1 = "Hammer";
-                String itemName2 = "An old Nokia T610";
+                String itemName2 = "An old Nokia N95";
 
                 //Next, clear the map if not already empty:
                 if(!map.isEmpty()){
