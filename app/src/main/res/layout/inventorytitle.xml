@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content" android:layout_height="match_parent"
-    android:background="@color/StifDev_TAP_Background"
-    android:text="@string/inventory"
-    android:textAlignment="center"
-    android:textColor="@color/stifDev_TAP_Text"
-    android:textSize="35sp"
-    android:paddingBottom="5dp"
-    android:textStyle="italic">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-</TextView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnInventoryClose"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:textSize="20sp" />
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/StifDev_TAP_Background"
+        android:text="@string/inventory"
+        android:textAlignment="center"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:textSize="35sp"
+        android:paddingBottom="5dp"
+        android:textStyle="italic"
+        android:gravity="center_horizontal"
+        android:id="@+id/inventoryText"
+        android:layout_gravity="center">
+
+    </TextView>
+
+</LinearLayout>

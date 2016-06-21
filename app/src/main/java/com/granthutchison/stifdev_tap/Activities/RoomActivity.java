@@ -45,6 +45,7 @@ public class RoomActivity extends AppCompatActivity {
     private List<Item> inventoryList;
     private DrawerLayout inventoryDrawerLayout;
     private ListView inventoryListView;
+    private Button btnInventoryClose;
     ArrayAdapter<Item> itemArrayAdapter;
 
     @Override
@@ -88,9 +89,7 @@ public class RoomActivity extends AppCompatActivity {
         //Create an adapter for the view
         itemArrayAdapter= new ArrayAdapter<Item>(inventoryDrawerLayout.getContext(), R.layout.inventoryliststyle, inventoryList);
         inventoryListView.setAdapter(itemArrayAdapter);
-
-
-
+        btnInventoryClose = (Button) findViewById(R.id.btnInventoryClose);
 
 
 
@@ -99,10 +98,20 @@ public class RoomActivity extends AppCompatActivity {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
 
+                //Set up the inventory drawer close button
+                btnInventoryClose.setTypeface(FontManager.getTypeface(btnInventoryClose.getContext(),FontManager.FONTAWESOME));
+                btnInventoryClose.setText(R.string.fa_icon_folder_open);
+                btnInventoryClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        inventoryDrawerLayout.closeDrawer(Gravity.RIGHT);
+                    }
+                });
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
+
 
             }
 
@@ -116,6 +125,7 @@ public class RoomActivity extends AppCompatActivity {
 
             }
         });
+
 
 
 
