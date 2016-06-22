@@ -83,7 +83,8 @@ public class RoomActivity extends AppCompatActivity {
         inventoryList.addAll(myCont.getInventory());
         Collections.sort(inventoryList);
 
-        //Add header to the view before creating the adapter
+        //Add header to the view before creating the adapter - this implements the drawers
+        //title and close button.
         View header = getLayoutInflater().inflate(R.layout.inventorytitle, null);
         inventoryListView.addHeaderView(header);
         //Create an adapter for the view
@@ -126,17 +127,20 @@ public class RoomActivity extends AppCompatActivity {
             }
         });
 
+        //Implement listeners for the inventory drawer
 
 
 
 
+
+        //Set listeners for the various navigation buttons and implement code to
+        //traverse rooms
         btnTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!btnTopTxt.equals("")) {
                     Log.d("MovingRoom","TopButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("Top")) {
-//                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -152,7 +156,6 @@ public class RoomActivity extends AppCompatActivity {
                 if(!btnBottomTxt.equals("")) {
                     Log.d("MovingRoom","BottomButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("bottom")) {
-//                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -166,7 +169,6 @@ public class RoomActivity extends AppCompatActivity {
                 if(!btnLeftTxt.equals("")) {
                     Log.d("MovingRoom","LeftButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("left")) {
-//                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -180,7 +182,6 @@ public class RoomActivity extends AppCompatActivity {
                 if(!btnRightTxt.equals("")) {
                     Log.d("MovingRoom","RightButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("right")) {
-//                        myCont.checkRoom();
                         refreshView();
                         Log.d("MovingRoom","View refreshed");
                     }
@@ -190,6 +191,14 @@ public class RoomActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * The refreshView method is called whenever the information displayed in the RoomActivity
+     * should be changed (i.e. when the user navigates to a new room.
+     * It sets the room title and text (including any applicable item pickup text) and sets the
+     * text and active status for any required map navigation buttons.
+     * It also ensures that if items are collected that the inventory is populated and an
+     * icon is displayed onscreen to trigger it.
+     */
     protected void refreshView(){
         String itemText = myCont.checkRoom();
         String eol = System.getProperty("line.separator");
