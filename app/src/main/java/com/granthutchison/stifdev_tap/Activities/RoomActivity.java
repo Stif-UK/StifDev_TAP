@@ -272,13 +272,18 @@ public class RoomActivity extends FragmentActivity {
 
     }
 
+    //Private method which works like a normal back button press - this will be used in the
+    //overridden 'onBackPressed()' method to trigger an actual back action and exit the game.
+    private void privateBackPress(){
+        super.onBackPressed();
+    }
     @Override
     public void onBackPressed() {
         HashSet<String> backComments = new HashSet<>();
         backComments.add("You can't navigate using the back button");
         backComments.add("When we get to 88mph, you're going to see some serious shit!");
         backComments.add("Oh, no no no!");
-        backComments.add("Something tells you that you should press onwards");
+        backComments.add("Something tells you that you should press on");
         backComments.add("I think I'll just keep going forwards...");
         backComments.add("Aww, please stay a while longer!");
         backComments.add("What's the matter, not l33t enough?");
@@ -295,15 +300,11 @@ public class RoomActivity extends FragmentActivity {
         }
 
 
-        Snackbar.make(roomTitle, backComment, Snackbar.LENGTH_LONG).show();
+        Snackbar.make(roomTitle, backComment, Snackbar.LENGTH_LONG).setAction("Exit Game", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                privateBackPress();
+            }
+        }).show();
     }
-
-    //Create a discrete class to handle the drawer clicks:
-//    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-//        @Override
-//        public void onItemClick(AdapterView parent, View view, int position, long id) {
-//            //selectItem(position);
-//            Snackbar.make(roomTitle, "You pressed a button!", Snackbar.LENGTH_LONG).show();
-//        }
-//    }
 }

@@ -37,6 +37,7 @@ public class UseItemDialog extends DialogFragment {
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        //If the user cancels the dialog box, simply dismiss it.
                         dismiss();
                     }
                 });
