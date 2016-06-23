@@ -48,9 +48,12 @@ public class Scenario {
                 String itemName1 = "Hammer";
                 String itemName2 = "An old Nokia N95";
 
-                //Next, clear the map if not already empty:
+                //Next, clear the map and inventory if not already empty:
                 if(!map.isEmpty()){
                     map.clear();
+                }
+                if (!inventory.isEmpty()) {
+                    inventory.clear();
                 }
 
                 //top,bottom,left,right
