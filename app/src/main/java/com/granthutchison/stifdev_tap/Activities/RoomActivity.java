@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.ArraySet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -16,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.granthutchison.stifdev_tap.Model.Controller;
 import com.granthutchison.stifdev_tap.Model.Item;
@@ -31,7 +29,9 @@ import java.util.Random;
 
 public class RoomActivity extends FragmentActivity {
 
+    //Reference the Controller that manages the game
     private Controller myCont;
+    //Elements of the 'Room' view - descriptions and buttons
     private TextView roomTitle;
     private TextView roomDesc;
     private Button btnTop;

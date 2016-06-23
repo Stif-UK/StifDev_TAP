@@ -33,12 +33,13 @@ public class UseItemDialog extends DialogFragment {
                 .setPositiveButton("Use", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //Code to trigger useItem() needs to go here
+
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //If the user cancels the dialog box, simply dismiss it.
-                        dismiss();
+                            dismiss();
                     }
                 });
         // Create the AlertDialog object and return it
