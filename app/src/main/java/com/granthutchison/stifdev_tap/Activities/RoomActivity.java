@@ -94,6 +94,7 @@ public class RoomActivity extends AppCompatActivity {
 
 
 
+
         //Set a DrawerListener to listen for open and close events for the inventory view
         inventoryDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
@@ -128,6 +129,16 @@ public class RoomActivity extends AppCompatActivity {
         });
 
         //Implement listeners for the inventory drawer
+        inventoryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                inventoryDrawerLayout.closeDrawer(Gravity.RIGHT);
+
+                Snackbar.make(roomTitle, "You clicked on " + itemArrayAdapter.getItem(position-1).toString(), Snackbar.LENGTH_LONG).show();
+
+            }
+        });
+
 
 
 
