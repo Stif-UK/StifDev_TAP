@@ -1,7 +1,6 @@
 package com.granthutchison.stifdev_tap.Activities;
 
 import android.app.DialogFragment;
-import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
