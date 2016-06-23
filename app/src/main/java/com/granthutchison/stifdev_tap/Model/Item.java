@@ -32,6 +32,10 @@ public class Item implements Comparable{
         return this.name;
     }
 
+    public String getDescription(){
+        return this.description;
+    }
+
     @Override
     public int compareTo(Object another) {
         return this.toString().compareTo(another.toString());

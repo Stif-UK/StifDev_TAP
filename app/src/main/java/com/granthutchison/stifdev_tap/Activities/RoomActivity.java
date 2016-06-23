@@ -1,7 +1,9 @@
 package com.granthutchison.stifdev_tap.Activities;
 
+import android.app.DialogFragment;
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +29,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
-public class RoomActivity extends AppCompatActivity {
+public class RoomActivity extends FragmentActivity {
 
     private Controller myCont;
     private TextView roomTitle;
@@ -132,9 +134,19 @@ public class RoomActivity extends AppCompatActivity {
         inventoryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //When an item in the inventory is clicked, first close the item drawer
                 inventoryDrawerLayout.closeDrawer(Gravity.RIGHT);
+                //Get a copy of the current item object to interrogate
+                Item currentItem = itemArrayAdapter.getItem(position-1);
+                //Create a Bundle to hold parameters to pass to the dialog fragment
+                Bundle bundle = new Bundle();
+                bundle.putString("Title",currentItem.toString());
+                bundle.putString("Description", currentItem.getDescription());
 
-                Snackbar.make(roomTitle, "You clicked on " + itemArrayAdapter.getItem(position-1).toString(), Snackbar.LENGTH_LONG).show();
+                DialogFragment itemDialogFragment = new UseItemDialog();
+                itemDialogFragment.setArguments(bundle);
+                itemDialogFragment.show(getFragmentManager(),"test");
+
 
             }
         });
