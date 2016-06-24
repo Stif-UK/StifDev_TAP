@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.granthutchison.stifdev_tap.Model.Controller;
@@ -33,6 +34,15 @@ public class UseItemDialog extends DialogFragment {
         titleView.setText(getArguments().getString("Title"));
         TextView descriptionView = (TextView) dialogView.findViewById(R.id.dialogDescription);
         descriptionView.setText(getArguments().getString("Description"));
+
+        Button cancelBtn = (Button) dialogView.findViewById(R.id.btnCancel);
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
 
 
 
