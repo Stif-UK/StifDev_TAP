@@ -217,11 +217,24 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
     */
     @Override
     public void onDialogUseItemClick(DialogFragment dialog) {
-        if(myCont.useItem()){
-            dialog.dismiss();
-            Snackbar.make(roomTitle, "You tried to use an item called: " + dialog.getTag(), Snackbar.LENGTH_LONG).show();
-        }
+        dialog.dismiss();
+        //Get the name of the item that's been used
+        String itemUsed = dialog.getTag();
+        //Pass this to the controller
+        String returnText = myCont.useItem(itemUsed);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Description", returnText);
+
+        DialogFragment itemDialogFragment = new ItemTextDialog();
+        itemDialogFragment.setArguments(bundle);
+        itemDialogFragment.show(getFragmentManager(),"Item_Text");
+
+        //Show a quick snackbar for testing
+        Snackbar.make(roomTitle, "You tried to use an item called: " + dialog.getTag(), Snackbar.LENGTH_LONG).show();
+
     }
+
 
     /**
      * The refreshView method is called whenever the information displayed in the RoomActivity

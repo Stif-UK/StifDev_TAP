@@ -214,7 +214,8 @@ public class Controller {
 
     }
 
-    public boolean useItem(){
-        return true;
+    public String useItem(String itemName){
+        //return currentGame.useItem(itemName);
+        return "You have used an item and that means that some kind of text should appear here!";
     }
 }
