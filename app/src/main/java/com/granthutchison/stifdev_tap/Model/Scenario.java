@@ -113,7 +113,7 @@ public class Scenario {
 
     }
 
-    public Boolean moveRoom(String direction){
+    protected Boolean moveRoom(String direction){
         String newRoomTitle;
         switch (direction.toLowerCase()){
             case "top":
@@ -209,4 +209,8 @@ public class Scenario {
         return Collections.unmodifiableSet(inventory);
 
     }
+
+//    protected String useItem(String itemName){
+//
+//    }
 }
