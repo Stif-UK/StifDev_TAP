@@ -211,29 +211,31 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
 
     }
 
-    /*
-    *Implement the methods of the UseItemDialogListener interface
-    *This will be used to call the useItem method on the Scenario
-    */
+    /**
+     * When a user clicks on the ok 'use' button when viewing details of a game item a further
+     * dialog box appears to them displaying success or failure text.
+     * This method also takes care of calling the useItem method via the Controller, and refreshes
+     * the room view in the background.
+     * @param dialog
+     */
     @Override
     public void onDialogUseItemClick(DialogFragment dialog) {
-        dialog.dismiss();
+
         //Get the name of the item that's been used
         String itemUsed = dialog.getTag();
         //Pass this to the controller
         String returnText = myCont.useItem(itemUsed);
-
         Bundle bundle = new Bundle();
         bundle.putString("Description", returnText);
+        myCont.refreshVariables();
+        refreshView();
+        dialog.dismiss();
 
         DialogFragment itemDialogFragment = new ItemTextDialog();
         itemDialogFragment.setArguments(bundle);
         itemDialogFragment.show(getFragmentManager(),"Item_Text");
 
-        //Show a quick snackbar for testing
-        Snackbar.make(roomTitle, "You tried to use an item called: " + dialog.getTag(), Snackbar.LENGTH_LONG).show();
-
-    }
+        }
 
 
     /**
@@ -266,6 +268,7 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
         btnRight.setText(btnRightTxt);
         //Get the inventory again Convert the inventory Set to a List to allow it to be displayed in order
         inventoryList = new ArrayList<Item>();
+        //TODO: Replace line below with a loop which only adds inventory items where the item is unused.
         inventoryList.addAll(myCont.getInventory());
         Collections.sort(inventoryList);
         int itemCount = inventoryList.size();

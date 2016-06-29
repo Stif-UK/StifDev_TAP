@@ -80,18 +80,7 @@ public class Controller {
      */
     public boolean moveRoom(String direction){
         if(currentGame.moveRoom(direction)){
-            this.setRoomTitle(currentGame.getCurrentRoom().getTitle());
-            this.setRoomDescription(currentGame.getCurrentRoom().getRoomDescription());
-            //Set the button text values
-            this.setTopBtnTxt(currentGame.getCurrentRoom().getTopBtnText());
-            this.setBottomBtnTxt(currentGame.getCurrentRoom().getBottomBtnText());
-            this.setLeftBtnTxt(currentGame.getCurrentRoom().getLeftBtnText());
-            this.setRightBtnTxt(currentGame.getCurrentRoom().getRightBtnText());
-            //Set the door locked statuses
-            this.setTopLocked(currentGame.getCurrentRoom().isTopLocked());
-            this.setBottomLocked(currentGame.getCurrentRoom().isBottomLocked());
-            this.setLeftLocked(currentGame.getCurrentRoom().isLeftLocked());
-            this.setRightLocked(currentGame.getCurrentRoom().isRightLocked());
+            this.refreshVariables();
 
             return true;
         }
@@ -99,6 +88,21 @@ public class Controller {
             return false;
         }
 
+    }
+
+    public void refreshVariables(){
+        this.setRoomTitle(currentGame.getCurrentRoom().getTitle());
+        this.setRoomDescription(currentGame.getCurrentRoom().getRoomDescription());
+        //Set the button text values
+        this.setTopBtnTxt(currentGame.getCurrentRoom().getTopBtnText());
+        this.setBottomBtnTxt(currentGame.getCurrentRoom().getBottomBtnText());
+        this.setLeftBtnTxt(currentGame.getCurrentRoom().getLeftBtnText());
+        this.setRightBtnTxt(currentGame.getCurrentRoom().getRightBtnText());
+        //Set the door locked statuses
+        this.setTopLocked(currentGame.getCurrentRoom().isTopLocked());
+        this.setBottomLocked(currentGame.getCurrentRoom().isBottomLocked());
+        this.setLeftLocked(currentGame.getCurrentRoom().isLeftLocked());
+        this.setRightLocked(currentGame.getCurrentRoom().isRightLocked());
     }
 
 
