@@ -145,7 +145,35 @@ public class Room {
 
     protected String getItemPickupText() { return itemPickupText;}
 
+    //Setters for all of the locked statuses
 
+
+    public void setRightLocked(boolean rightLocked) {
+        this.rightLocked = rightLocked;
+    }
+
+    public void setLeftLocked(boolean leftLocked) {
+        this.leftLocked = leftLocked;
+    }
+
+    public void setBottomLocked(boolean bottomLocked) {
+        this.bottomLocked = bottomLocked;
+    }
+
+    public void setTopLocked(boolean topLocked) {
+        this.topLocked = topLocked;
+    }
+
+    /**
+     * The unlock() method sets all exits in a room to an 'unlocked' status.
+     * A room can have up to 4 locked doors, but at present they must all be unlocked together.
+     */
+    protected void unlock(){
+        setBottomLocked(false);
+        setLeftLocked(false);
+        setRightLocked(false);
+        setTopLocked(false);
+    }
     /**
      * The toString method of the Room class simply returns the rooms title.
      * @return - The title of the room

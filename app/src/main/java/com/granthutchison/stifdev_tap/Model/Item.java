@@ -36,6 +36,27 @@ public class Item implements Comparable{
         return this.description;
     }
 
+    private void setUsed(Boolean used) {
+        this.used = used;
+    }
+
+    private String getUsedText(){
+        return this.usedText;
+    }
+
+    private String getFailText(){
+        return this.failText;
+    }
+
+    protected String useItem(Room currentRoom){
+        if(currentRoom.getTitle().equals(unlocks)){
+            this.setUsed(true);
+            currentRoom.unlock();
+            return getUsedText();
+        }
+        else{ return getFailText();}
+    }
+
     @Override
     public int compareTo(Object another) {
         return this.toString().compareTo(another.toString());

@@ -56,12 +56,23 @@ public class Scenario {
                     inventory.clear();
                 }
 
-                //top,bottom,left,right
+                //Room constructor:
+                // public Room(String title,
+                // String containsItem,
+                // String itemPickupText,
+                // String roomLockedDescription,
+                // String itemCollectedDescription,
+                // String roomsUnlockedDescription,
+                // String topBtnText, String topRoomName, boolean topLocked,
+                // String bottomBtnText, String bottomRoomName, boolean bottomLocked,
+                // String leftBtnText, String leftRoomName, boolean leftLocked,
+                // String rightBtnText, String rightRoomName, boolean rightLocked)
+
 
                 //Create objects for each room in the game and add all of these to the map.
-                Room room1 = new Room(roomName1, "","", "You're in a large entrance hall. All of the doors are locked",
+                Room room1 = new Room(roomName1, "","", "You're in a large entrance hall. There are exits to the North and East.\n\n The door to the West is boarded up.",
                         "", "You find yourself in a large entrance hall. There are exits to the North, East and West",
-                        "Go North",roomName2,false,"","",false,"Go West",roomName3,false,"Go East",roomName5,false );
+                        "Go North",roomName2,false,"","",false,"Go West",roomName3,true,"Go East",roomName5,false );
                 map.put(roomName1, room1);
 
                 Room room2 = new Room(roomName2, itemName1,"You found a Hammer!", "You're in a pantry. All of the doors are locked",
@@ -92,8 +103,15 @@ public class Scenario {
                 //Set the starting room
                 this.setCurrentRoom(roomName1);
 
+                //Item constructor:
+                // public Item(String name,
+                // String unlocks,
+                // String description,
+                // String usedText,
+                // String failText) {
+
                 //Create the items
-                Item item1 = new Item(itemName1,roomName6,"A claw hammer. The head is coated in dried blood...","You used the hammer","This item can't be used here");
+                Item item1 = new Item(itemName1,roomName6,"A claw hammer. The head is coated in dried blood...","You used the hammer to prise the boards from the door...\n\n...That was both surprisingly easy, and fun!","This item can't be used here");
                 gameItems.put(itemName1, item1);
                 Item item2 = new Item(itemName2, roomName4, "An old Nokia phone...the battery still holds a charge!", "You try to call for help...", "No signal...typical!");
                 gameItems.put(itemName2, item2);

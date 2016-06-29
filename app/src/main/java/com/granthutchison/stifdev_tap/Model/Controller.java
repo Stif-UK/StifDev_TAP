@@ -177,19 +177,28 @@ public class Controller {
     }
 
     public String getTopBtnTxt() {
+        if(!isTopLocked()){
+
         return topBtnTxt;
+        }else return "";
     }
 
     public String getBottomBtnTxt() {
-        return bottomBtnTxt;
+        if(!isBottomLocked()){
+        return bottomBtnTxt;}
+        else return "";
     }
 
     public String getLeftBtnTxt() {
-        return leftBtnTxt;
+        if(!isLeftLocked()) {
+            return leftBtnTxt;
+        }else return "";
     }
 
     public String getRightBtnTxt() {
-        return rightBtnTxt;
+        if(!isRightLocked()) {
+            return rightBtnTxt;
+        }else return "";
     }
 
     public boolean isTopLocked() {
