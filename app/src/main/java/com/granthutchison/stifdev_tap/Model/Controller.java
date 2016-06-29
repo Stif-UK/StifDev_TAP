@@ -216,6 +216,6 @@ public class Controller {
 
     public String useItem(String itemName){
         //return currentGame.useItem(itemName);
-        return "You have used an item and that means that some kind of text should appear here!";
+        return "You have used an item called: " +itemName + "\n \nThat means that some kind of text should appear here!";
     }
 }

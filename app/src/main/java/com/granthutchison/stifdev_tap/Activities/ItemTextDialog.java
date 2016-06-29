@@ -27,7 +27,7 @@ public class ItemTextDialog extends DialogFragment {
         final View dialogView = inflater.inflate(R.layout.item_dialog_used,null);
         builder.setView(dialogView);
         //Set the custom title and description, based on the item clicked.
-        final TextView titleView = (TextView) dialogView.findViewById(R.id.dialogUsedTitle);
+//        final TextView titleView = (TextView) dialogView.findViewById(R.id.dialogUsedTitle);
 //        final String itemTitle = getArguments().getString("Title");
 //        titleView.setText(itemTitle);
         TextView descriptionView = (TextView) dialogView.findViewById(R.id.dialogUsedDescription);
