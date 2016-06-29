@@ -122,7 +122,8 @@ public class Scenario {
 
 
             case "Arklay":
-                //TODO: Construct all required Room objects and add to the map attribute. All Item objects should be instantiated
+                //TODO: Construct all required Room objects and add to the map attribute. All Item objects should be instantiated.
+                //Can I write a JSON parser to simplify this?
                 //and added to the gameItems Map.
                 return true;
             default:
