@@ -26,7 +26,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
-public class RoomActivity extends FragmentActivity {
+public class RoomActivity extends FragmentActivity implements UseItemDialog.UseItemDialogListener{
 
     //Reference the Controller that manages the game
     private Controller myCont;
@@ -94,8 +94,6 @@ public class RoomActivity extends FragmentActivity {
         btnInventoryClose = (Button) findViewById(R.id.btnInventoryClose);
 
 
-
-
         //Set a DrawerListener to listen for open and close events for the inventory view
         inventoryDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
@@ -144,7 +142,7 @@ public class RoomActivity extends FragmentActivity {
 
                 DialogFragment itemDialogFragment = new UseItemDialog();
                 itemDialogFragment.setArguments(bundle);
-                itemDialogFragment.show(getFragmentManager(),"test");
+                itemDialogFragment.show(getFragmentManager(),currentItem.toString());
 
 
             }
@@ -211,6 +209,18 @@ public class RoomActivity extends FragmentActivity {
             }
         });
 
+    }
+
+    /*
+    *Implement the methods of the UseItemDialogListener interface
+    *This will be used to call the useItem method on the Scenario
+    */
+    @Override
+    public void onDialogUseItemClick(DialogFragment dialog) {
+        if(myCont.useItem()){
+            dialog.dismiss();
+            Snackbar.make(roomTitle, "You tried to use an item called: " + dialog.getTag(), Snackbar.LENGTH_LONG).show();
+        }
     }
 
     /**
