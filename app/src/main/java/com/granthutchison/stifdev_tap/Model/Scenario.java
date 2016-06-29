@@ -111,7 +111,7 @@ public class Scenario {
                 // String failText) {
 
                 //Create the items
-                Item item1 = new Item(itemName1,roomName6,"A claw hammer. The head is coated in dried blood...","You used the hammer to prise the boards from the door...\n\n...That was both surprisingly easy, and fun!","This item can't be used here");
+                Item item1 = new Item(itemName1,roomName1,"A claw hammer. The head is coated in dried blood...","You used the hammer to prise the boards from the door...\n\n...That was both surprisingly easy, and fun!","This item can't be used here");
                 gameItems.put(itemName1, item1);
                 Item item2 = new Item(itemName2, roomName4, "An old Nokia phone...the battery still holds a charge!", "You try to call for help...", "No signal...typical!");
                 gameItems.put(itemName2, item2);
@@ -228,7 +228,11 @@ public class Scenario {
 
     }
 
-//    protected String useItem(String itemName){
-//
-//    }
+    protected String useItem(String itemName){
+        //Get the item object
+        Item usedItem = gameItems.get(itemName);
+        String returnText = usedItem.useItem(currentRoom);
+        return returnText;
+
+    }
 }
