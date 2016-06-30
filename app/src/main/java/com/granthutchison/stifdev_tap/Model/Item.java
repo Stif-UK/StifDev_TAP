@@ -57,6 +57,10 @@ public class Item implements Comparable{
         else{ return getFailText();}
     }
 
+    public Boolean getUsed() {
+        return used;
+    }
+
     @Override
     public int compareTo(Object another) {
         return this.toString().compareTo(another.toString());

@@ -268,8 +268,13 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
         btnRight.setText(btnRightTxt);
         //Get the inventory again Convert the inventory Set to a List to allow it to be displayed in order
         inventoryList = new ArrayList<Item>();
-        //TODO: Replace line below with a loop which only adds inventory items where the item is unused.
-        inventoryList.addAll(myCont.getInventory());
+//        inventoryList.addAll(myCont.getInventory());
+        for (Item  i: myCont.getInventory()) {
+            if(!i.getUsed()){
+                inventoryList.add(i);
+            }
+
+        }
         Collections.sort(inventoryList);
         int itemCount = inventoryList.size();
 
