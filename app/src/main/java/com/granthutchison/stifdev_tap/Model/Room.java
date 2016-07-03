@@ -18,6 +18,7 @@ public class Room {
 
     //Room descriptions
     private String roomLockedDescription; //An initial description displayed for the room.
+    //TODO: Remove the itemCollectionDescription variable from this class - will require refactoring.
     private String itemCollectedDescription; //An updated description if an item is picked up in the room. - may not be required.
     private String roomsUnlockedDescription; //An updated description if all adjacent rooms have been unlocked.
     private String itemPickupText;

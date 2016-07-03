@@ -254,6 +254,7 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
      * icon is displayed onscreen to trigger it.
      */
     protected void refreshView(){
+        //TODO: Implement code to work with a FinalRoom class - this should include code to remove buttons from the view
         /*
         * First, check the room for items. If a new item (i.e. one not already held or found)
         * is contained in the room then this returns the name of the item in the room, else it
