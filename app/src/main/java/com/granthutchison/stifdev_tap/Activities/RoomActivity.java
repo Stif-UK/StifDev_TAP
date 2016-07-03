@@ -4,7 +4,6 @@ import android.app.DialogFragment;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -30,7 +29,7 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
 
     //Reference the Controller that manages the game
     private Controller myCont;
-    //Elements of the 'Room' view - descriptions and buttons
+    //Elements of the 'Room' view - description fields and buttons
     private TextView roomTitle;
     private TextView roomDesc;
     private Button btnTop;
@@ -52,7 +51,9 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Get details of the Controller singleton object
         myCont = Controller.getInstance();
+        //Link to the Room activity
         setContentView(R.layout.activity_room);
         //Link the elements of the view.
         roomTitle = (TextView) findViewById(R.id.roomTitle);
@@ -65,18 +66,19 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
         roomTitle.setText(myCont.getRoomTitle());
         roomDesc.setText(myCont.getRoomDescription());
 
-        //Get the button text values and store as variables
+        //Get the button text values of the current room object and store as variables
         btnTopTxt = myCont.getTopBtnTxt();
         btnBottomTxt = myCont.getBottomBtnTxt();
         btnLeftTxt = myCont.getLeftBtnTxt();
         btnRightTxt = myCont.getRightBtnTxt();
 
+        //Set the on-screen text of the buttons to those defined above.
         btnTop.setText(btnTopTxt);
         btnBottom.setText(btnBottomTxt);
         btnLeft.setText(btnLeftTxt);
         btnRight.setText(btnRightTxt);
 
-        //Get the elements for the inventory
+        //Get the elements for the inventory drawer
         inventoryDrawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
         inventoryListView = (ListView) findViewById(R.id.inventory_drawer);
         //Convert the inventory Set to a List to allow it to be displayed in order
