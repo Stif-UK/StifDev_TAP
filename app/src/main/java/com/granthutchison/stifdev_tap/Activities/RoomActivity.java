@@ -155,8 +155,13 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
 
 
 
-        //Set listeners for the various navigation buttons and implement code to
-        //traverse rooms
+        /*Set listeners for the various navigation buttons and implement code to
+        *traverse rooms. When a button is clicked it invokes the moveRoom() method on the
+        * Controller object with either "Top", "Bottom", "Left" or "Right" as it's argument.
+        * If this method returns true, this confirms that the current room has been changed,
+        * and so the refreshView() method is invoked to change the on screen text and buttons
+        * in line with the new current Room object.
+         */
         btnTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
