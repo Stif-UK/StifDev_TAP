@@ -89,34 +89,32 @@ public class Room {
 
     }
 
-    //Getters for the directions/exits
+    /*Getters for the directions/exits
+     * Text is held for each button, along with the room name of each adjacent room
+     * This is used when the map is traversed - the room name allows the scenario to identify
+     * the requested room.
+     */
     protected String getTopBtnText() {
         return topBtnText;
     }
     protected String getTopRoomName(){
         return topRoomName;
     }
-
     protected String getBottomBtnText() {
         return bottomBtnText;
     }
-
     protected String getBottomRoomName(){
         return bottomRoomName;
     }
-
     public String getLeftBtnText() {
         return leftBtnText;
     }
-
     public String getLeftRoomName() {
         return leftRoomName;
     }
-
     public String getRightBtnText() {
         return rightBtnText;
     }
-
     public String getRightRoomName() {
         return rightRoomName;
     }
@@ -125,41 +123,44 @@ public class Room {
     protected boolean isTopLocked() {
         return topLocked;
     }
-
     protected boolean isBottomLocked() {
         return bottomLocked;
     }
-
     protected boolean isLeftLocked() {
         return leftLocked;
     }
-
     protected boolean isRightLocked() {
         return rightLocked;
     }
 
 
+    /**
+     * The getContainsItem() method returns the name of any item held in the room.
+     * By default a rooms containsItem attribute is an empty string.
+     * @return A String object - the name of any item in the room.
+     */
     protected String getContainsItem() {
         return containsItem;
     }
 
+    /**
+     * The getItemPickupText() method returns text to be appended to the rooms description when
+     * an item is collected in the room. If the room holds an item then it should also contain
+     * text to display when the item is collected.
+     * @return A String - the text to be displayed when an item is collected in the room.
+     */
     protected String getItemPickupText() { return itemPickupText;}
 
     //Setters for all of the locked statuses
-
-
     public void setRightLocked(boolean rightLocked) {
         this.rightLocked = rightLocked;
     }
-
     public void setLeftLocked(boolean leftLocked) {
         this.leftLocked = leftLocked;
     }
-
     public void setBottomLocked(boolean bottomLocked) {
         this.bottomLocked = bottomLocked;
     }
-
     public void setTopLocked(boolean topLocked) {
         this.topLocked = topLocked;
     }
