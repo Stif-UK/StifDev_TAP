@@ -254,28 +254,41 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
      * icon is displayed onscreen to trigger it.
      */
     protected void refreshView(){
+        /*
+        * First, check the room for items. If a new item (i.e. one not already held or found)
+        * is contained in the room then this returns the name of the item in the room, else it
+        * returns an empty string.
+         */
         String itemText = myCont.checkRoom();
+        //Get the system end of line property to easily drop in some spacing, and create some
+        //surrounding asterisks to display around the item pickup text.
         String eol = System.getProperty("line.separator");
         String surround = "****";
+
+        //Set the title and description of the room
         roomTitle.setText(myCont.getRoomTitle());
         roomDesc.setText(myCont.getRoomDescription());
 
+        //If an item was found, append some text to the bottom of the description
         if(itemText.length() > 1){
             roomDesc.append(eol + eol + surround +" "+itemText + " " + surround);
         }
 
+        //1. Identify the new text for the room buttons.
         btnTopTxt = myCont.getTopBtnTxt();
         btnBottomTxt = myCont.getBottomBtnTxt();
         btnLeftTxt = myCont.getLeftBtnTxt();
         btnRightTxt = myCont.getRightBtnTxt();
 
+        //2. Assign this text to the buttons
         btnTop.setText(btnTopTxt);
         btnBottom.setText(btnBottomTxt);
         btnLeft.setText(btnLeftTxt);
         btnRight.setText(btnRightTxt);
+
         //Get the inventory again Convert the inventory Set to a List to allow it to be displayed in order
         inventoryList = new ArrayList<Item>();
-//        inventoryList.addAll(myCont.getInventory());
+        //Populate the list by iterating over the inventory and only add items that have not been used.
         for (Item  i: myCont.getInventory()) {
             if(!i.getUsed()){
                 inventoryList.add(i);
@@ -288,6 +301,8 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
         //Set FontAwesome icon font
         btnInventory.setTypeface(FontManager.getTypeface(btnInventory.getContext(),FontManager.FONTAWESOME));
 
+        //Only display the inventory if it isn't empty (Note, if the item is populated, then becomes
+        //empty the on-screen button remains active.
         if(itemCount > 0){
             btnInventory.setText(R.string.fa_icon_folder);
             btnInventory.setOnClickListener(new View.OnClickListener() {
@@ -297,7 +312,7 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
                 }
             });
         }
-        //Refresh the inventory view
+        //Refresh the inventory view - clear the screen, then re-populate
         try {
             itemArrayAdapter.clear();
             itemArrayAdapter.addAll(inventoryList);
@@ -314,6 +329,13 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
     private void privateBackPress(){
         super.onBackPressed();
     }
+
+    /**
+     * The onBackPressed() method is overridden in RoomActivity to prevent a user from accidentally
+     * exiting the game. Some on-screen text is presented to the user instead, along with an
+     * 'exit game' button which calls the privateBackPress() method to exit back to the scenario
+     * select screen.
+     */
     @Override
     public void onBackPressed() {
         HashSet<String> backComments = new HashSet<>();
