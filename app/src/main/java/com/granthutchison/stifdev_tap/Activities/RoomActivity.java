@@ -254,7 +254,6 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
      * icon is displayed onscreen to trigger it.
      */
     protected void refreshView(){
-        //TODO: Implement code to work with a FinalRoom class - this should include code to remove buttons from the view
         if(myCont.inFinalRoom()){
             //TODO: This code here is duplicated - separate into helper methods.
             //Set the title and description of the room
@@ -268,10 +267,19 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
             btnLeft.setText("");
             btnRight.setText("");
 
+            //TODO: Remove testing Snackbars once proper code implemented
+
             //Show a snackbar for testing
-            //TODO: Remove this once proper code implemented
             Snackbar.make(roomTitle, "You have entered the final room!",Snackbar.LENGTH_LONG).show();
 
+            //Replace the onClickListener on the bottom button to change its function
+            btnBottom.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Snackbar added for testing
+                    Snackbar.make(roomTitle, "You have triggered the end credits!",Snackbar.LENGTH_LONG).show();
+                }
+            });
         }
         else{
             /*
