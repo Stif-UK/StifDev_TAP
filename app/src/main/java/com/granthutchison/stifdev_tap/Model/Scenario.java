@@ -44,6 +44,7 @@ public class Scenario {
                 String roomName4 = "The Servant's Quarters";
                 String roomName5 = "Entertainment Room";
                 String roomName6 = "Computer Room";
+                String roomName7 = "A hidden room!";
 
                 String itemName1 = "Hammer";
                 String itemName2 = "An old Nokia N95";
@@ -95,10 +96,13 @@ public class Scenario {
                         "Go North",roomName4,false,"","",false,"Go West",roomName1,false,"","",false );
                 map.put(roomName5, room5);
 
-                Room room6 = new Room(roomName6, itemName2, "You've found a Nokia N95!","This room is tiny. All of the doors are locked",
-                        "", "This room is tiny. A small computer sits in the corner, the monitors green glow illuminating a small desk. There is an exit to the South.",
-                        "","",false,"Go South",roomName3,false,"","",false,"","",false );
+                Room room6 = new Room(roomName6, itemName2, "You've found a Nokia N95!","This room is tiny. A small computer sits in the corner, the monitors green glow illuminating a small desk. There is an exit to the South.",
+                        "", "This room is tiny. A small computer sits in the corner, the monitors green glow illuminating a small desk. \n \nA secret passage has been revealed to the North",
+                        "Go North",roomName7,true,"Go South",roomName3,false,"","",false,"","",false );
                 map.put(roomName6, room6);
+
+                FinalRoom room7 = new FinalRoom(roomName7, "Going through the door you find yourself in room the size of a small walk in wardrobe.\n \n You can't believe what you see in the corner...", "To be continued...");
+                map.put(roomName7,room7);
 
                 //Set the starting room
                 this.setCurrentRoom(roomName1);
@@ -113,7 +117,7 @@ public class Scenario {
                 //Create the items
                 Item item1 = new Item(itemName1,roomName1,"A claw hammer. The head is coated in dried blood...","You used the hammer to prise the boards from the door...\n\n...That was both surprisingly easy, and fun!","This item can't be used here");
                 gameItems.put(itemName1, item1);
-                Item item2 = new Item(itemName2, roomName4, "An old Nokia phone...the battery still holds a charge!", "You try to call for help...", "No signal...typical!");
+                Item item2 = new Item(itemName2, roomName6, "An old Nokia phone...the battery still holds a charge!", "You try to call for help...", "No signal...typical!");
                 gameItems.put(itemName2, item2);
 
 
@@ -146,7 +150,7 @@ public class Scenario {
 
             case "bottom":
                 newRoomTitle = currentRoom.getBottomRoomName();
-                if(!currentRoom.isTopLocked()){
+                if(!currentRoom.isBottomLocked()){
                     this.setCurrentRoom(newRoomTitle);
                     return true;
                 }else{
@@ -154,7 +158,7 @@ public class Scenario {
                 }
             case "left":
                 newRoomTitle = currentRoom.getLeftRoomName();
-                if(!currentRoom.isTopLocked()){
+                if(!currentRoom.isLeftLocked()){
                     this.setCurrentRoom(newRoomTitle);
                     return true;
                 }else{
@@ -162,7 +166,7 @@ public class Scenario {
                 }
             case "right":
                 newRoomTitle = currentRoom.getRightRoomName();
-                if(!currentRoom.isTopLocked()){
+                if(!currentRoom.isRightLocked()){
                     this.setCurrentRoom(newRoomTitle);
                     return true;
                 }else{

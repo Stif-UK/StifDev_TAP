@@ -255,74 +255,94 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
      */
     protected void refreshView(){
         //TODO: Implement code to work with a FinalRoom class - this should include code to remove buttons from the view
-        /*
-        * First, check the room for items. If a new item (i.e. one not already held or found)
-        * is contained in the room then this returns the name of the item in the room, else it
-        * returns an empty string.
-         */
-        String itemText = myCont.checkRoom();
-        //Get the system end of line property to easily drop in some spacing, and create some
-        //surrounding asterisks to display around the item pickup text.
-        String eol = System.getProperty("line.separator");
-        String surround = "****";
+        if(myCont.inFinalRoom()){
+            //TODO: This code here is duplicated - separate into helper methods.
+            //Set the title and description of the room
+            roomTitle.setText(myCont.getRoomTitle());
+            roomDesc.setText(myCont.getRoomDescription());
+            btnBottomTxt = myCont.getBottomBtnTxt();
+            btnBottom.setText(btnBottomTxt);
 
-        //Set the title and description of the room
-        roomTitle.setText(myCont.getRoomTitle());
-        roomDesc.setText(myCont.getRoomDescription());
+            //Clear the text from all of the other buttons to disable them
+            btnTop.setText("");
+            btnLeft.setText("");
+            btnRight.setText("");
 
-        //If an item was found, append some text to the bottom of the description
-        if(itemText.length() > 1){
-            roomDesc.append(eol + eol + surround +" "+itemText + " " + surround);
+            //Show a snackbar for testing
+            //TODO: Remove this once proper code implemented
+            Snackbar.make(roomTitle, "You have entered the final room!",Snackbar.LENGTH_LONG).show();
+
         }
+        else{
+            /*
+            * First, check the room for items. If a new item (i.e. one not already held or found)
+            * is contained in the room then this returns the name of the item in the room, else it
+            * returns an empty string.
+             */
+            String itemText = myCont.checkRoom();
+            //Get the system end of line property to easily drop in some spacing, and create some
+            //surrounding asterisks to display around the item pickup text.
+            String eol = System.getProperty("line.separator");
+            String surround = "****";
 
-        //1. Identify the new text for the room buttons.
-        btnTopTxt = myCont.getTopBtnTxt();
-        btnBottomTxt = myCont.getBottomBtnTxt();
-        btnLeftTxt = myCont.getLeftBtnTxt();
-        btnRightTxt = myCont.getRightBtnTxt();
+            //Set the title and description of the room
+            roomTitle.setText(myCont.getRoomTitle());
+            roomDesc.setText(myCont.getRoomDescription());
 
-        //2. Assign this text to the buttons
-        btnTop.setText(btnTopTxt);
-        btnBottom.setText(btnBottomTxt);
-        btnLeft.setText(btnLeftTxt);
-        btnRight.setText(btnRightTxt);
-
-        //Get the inventory again Convert the inventory Set to a List to allow it to be displayed in order
-        inventoryList = new ArrayList<Item>();
-        //Populate the list by iterating over the inventory and only add items that have not been used.
-        for (Item  i: myCont.getInventory()) {
-            if(!i.getUsed()){
-                inventoryList.add(i);
+            //If an item was found, append some text to the bottom of the description
+            if(itemText.length() > 1){
+                roomDesc.append(eol + eol + surround +" "+itemText + " " + surround);
             }
 
-        }
-        Collections.sort(inventoryList);
-        int itemCount = inventoryList.size();
+            //1. Identify the new text for the room buttons.
+            btnTopTxt = myCont.getTopBtnTxt();
+            btnBottomTxt = myCont.getBottomBtnTxt();
+            btnLeftTxt = myCont.getLeftBtnTxt();
+            btnRightTxt = myCont.getRightBtnTxt();
 
-        //Set FontAwesome icon font
-        btnInventory.setTypeface(FontManager.getTypeface(btnInventory.getContext(),FontManager.FONTAWESOME));
+            //2. Assign this text to the buttons
+            btnTop.setText(btnTopTxt);
+            btnBottom.setText(btnBottomTxt);
+            btnLeft.setText(btnLeftTxt);
+            btnRight.setText(btnRightTxt);
 
-        //Only display the inventory if it isn't empty (Note, if the item is populated, then becomes
-        //empty the on-screen button remains active.
-        if(itemCount > 0){
-            btnInventory.setText(R.string.fa_icon_folder);
-            btnInventory.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    inventoryDrawerLayout.openDrawer(Gravity.RIGHT);
+            //Get the inventory again Convert the inventory Set to a List to allow it to be displayed in order
+            inventoryList = new ArrayList<Item>();
+            //Populate the list by iterating over the inventory and only add items that have not been used.
+            for (Item  i: myCont.getInventory()) {
+                if(!i.getUsed()){
+                    inventoryList.add(i);
                 }
-            });
-        }
-        //Refresh the inventory view - clear the screen, then re-populate
-        try {
-            itemArrayAdapter.clear();
-            itemArrayAdapter.addAll(inventoryList);
-        } catch (Exception e) {
-            Log.d("RefreshInventory", "An exception was thrown");
-            e.printStackTrace();
-        }
+
+            }
+            Collections.sort(inventoryList);
+            int itemCount = inventoryList.size();
+
+            //Set FontAwesome icon font
+            btnInventory.setTypeface(FontManager.getTypeface(btnInventory.getContext(),FontManager.FONTAWESOME));
+
+            //Only display the inventory if it isn't empty (Note, if the item is populated, then becomes
+            //empty the on-screen button remains active.
+            if(itemCount > 0){
+                btnInventory.setText(R.string.fa_icon_folder);
+                btnInventory.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        inventoryDrawerLayout.openDrawer(Gravity.RIGHT);
+                    }
+                });
+            }
+            //Refresh the inventory view - clear the screen, then re-populate
+            try {
+                itemArrayAdapter.clear();
+                itemArrayAdapter.addAll(inventoryList);
+            } catch (Exception e) {
+                Log.d("RefreshInventory", "An exception was thrown");
+                e.printStackTrace();
+            }
 
 
+        }
     }
 
     //Private method which works like a normal back button press - this will be used in the

@@ -231,4 +231,8 @@ public class Controller {
         return currentGame.useItem(itemName);
 //        return "You have used an item called: " +itemName + "\n \nThat means that some kind of text should appear here!";
     }
+
+    public boolean inFinalRoom(){
+        return (currentGame.getCurrentRoom().getClass() == FinalRoom.class);
+    }
 }
