@@ -36,6 +36,7 @@ public class Scenario {
     public Boolean startGame(String scenario){
         switch (scenario){
             case "Test":
+                //TODO: Create new classes to handle all setup and return map, gameItems and currentRoom for individual scenarios then call constructors from startGame()
                 //Begin by creating local variables to hold room names - this ensures that the same
                 //value can be passed to the Room titles, adjacent room links and item info.
                 String roomName1 = "Entrance Hall";
