@@ -262,10 +262,13 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
             btnBottomTxt = myCont.getBottomBtnTxt();
             btnBottom.setText(btnBottomTxt);
 
-            //Clear the text from all of the other buttons to disable them
+            //Clear the text from all of the other buttons and null their click listeners to disable them
             btnTop.setText("");
+            btnTop.setOnClickListener(null);
             btnLeft.setText("");
+            btnLeft.setOnClickListener(null);
             btnRight.setText("");
+            btnRight.setOnClickListener(null);
 
             //TODO: Remove testing Snackbars once proper code implemented
 
