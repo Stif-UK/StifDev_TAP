@@ -3,6 +3,7 @@ package com.granthutchison.stifdev_tap.Model;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -19,6 +20,8 @@ public class Scenario {
     private HashMap<String,Item> gameItems = new HashMap<>();//Contains all Items in the game
 
     private Set<Item> inventory = new HashSet<Item>(); //No need for an Inventory object type - hold all in this set.
+    private LinkedHashMap<String, String> credits = new LinkedHashMap<>();//Contains the end credits for the scenario
+    //in the form key = header, value = name, e.g. ("Designer", "Grant Hutchison")
 
     private Room currentRoom;
 
@@ -36,7 +39,7 @@ public class Scenario {
     public Boolean startGame(String scenario){
         switch (scenario){
             case "Test":
-                //TODO: Create new classes to handle all setup and return map, gameItems and currentRoom for individual scenarios then call constructors from startGame()
+                //TODO: Create new classes to handle all setup and return map, gameItems, currentRoom and credits for individual scenarios then call constructors from startGame()
                 //Begin by creating local variables to hold room names - this ensures that the same
                 //value can be passed to the Room titles, adjacent room links and item info.
                 String roomName1 = "Entrance Hall";
@@ -120,6 +123,21 @@ public class Scenario {
                 gameItems.put(itemName1, item1);
                 Item item2 = new Item(itemName2, roomName6, "An old Nokia phone...the battery still holds a charge!", "You try to call for help...", "No signal...typical!");
                 gameItems.put(itemName2, item2);
+
+                //Create the game credits
+                credits.put("Story", "David Nimmo & Jamie Mercer");
+                credits.put("Game Map", "David Nimmo & Jamie Mercer");
+                credits.put("Inspired by", "Project-Arklay.com");
+                credits.put("Game Engine Design","Grant Hutchison");
+                credits.put("Lead Developer","Grant Hutchison");
+                credits.put("Chief sounding board","Colin McCormick");
+                credits.put("Alpha Testers","Colin McCormick\nGrant Hutchison");
+                credits.put("Beta Testers","David Nimmo\nPaul Chisholm\nColin McCormick");
+                credits.put("Proudly built using","Android Studio");
+                credits.put("Special Thanks","David Nimmo\nThe Open University\nTim Buchalka\nJoanne & Caleb Hutchison");
+
+
+
 
 
                 return true;
