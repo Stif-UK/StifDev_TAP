@@ -23,6 +23,10 @@
             android:name=".Activities.ScenarioActivity"
             android:label="Scenario Select"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Activities.CreditsActivity"
+            android:label="GameCredits"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

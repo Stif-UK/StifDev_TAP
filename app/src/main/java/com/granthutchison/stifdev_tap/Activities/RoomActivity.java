@@ -1,6 +1,7 @@
 package com.granthutchison.stifdev_tap.Activities;
 
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -279,8 +280,9 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
             btnBottom.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Snackbar added for testing
-                    Snackbar.make(roomTitle, "You have triggered the end credits!",Snackbar.LENGTH_LONG).show();
+                    Intent intent = new Intent(RoomActivity.this, CreditsActivity.class);
+                    startActivity(intent);
+
                 }
             });
         }
