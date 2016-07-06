@@ -2,6 +2,7 @@ package com.granthutchison.stifdev_tap.Model;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -225,6 +226,16 @@ public class Controller {
 
         return currentGame.getInventory();
 
+    }
+
+    /**
+     * The getCredits method returns the game credits as an unmodifiable LinkedHashMap (thus the order
+     * is retained). Each key in the map is the header/type of credits (e.g. "Game Designer") while
+     * the associated value is the credits entry (e.g. "Grant Hutchison").
+     * @return An unmodifiable LinkedHashMap<String, String> containing credits header/content info
+     */
+    public LinkedHashMap<String, String> getCredits(){
+        return currentGame.getCredits();
     }
 
     public String useItem(String itemName){

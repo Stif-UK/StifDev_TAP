@@ -252,6 +252,16 @@ public class Scenario {
 
     }
 
+    /**
+     * The getCredits method returns the game credits as an unmodifiable LinkedHashMap (thus the order
+     * is retained). Each key in the map is the header/type of credits (e.g. "Game Designer") while
+     * the associated value is the credits entry (e.g. "Grant Hutchison").
+     * @return An unmodifiable LinkedHashMap<String, String> containing credits header/content info
+     */
+    protected LinkedHashMap<String,String> getCredits(){
+        return (LinkedHashMap<String, String>) Collections.unmodifiableMap(credits);
+    }
+
     protected String useItem(String itemName){
         //Get the item object
         Item usedItem = gameItems.get(itemName);
