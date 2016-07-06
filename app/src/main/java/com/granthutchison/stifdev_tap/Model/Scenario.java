@@ -259,7 +259,8 @@ public class Scenario {
      * @return An unmodifiable LinkedHashMap<String, String> containing credits header/content info
      */
     protected LinkedHashMap<String,String> getCredits(){
-        return (LinkedHashMap<String, String>) Collections.unmodifiableMap(credits);
+        //Return a COPY of the credits to maintain the originals integrity
+        return new LinkedHashMap<>(credits);
     }
 
     protected String useItem(String itemName){
