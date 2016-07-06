@@ -9,6 +9,8 @@ import android.widget.TextView;
 import com.granthutchison.stifdev_tap.Model.Controller;
 import com.granthutchison.stifdev_tap.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -41,9 +43,20 @@ public class CreditsActivity extends AppCompatActivity {
 
         //Get the end credits for the current game
         endCredits = myCont.getCredits();
+        rollCredits();
+
+
+    }
+
+    /**
+     * The rollCredits method handles the task of parsing the credits of the current game
+     * and populating these in the view.
+     */
+    private void rollCredits(){
         //Prep for iteration
         int counter = 0;
         TextView currentView;
+        TextView previousView ;
         List<TextView> viewList = new ArrayList<>();
         viewList.add(creditsView1);
         viewList.add(creditsView2);
@@ -58,20 +71,25 @@ public class CreditsActivity extends AppCompatActivity {
             }
             currentView = viewList.get(counter);
 
+            //If a previous view has been populated, blank it
+            if(previousView != null){
+                //TODO: Replace this with a fade out animation
+                previousView.setText("");
+            }
 
-
+            //TODO: Add fade in animation to the getKey line
             currentView.setText(credit.getKey());
             currentView.append("\n");
             //Add a time delay
+
+            //TODO: Write code to write the characters on screen one by one
             currentView.append(credit.getValue());
             counter++;
-            }
+            previousView = currentView;
+        }
 
-
+        //TODO: Replace this snackbar with the ability to end the game
         Snackbar.make(creditsView1, "The credits have ended!",Snackbar.LENGTH_LONG).show();
-
     }
-
-
 
 }
