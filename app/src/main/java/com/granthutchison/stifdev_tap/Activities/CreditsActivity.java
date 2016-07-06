@@ -56,7 +56,7 @@ public class CreditsActivity extends AppCompatActivity {
         //Prep for iteration
         int counter = 0;
         TextView currentView;
-        TextView previousView ;
+        TextView previousView = null;
         List<TextView> viewList = new ArrayList<>();
         viewList.add(creditsView1);
         viewList.add(creditsView2);
