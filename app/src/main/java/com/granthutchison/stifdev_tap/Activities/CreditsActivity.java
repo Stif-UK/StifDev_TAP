@@ -3,6 +3,7 @@ package com.granthutchison.stifdev_tap.Activities;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class CreditsActivity extends AppCompatActivity {
     private TextView creditsView4;
     private TextView creditsView5;
     private LinkedHashMap<String,String> endCredits;
+    final Handler handler = new Handler(Looper.getMainLooper());
 
 
 
@@ -48,7 +50,14 @@ public class CreditsActivity extends AppCompatActivity {
 
         //Get the end credits for the current game
         endCredits = myCont.getCredits();
-        rollCredits();
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                rollCredits();
+            }
+        });
+
 
 
     }
@@ -57,7 +66,7 @@ public class CreditsActivity extends AppCompatActivity {
      * The rollCredits method handles the task of parsing the credits of the current game
      * and populating these in the view.
      */
-    private void rollCredits(){
+    private synchronized void rollCredits(){
         //Prep for iteration
         int counter = 0;
         TextView currentView;
@@ -111,7 +120,7 @@ public class CreditsActivity extends AppCompatActivity {
         }
     }
 
-    private void writeCredits(final TextView currentView, String creditHeader, final String creditBody){
+    private synchronized void writeCredits(final TextView currentView, String creditHeader, final String creditBody){
         //TODO: Add fade in animation to the creditHeader line
         currentView.setText(creditHeader);
         currentView.append("\n");
@@ -129,6 +138,8 @@ public class CreditsActivity extends AppCompatActivity {
                 //Do nothing yet.
             }
         }.start();
+
+
 
     }
 
