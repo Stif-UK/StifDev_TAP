@@ -82,14 +82,15 @@ public class CreditsActivity extends AppCompatActivity {
          * endCredits map, plus an additional second.
          */
         int creditSize = endCredits.size();
-        int timerLength = (creditSize*1000)+1000;
+        int timerLength = (creditSize*2000)+1000;
 
-        new CountDownTimer(timerLength, (timerLength/creditSize/2)) {
+        new CountDownTimer(timerLength, ((timerLength/(creditSize*2)))+1) {
             //Prep for iteration within the timer
             int counter = 0;
             //The value of cont determines if the iteration should continue.
             boolean cont = it.hasNext();
-            boolean headerBody = false;
+            boolean lastEntry = false;
+            boolean headerBody = true;
             TextView currentView;
             TextView previousView = null;
 
@@ -133,6 +134,9 @@ public class CreditsActivity extends AppCompatActivity {
                         writeCreditsHeader(currentView, creditHeader);
                         Log.d("rollCredits","Writing Header: "+creditHeader);
                         headerBody = false;
+                        if(!it.hasNext()){
+                            lastEntry = true;
+                        }
                     }else{
                         writeCreditsBody(currentView,creditBody);
                         Log.d("rollCredits","Writing Body: " +creditBody);
@@ -142,7 +146,8 @@ public class CreditsActivity extends AppCompatActivity {
                          * false. Carried out in the else clause to ensure that both credit header
                          * and body have been written before finishing.
                          */
-                        if(!it.hasNext()){
+                        if(!it.hasNext() && lastEntry){
+                            Log.d("rollCredits","Assigning 'continue' as false");
                             cont = false;
                         }
                         /*
@@ -151,7 +156,9 @@ public class CreditsActivity extends AppCompatActivity {
                          * Again carried out within the else clause to ensure it happens after the
                          * credits body has been written.
                          */
+                        Log.d("rollCredits","Setting the value of the previous view");
                         previousView = currentView;
+                        Log.d("rollCredits","Incrementing counter");
                         counter++;
                     }
 
