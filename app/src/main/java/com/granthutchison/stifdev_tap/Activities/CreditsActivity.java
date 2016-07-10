@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.granthutchison.stifdev_tap.Model.Controller;
@@ -21,7 +23,7 @@ import java.util.Map;
 /**
  * Created by Stifler on 06/07/2016.
  */
-public class CreditsActivity extends AppCompatActivity {
+public class CreditsActivity extends AppCompatActivity implements Animation.AnimationListener {
 
     private TextView creditsView1;
     private TextView creditsView2;
@@ -29,6 +31,8 @@ public class CreditsActivity extends AppCompatActivity {
     private TextView creditsView4;
     private TextView creditsView5;
     private LinkedHashMap<String,String> endCredits;
+    //TODO: Create animation objects for each individual textview, to avoid strobe effect
+    Animation animFadeOut;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +49,10 @@ public class CreditsActivity extends AppCompatActivity {
 
         //Get the end credits for the current game
         endCredits = myCont.getCredits();
+
+        //Prep for animation
+
+        animFadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
 
 
     }
@@ -82,9 +90,9 @@ public class CreditsActivity extends AppCompatActivity {
          * endCredits map, plus an additional second.
          */
         int creditSize = endCredits.size();
-        int timerLength = (creditSize*2000)+1000;
+        int timerLength = (creditSize*2000)+3000;
 
-        new CountDownTimer(timerLength, ((timerLength/(creditSize*2)))+1) {
+        new CountDownTimer(timerLength, ((timerLength/(creditSize*2)))) {
             //Prep for iteration within the timer
             int counter = 0;
             //The value of cont determines if the iteration should continue.
@@ -94,7 +102,7 @@ public class CreditsActivity extends AppCompatActivity {
             TextView currentView;
             TextView previousView = null;
 
-            //Local variables to hold the credit text
+            //Local variables to hold the current entry and the credit text
             Map.Entry<String, String> credit;
             String creditHeader;
             String creditBody;
@@ -121,9 +129,10 @@ public class CreditsActivity extends AppCompatActivity {
                  */
                 if(cont) {
 
-                    clearPreviousView(previousView);
+
 
                     if(headerBody){
+                        fadePreviousView(previousView);
                         credit = (Map.Entry) it.next();
                         creditHeader = credit.getKey();
                         Log.d("rollCredits","In tick, assigning Header value: "+creditHeader);
@@ -138,18 +147,20 @@ public class CreditsActivity extends AppCompatActivity {
                             lastEntry = true;
                         }
                     }else{
+                        //clearPreviousView(previousView);
                         writeCreditsBody(currentView,creditBody);
                         Log.d("rollCredits","Writing Body: " +creditBody);
-                        headerBody = true;
+
                         /*
                          * Check if the iterator has finished - if so set the cont boolean to
                          * false. Carried out in the else clause to ensure that both credit header
                          * and body have been written before finishing.
                          */
-                        if(!it.hasNext() && lastEntry){
+                        if(lastEntry){
                             Log.d("rollCredits","Assigning 'continue' as false");
                             cont = false;
                         }
+                        headerBody = true;
                         /*
                          * Set the current view as the previous view to allow clearing this on the
                          * next tick and increment the counter so that the next view is used next time.
@@ -181,9 +192,17 @@ public class CreditsActivity extends AppCompatActivity {
 
     }
 
+    private void fadePreviousView(TextView previousView){
+        if(previousView != null){
+            Log.d("rollCredits","Calling fadeout animation on "+previousView.toString());
+            previousView.startAnimation(animFadeOut);
+            animFadeOut.setRepeatCount(0);
+            onAnimationEnd(animFadeOut);
+
+        }
+    }
     private void clearPreviousView(TextView previousView){
         if(previousView != null){
-            //TODO: Replace this with a fade out animation
             previousView.setText("");
         }
     }
@@ -198,4 +217,20 @@ public class CreditsActivity extends AppCompatActivity {
         currentView.append(creditBody);
     }
 
+    //Implement the methods of the AnimationListener interface
+    @Override
+    public void onAnimationStart(Animation animation) {
+        //No use made of this method
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+        animation.cancel();
+        Log.d("rollCredits","Animation cancelled "+animation.getRepeatCount());
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+        //No use made of this method
+    }
 }

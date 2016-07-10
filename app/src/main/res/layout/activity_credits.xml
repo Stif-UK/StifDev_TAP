@@ -4,8 +4,19 @@
     android:layout_height="match_parent"
     android:textAlignment="center"
     android:background="@color/StifDev_TAP_Background"
-    android:nestedScrollingEnabled="false">
+    android:nestedScrollingEnabled="false"
+    >
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Credits"
+        android:id="@+id/creditHeader"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:textSize="24sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="15dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +26,8 @@
         android:text=""
         android:id="@+id/creditField1"
         android:textColor="@color/stifDev_TAP_Text"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -27,7 +39,8 @@
         android:layout_below="@+id/creditField1"
         android:id="@+id/creditField2"
         android:textColor="@color/stifDev_TAP_Text"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -39,7 +52,8 @@
         android:layout_below="@+id/creditField2"
         android:id="@+id/creditField3"
         android:textColor="@color/stifDev_TAP_Text"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -51,7 +65,8 @@
         android:layout_below="@+id/creditField3"
         android:id="@+id/creditField4"
         android:textColor="@color/stifDev_TAP_Text"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -63,5 +78,6 @@
         android:layout_below="@+id/creditField4"
         android:id="@+id/creditField5"
         android:textColor="@color/stifDev_TAP_Text"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"/>
 </RelativeLayout>
