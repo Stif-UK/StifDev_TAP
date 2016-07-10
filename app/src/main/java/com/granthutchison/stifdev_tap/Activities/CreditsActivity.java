@@ -2,8 +2,6 @@ package com.granthutchison.stifdev_tap.Activities;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -72,13 +70,25 @@ public class CreditsActivity extends AppCompatActivity {
         viewList.add(creditsView4);
         viewList.add(creditsView5);
 
+
+        /*
+         * Create an Iterator to iterate over the endCredits map. This is declared as final
+         * so that it can be passed to the CountDownTimer.
+         */
         final Iterator it = endCredits.entrySet().iterator();
 
-        int timerLength = endCredits.size()*1000;
+        /*
+         * Determine the required timer length - initially set at one second per entry in the
+         * endCredits map, plus an additional second.
+         */
+        int creditSize = endCredits.size();
+        int timerLength = (creditSize*1000)+1000;
 
-        new CountDownTimer(timerLength, (timerLength/12)) {
-            //Prep for iteration
+        new CountDownTimer(timerLength, (timerLength/creditSize/2)) {
+            //Prep for iteration within the timer
             int counter = 0;
+            //The value of cont determines if the iteration should continue.
+            boolean cont = it.hasNext();
             boolean headerBody = false;
             TextView currentView;
             TextView previousView = null;
@@ -90,10 +100,25 @@ public class CreditsActivity extends AppCompatActivity {
 
 
 
+
+
+
             public void onTick(long millisUntilFinished) {
                 //TODO: Error in code here - by determining if there is a next value before entering
                 //the updates I'm calling null values
-                if(it.hasNext()) {
+                /*
+                 * First, determine if the counter has a value greater than 4, and reset to zero
+                 * if so.
+                 */
+                if(counter > 4){
+                    counter = 0;
+                }
+
+                /*
+                 * If there are still additional values in the iterator, continue to process the
+                 * values. NOTE: Iterator is only
+                 */
+                if(cont) {
 
                     clearPreviousView(previousView);
 
@@ -112,12 +137,27 @@ public class CreditsActivity extends AppCompatActivity {
                         writeCreditsBody(currentView,creditBody);
                         Log.d("rollCredits","Writing Body: " +creditBody);
                         headerBody = true;
+                        /*
+                         * Check if the iterator has finished - if so set the cont boolean to
+                         * false. Carried out in the else clause to ensure that both credit header
+                         * and body have been written before finishing.
+                         */
+                        if(!it.hasNext()){
+                            cont = false;
+                        }
+                        /*
+                         * Set the current view as the previous view to allow clearing this on the
+                         * next tick and increment the counter so that the next view is used next time.
+                         * Again carried out within the else clause to ensure it happens after the
+                         * credits body has been written.
+                         */
+                        previousView = currentView;
+                        counter++;
                     }
 
 
                 }
-                previousView = currentView;
-                counter++;
+
 
 
 
