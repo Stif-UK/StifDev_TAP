@@ -135,7 +135,7 @@ public class Scenario {
                 credits.put("Beta Testers","David Nimmo\nPaul Chisholm\nColin McCormick");
                 credits.put("Proudly built using","Android Studio");
                 credits.put("Special Thanks","David Nimmo\nThe Open University\nTim Buchalka\nJoanne & Caleb Hutchison");
-                credits.put("Thanks for playing!","");
+                credits.put("END","");
 
 
 

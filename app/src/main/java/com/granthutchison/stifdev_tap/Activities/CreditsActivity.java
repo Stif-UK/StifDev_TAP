@@ -105,12 +105,13 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
          * Determine the required timer length - initially set at one second per entry in the
          * endCredits map, plus an additional second.
          */
-        int creditSize = endCredits.size();
+        final int creditSize = endCredits.size() + 10000;
         int timerLength = (creditSize*2000)+3000;
 
         new CountDownTimer(timerLength, ((timerLength/(creditSize*2)))) {
             //Prep for iteration within the timer
-            int counter = 0;
+            int counter = 0; //used to determine the view
+            int counter2 = 0; //used to determine the total count.
             //The value of cont determines if the iteration should continue.
             boolean cont = it.hasNext();
             boolean lastEntry = false;
@@ -130,11 +131,9 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
 
 
             public void onTick(long millisUntilFinished) {
-                //TODO: Error in code here - by determining if there is a next value before entering
-                //the updates I'm calling null values
                 /*
                  * First, determine if the counter has a value greater than 4, and reset to zero
-                 * if so.
+                 * if so. This ensure that
                  */
                 if(counter > 4){
                     counter = 0;
@@ -150,11 +149,14 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
 
                     if(headerBody){
                         anim = animationList.get(counter);
-                        fadePreviousView(previousView, anim);
-
                         credit = (Map.Entry) it.next();
                         creditHeader = credit.getKey();
                         Log.d("rollCredits","In tick, assigning Header value: "+creditHeader);
+                        if(!creditHeader.equals("END")) {
+                            fadePreviousView(previousView, anim);
+                        }
+
+
                         creditBody = credit.getValue();
                         Log.d("rollCredits","In tick, assigning Body value: "+creditBody);
                         currentView = viewList.get(counter);
@@ -190,6 +192,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
                         previousView = currentView;
                         Log.d("rollCredits","Incrementing counter");
                         counter++;
+                        counter2++;
                     }
 
 
