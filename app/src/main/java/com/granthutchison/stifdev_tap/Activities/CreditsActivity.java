@@ -32,7 +32,11 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
     private TextView creditsView5;
     private LinkedHashMap<String,String> endCredits;
     //TODO: Create animation objects for each individual textview, to avoid strobe effect
-    Animation animFadeOut;
+    Animation animFadeOut1;
+    Animation animFadeOut2;
+    Animation animFadeOut3;
+    Animation animFadeOut4;
+    Animation animFadeOut5;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,7 +56,11 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
 
         //Prep for animation
 
-        animFadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+        animFadeOut1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+        animFadeOut2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+        animFadeOut3 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+        animFadeOut4 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+        animFadeOut5 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
 
 
     }
@@ -77,6 +85,14 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
         viewList.add(creditsView3);
         viewList.add(creditsView4);
         viewList.add(creditsView5);
+        //and do the same for the animations
+        final List<Animation> animationList = new ArrayList<>();
+        animationList.add(animFadeOut1);
+        animationList.add(animFadeOut2);
+        animationList.add(animFadeOut3);
+        animationList.add(animFadeOut4);
+        animationList.add(animFadeOut5);
+
 
 
         /*
@@ -101,6 +117,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
             boolean headerBody = true;
             TextView currentView;
             TextView previousView = null;
+            Animation anim;
 
             //Local variables to hold the current entry and the credit text
             Map.Entry<String, String> credit;
@@ -132,7 +149,9 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
 
 
                     if(headerBody){
-                        fadePreviousView(previousView);
+                        anim = animationList.get(counter);
+                        fadePreviousView(previousView, anim);
+
                         credit = (Map.Entry) it.next();
                         creditHeader = credit.getKey();
                         Log.d("rollCredits","In tick, assigning Header value: "+creditHeader);
@@ -192,12 +211,12 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
 
     }
 
-    private void fadePreviousView(TextView previousView){
+    private void fadePreviousView(TextView previousView, Animation anim){
         if(previousView != null){
             Log.d("rollCredits","Calling fadeout animation on "+previousView.toString());
-            previousView.startAnimation(animFadeOut);
-            animFadeOut.setRepeatCount(0);
-            onAnimationEnd(animFadeOut);
+            previousView.startAnimation(anim);
+            anim.setRepeatCount(0);
+            onAnimationEnd(anim);
 
         }
     }
