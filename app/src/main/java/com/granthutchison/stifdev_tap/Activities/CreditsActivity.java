@@ -105,7 +105,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
          * Determine the required timer length - initially set at one second per entry in the
          * endCredits map, plus an additional second.
          */
-        final int creditSize = endCredits.size() + 10000;
+        final int creditSize = endCredits.size();
         int timerLength = (creditSize*2000)+3000;
 
         new CountDownTimer(timerLength, ((timerLength/(creditSize*2)))) {
@@ -133,7 +133,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
             public void onTick(long millisUntilFinished) {
                 /*
                  * First, determine if the counter has a value greater than 4, and reset to zero
-                 * if so. This ensure that
+                 * if so. This ensure that all on-screen views are cycled.
                  */
                 if(counter > 4){
                     counter = 0;
@@ -149,14 +149,10 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
 
                     if(headerBody){
                         anim = animationList.get(counter);
+                        fadePreviousView(previousView, anim);
                         credit = (Map.Entry) it.next();
                         creditHeader = credit.getKey();
                         Log.d("rollCredits","In tick, assigning Header value: "+creditHeader);
-                        if(!creditHeader.equals("END")) {
-                            fadePreviousView(previousView, anim);
-                        }
-
-
                         creditBody = credit.getValue();
                         Log.d("rollCredits","In tick, assigning Body value: "+creditBody);
                         currentView = viewList.get(counter);
