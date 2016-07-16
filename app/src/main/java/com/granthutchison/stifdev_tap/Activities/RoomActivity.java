@@ -271,11 +271,6 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
             btnRight.setText("");
             btnRight.setOnClickListener(null);
 
-            //TODO: Remove testing Snackbars once proper code implemented
-
-            //Show a snackbar for testing
-            Snackbar.make(roomTitle, "You have entered the final room!",Snackbar.LENGTH_LONG).show();
-
             //Replace the onClickListener on the bottom button to change its function
             btnBottom.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -1,5 +1,6 @@
 package com.granthutchison.stifdev_tap.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
@@ -202,8 +203,8 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
             }
 
             public void onFinish() {
-                //TODO: Replace this snackbar with the ability to end the game
-                Snackbar.make(creditsView1, "The credits have ended!",Snackbar.LENGTH_LONG).show();
+                Intent intent = new Intent(CreditsActivity.this, GameEndActivity.class);
+                startActivity(intent);
             }
         }.start();
 

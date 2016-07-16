@@ -27,6 +27,9 @@
             android:name=".Activities.CreditsActivity"
             android:label="GameCredits"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Activities.GameEndActivity"
+            android:label="GameEnd"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
