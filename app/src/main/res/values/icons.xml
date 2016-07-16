@@ -2,4 +2,5 @@
 <resources>
     <string name="fa_icon_folder">&#xf114;</string>
     <string name="fa_icon_folder_open">&#xf115;</string>
+    <string name="fa_icon_home">&#xf015;</string>
 </resources>

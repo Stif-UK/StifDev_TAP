@@ -12,4 +12,15 @@
         android:layout_marginTop="135dp"
         android:textColor="@color/stifDev_TAP_Text"
         android:textSize="35sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:id="@+id/homeButton"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="50sp"/>
 </RelativeLayout>

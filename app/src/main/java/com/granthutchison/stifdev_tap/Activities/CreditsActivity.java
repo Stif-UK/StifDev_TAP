@@ -252,4 +252,6 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
     public void onAnimationRepeat(Animation animation) {
         //No use made of this method
     }
+
+    //TODO: Override onBackPressed method
 }
