@@ -81,7 +81,7 @@
         android:layout_below="@+id/btnTop"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:paddingLeft="10dp"/>
+        android:paddingLeft="40dp"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Borderless"
@@ -93,7 +93,7 @@
         android:layout_above="@+id/btnBottom"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:paddingRight="10dp"/>
+        android:paddingRight="40dp"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Borderless"
@@ -107,7 +107,8 @@
         android:paddingTop="30dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignRight="@+id/roomText"
-        android:layout_alignEnd="@+id/roomText" />
+        android:layout_alignEnd="@+id/roomText"
+        android:paddingLeft="2px"/>
 
 </RelativeLayout>
     <ListView android:id="@+id/inventory_drawer"
