@@ -78,9 +78,10 @@
         android:text="@string/btnLeftString"
         android:id="@+id/btnLeft"
         android:textColor="@color/stifDev_TAP_Text"
-        android:layout_above="@+id/btnBottom"
-        android:layout_toLeftOf="@+id/roomTitle"
-        android:layout_toStartOf="@+id/roomTitle" />
+        android:layout_below="@+id/btnTop"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="10dp"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Borderless"
@@ -90,8 +91,9 @@
         android:id="@+id/btnRight"
         android:textColor="@color/stifDev_TAP_Text"
         android:layout_above="@+id/btnBottom"
-        android:layout_toRightOf="@+id/roomTitle"
-        android:layout_toEndOf="@+id/roomTitle" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:paddingRight="10dp"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Borderless"
