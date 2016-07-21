@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -253,5 +254,17 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
         //No use made of this method
     }
 
-    //TODO: Override onBackPressed method
+
+    @Override
+    public void onBackPressed() {
+        Snackbar.make(creditsView1, "Skip credits?", Snackbar.LENGTH_LONG).setAction("SKIP", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreditsActivity.this, GameEndActivity.class);
+                startActivity(intent);
+            }
+        }).show();
+    }
+
+
 }
