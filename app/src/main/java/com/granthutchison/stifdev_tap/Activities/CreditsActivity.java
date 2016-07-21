@@ -262,6 +262,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
             public void onClick(View v) {
                 Intent intent = new Intent(CreditsActivity.this, GameEndActivity.class);
                 startActivity(intent);
+                //TODO: Kill the timer first to prevent screen flickering
             }
         }).show();
     }
