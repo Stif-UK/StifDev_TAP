@@ -81,7 +81,7 @@
         android:layout_below="@+id/btnTop"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:paddingLeft="40dp"/>
+        android:layout_marginLeft="40dp"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Borderless"
@@ -93,7 +93,7 @@
         android:layout_above="@+id/btnBottom"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:paddingRight="40dp"/>
+        android:layout_marginRight="40dp"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Borderless"

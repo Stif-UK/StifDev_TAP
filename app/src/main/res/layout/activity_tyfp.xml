@@ -23,4 +23,39 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textSize="50sp"/>
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:id="@+id/btnFacebook"
+        android:textSize="50sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="71dp"
+        android:layout_marginRight="20sp"/>
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:id="@+id/btnTwitter"
+        android:textSize="50sp"
+        android:layout_alignBottom="@+id/btnFacebook"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:id="@+id/btnGplus"
+        android:textSize="50sp"
+        android:layout_alignBottom="@+id/btnTwitter"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20sp"/>
 </RelativeLayout>

@@ -3,4 +3,9 @@
     <string name="fa_icon_folder">&#xf114;</string>
     <string name="fa_icon_folder_open">&#xf115;</string>
     <string name="fa_icon_home">&#xf015;</string>
+    <string name="fa_icon_facebook1">&#xf09a;</string>
+    <string name="fa_icon_facebook2">&#xf082;</string>
+    <string name="fa_icon_twitter">&#xf099;</string>
+    <string name="fa_icon_gplus1">&#xf0d5;</string>
+    <string name="fa_icon_gplus2">&#xf0d4;</string>
 </resources>
