@@ -17,17 +17,29 @@ import com.granthutchison.stifdev_tap.Util.FontManager;
 public class GameEndActivity extends AppCompatActivity {
 
     Button btnHome;
-    //TODO: Implement social sharing buttons and update layout
+    Button btnFacebook;
+    Button btnTwitter;
+    Button btnGplus;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tyfp);
         btnHome = (Button) findViewById(R.id.homeButton);
+        btnFacebook = (Button) findViewById(R.id.btnFacebook);
+        btnTwitter = (Button) findViewById(R.id.btnTwitter);
+        btnGplus = (Button) findViewById(R.id.btnGplus);
 
         //Set FontAwesome icon font
         btnHome.setTypeface(FontManager.getTypeface(btnHome.getContext(),FontManager.FONTAWESOME));
+        btnFacebook.setTypeface(FontManager.getTypeface(btnFacebook.getContext(), FontManager.FONTAWESOME));
+        btnTwitter.setTypeface(FontManager.getTypeface(btnTwitter.getContext(), FontManager.FONTAWESOME));
+        btnGplus.setTypeface(FontManager.getTypeface(btnGplus.getContext(), FontManager.FONTAWESOME));
+        //Set the text of each button
         btnHome.setText(R.string.fa_icon_home);
+        btnFacebook.setText(R.string.fa_icon_facebook1);
+        btnTwitter.setText(R.string.fa_icon_twitter);
+        btnGplus.setText(R.string.fa_icon_gplus1);
         //TODO: Set onClickListener with a trigger to return to the app landing page
     }
 
