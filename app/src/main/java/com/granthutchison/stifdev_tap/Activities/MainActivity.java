@@ -4,14 +4,20 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.granthutchison.stifdev_tap.Model.Controller;
 import com.granthutchison.stifdev_tap.R;
+import com.granthutchison.stifdev_tap.Util.FontManager;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView btnPlay;
+    private Button btnFB;
+    private Button btnTwit;
+    private Button btnGP;
+    private Button btnInfo;
     private Intent intent;
 
     @Override
@@ -20,6 +26,23 @@ public class MainActivity extends AppCompatActivity {
         Controller.initInstance();
         setContentView(R.layout.activity_main);
         btnPlay = (TextView) findViewById(R.id.playClick);
+        btnFB = (Button) findViewById(R.id.btnFB);
+        btnTwit = (Button) findViewById(R.id.btnTwit);
+        btnGP = (Button) findViewById(R.id.btnGP);
+        btnInfo = (Button) findViewById(R.id.btnInfo);
+
+        //Use the FontAwesome utility to create icons for the page
+        btnFB.setTypeface(FontManager.getTypeface(btnFB.getContext(),FontManager.FONTAWESOME));
+        btnTwit.setTypeface(FontManager.getTypeface(btnTwit.getContext(),FontManager.FONTAWESOME));
+        btnGP.setTypeface(FontManager.getTypeface(btnGP.getContext(),FontManager.FONTAWESOME));
+        btnInfo.setTypeface(FontManager.getTypeface(btnInfo.getContext(),FontManager.FONTAWESOME));
+        //Set the icons
+        btnFB.setText(R.string.fa_icon_facebook1);
+        btnTwit.setText(R.string.fa_icon_twitter);
+        btnGP.setText(R.string.fa_icon_gplus1);
+        btnInfo.setText(R.string.fa_icon_info);
+
+
 
 
 

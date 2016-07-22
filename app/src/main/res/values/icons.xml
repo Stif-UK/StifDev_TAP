@@ -8,4 +8,6 @@
     <string name="fa_icon_twitter">&#xf099;</string>
     <string name="fa_icon_gplus1">&#xf0d5;</string>
     <string name="fa_icon_gplus2">&#xf0d4;</string>
+    <string name="fa_icon_info">&#xf05a;</string>
+    <string name="fa_icon_question">&#xf0d4;</string>
 </resources>
