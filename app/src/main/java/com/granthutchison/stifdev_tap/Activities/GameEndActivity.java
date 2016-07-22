@@ -1,8 +1,10 @@
 package com.granthutchison.stifdev_tap.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 
 import com.granthutchison.stifdev_tap.R;
@@ -36,11 +38,22 @@ public class GameEndActivity extends AppCompatActivity {
         btnTwitter.setTypeface(FontManager.getTypeface(btnTwitter.getContext(), FontManager.FONTAWESOME));
         btnGplus.setTypeface(FontManager.getTypeface(btnGplus.getContext(), FontManager.FONTAWESOME));
         //Set the text of each button
+        //TODO: Set onClickListener with a trigger to return to the app landing page
         btnHome.setText(R.string.fa_icon_home);
         btnFacebook.setText(R.string.fa_icon_facebook1);
         btnTwitter.setText(R.string.fa_icon_twitter);
         btnGplus.setText(R.string.fa_icon_gplus1);
-        //TODO: Set onClickListener with a trigger to return to the app landing page
+
+        //When the home button is clicked, return to the main activity
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GameEndActivity.this, MainActivity.class);
+                //Clear this page from the back stack to prevent the user navigating back to it
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
     }
 
     //TODO: Update back button press functionality
