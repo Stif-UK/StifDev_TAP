@@ -33,12 +33,14 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
     private TextView creditsView4;
     private TextView creditsView5;
     private LinkedHashMap<String,String> endCredits;
-    //TODO: Create animation objects for each individual textview, to avoid strobe effect
+
     Animation animFadeOut1;
     Animation animFadeOut2;
     Animation animFadeOut3;
     Animation animFadeOut4;
     Animation animFadeOut5;
+
+    CountDownTimer creditTimer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -110,7 +112,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
         final int creditSize = endCredits.size();
         int timerLength = (creditSize*2000)+3000;
 
-        new CountDownTimer(timerLength, ((timerLength/(creditSize*2)))) {
+        creditTimer = new CountDownTimer(timerLength, ((timerLength/(creditSize*2)))) {
             //Prep for iteration within the timer
             int counter = 0; //used to determine the view
             int counter2 = 0; //used to determine the total count.
@@ -260,9 +262,9 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
         Snackbar.make(creditsView1, "Skip credits?", Snackbar.LENGTH_LONG).setAction("SKIP", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                creditTimer.cancel();
                 Intent intent = new Intent(CreditsActivity.this, GameEndActivity.class);
                 startActivity(intent);
-                //TODO: Kill the timer first to prevent screen flickering
             }
         }).show();
     }
