@@ -52,11 +52,10 @@
         android:textColor="@color/stifDev_TAP_Text"
         android:id="@+id/btnTwit"
         android:textSize="25sp"
-        android:layout_below="@+id/playClick"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/btnFB"
+        android:layout_toEndOf="@+id/btnFB" />
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Borderless"
@@ -66,8 +65,7 @@
         android:id="@+id/btnGP"
         android:textSize="25sp"
         android:layout_alignTop="@+id/btnTwit"
-        android:layout_toRightOf="@+id/btnTwit"
-        android:layout_toEndOf="@+id/btnTwit" />
+        android:layout_toRightOf="@+id/btnTwit"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Borderless"
@@ -77,8 +75,7 @@
         android:id="@+id/btnFB"
         android:textSize="25sp"
         android:layout_alignTop="@+id/btnTwit"
-        android:layout_toLeftOf="@+id/btnTwit"
-        android:layout_toStartOf="@+id/btnTwit" />
+        android:layout_toEndOf="@+id/btnInfo" />
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Borderless"
@@ -86,9 +83,10 @@
         android:layout_height="wrap_content"
         android:textColor="@color/stifDev_TAP_Text"
         android:id="@+id/btnInfo"
-        android:textSize="25sp"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/btnTwit"
-        android:layout_centerHorizontal="true" />
+        android:textSize="30sp"
+        android:layout_marginRight="30dp"
+        android:layout_alignTop="@+id/btnFB"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
