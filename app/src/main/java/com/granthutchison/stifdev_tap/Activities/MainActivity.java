@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //TODO: Override onBackPressed to always exit the game from this activity, even if not the first page.
-
 
 
 }
