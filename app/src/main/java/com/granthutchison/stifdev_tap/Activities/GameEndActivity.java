@@ -38,7 +38,6 @@ public class GameEndActivity extends AppCompatActivity {
         btnTwitter.setTypeface(FontManager.getTypeface(btnTwitter.getContext(), FontManager.FONTAWESOME));
         btnGplus.setTypeface(FontManager.getTypeface(btnGplus.getContext(), FontManager.FONTAWESOME));
         //Set the text of each button
-        //TODO: Set onClickListener with a trigger to return to the app landing page
         btnHome.setText(R.string.fa_icon_home);
         btnFacebook.setText(R.string.fa_icon_facebook1);
         btnTwitter.setText(R.string.fa_icon_twitter);
