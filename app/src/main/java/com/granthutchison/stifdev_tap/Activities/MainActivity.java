@@ -1,5 +1,6 @@
 package com.granthutchison.stifdev_tap.Activities;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,6 +52,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 intent = new Intent(MainActivity.this, ScenarioActivity.class);
                 startActivity(intent);
+
+            }
+        });
+
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment aboutDialog = new AboutDialog();
+//                aboutDialog.setArguments(bundle);
+                aboutDialog.show(getFragmentManager(),"about");
 
             }
         });
