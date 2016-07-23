@@ -208,6 +208,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
             public void onFinish() {
                 Intent intent = new Intent(CreditsActivity.this, GameEndActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         }.start();
 
@@ -265,6 +266,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
                 creditTimer.cancel();
                 Intent intent = new Intent(CreditsActivity.this, GameEndActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         }).show();
     }
