@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 
 import com.granthutchison.stifdev_tap.R;
 
@@ -14,11 +15,9 @@ import com.granthutchison.stifdev_tap.R;
  */
 public class AboutDialog extends DialogFragment {
 
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-//        return super.onCreateDialog(savedInstanceState);
-
-
 
         //Use an AlertDialog builder to populate the dialog
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -27,6 +26,14 @@ public class AboutDialog extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         final View dialogView = inflater.inflate(R.layout.about_dialog,null);
         builder.setView(dialogView);
+        Button btnClose = (Button) dialogView.findViewById(R.id.btnAboutClose);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
         builder.getContext().getTheme().applyStyle(R.style.About_Dialog, true);
 
         return builder.create();
