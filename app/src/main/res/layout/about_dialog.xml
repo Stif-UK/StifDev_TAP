@@ -78,7 +78,6 @@
                     android:textSize="20sp"
                     android:layout_marginRight="10sp"
                     android:layout_marginLeft="10sp"
-                    android:text="stifDev_TAP is a true 'bedroom coder' style project... except it's mostly been created on my living room sofa. /n For a long time I said I wanted to make an Android application, but had no inspiration - until my good friend dnimmo created project-arklay.com"
                     android:textColor="@color/stifDev_TAP_Text"
                     android:autoLink="web"/>
             </LinearLayout>

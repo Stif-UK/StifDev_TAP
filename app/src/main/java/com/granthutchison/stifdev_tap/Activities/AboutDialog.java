@@ -7,6 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.granthutchison.stifdev_tap.R;
 import com.granthutchison.stifdev_tap.Util.FontManager;
@@ -36,11 +37,29 @@ public class AboutDialog extends DialogFragment {
             }
         });
 
-        Button btnAbtExpand = (Button) dialogView.findViewById(R.id.btnAbtExpand);
+        final Button btnAbtExpand = (Button) dialogView.findViewById(R.id.btnAbtExpand);
+        final TextView abtView = (TextView) dialogView.findViewById(R.id.aboutText);
 
         //Use the custom utility to set FontAwesome fonts on buttons
         btnAbtExpand.setTypeface(FontManager.getTypeface(btnAbtExpand.getContext(),FontManager.FONTAWESOME));
         btnAbtExpand.setText(R.string.fa_icon_expand);
+        //Set onClick behaviour of the About button
+        btnAbtExpand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (abtView.getText().length() == 0) {
+                    //Change the 'expand' button to a 'contract' button icon
+                    btnAbtExpand.setText(R.string.fa_icon_contract);
+                    //Set the text of the about box
+                    abtView.setText("Some placeholder text");
+                } else {
+                    btnAbtExpand.setText(R.string.fa_icon_expand);
+                    abtView.setText("");
+                }
+
+            }
+        });
 
 
         //Set the style - this is configured to set the width of the box
