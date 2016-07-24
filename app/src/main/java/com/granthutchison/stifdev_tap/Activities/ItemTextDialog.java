@@ -43,7 +43,7 @@ public class ItemTextDialog extends DialogFragment {
         });
 
         // Create the AlertDialog object and return it (including setting the width via the style)
-        builder.getContext().getTheme().applyStyle(R.style.About_Dialog, true);
+        builder.getContext().getTheme().applyStyle(R.style.Item_Dialog, true);
         return builder.create();
     }
 }

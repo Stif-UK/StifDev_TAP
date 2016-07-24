@@ -31,6 +31,11 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="About_Dialog" parent="AlertDialog.AppCompat">
+        <item name="android:windowMinWidthMajor">95%</item>
+        <item name="android:windowMinWidthMinor">95%</item>
+    </style>
+
+    <style name="Item_Dialog" parent="AlertDialog.AppCompat">
         <item name="android:windowMinWidthMajor">85%</item>
         <item name="android:windowMinWidthMinor">85%</item>
     </style>
