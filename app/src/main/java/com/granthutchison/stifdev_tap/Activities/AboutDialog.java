@@ -37,6 +37,8 @@ public class AboutDialog extends DialogFragment {
             }
         });
 
+        //This dialog box is made of a series of sections, expanded by a button press.
+        //1. The about button and page section
         final Button btnAbtExpand = (Button) dialogView.findViewById(R.id.btnAbtExpand);
         final TextView abtView = (TextView) dialogView.findViewById(R.id.aboutText);
 
@@ -58,6 +60,27 @@ public class AboutDialog extends DialogFragment {
                     abtView.setText("");
                 }
 
+            }
+        });
+
+        //2. the info button and page section
+        final Button btnAck = (Button) dialogView.findViewById(R.id.btnInfoExpand);
+        final TextView ackView = (TextView) dialogView.findViewById(R.id.ackText);
+
+        //Use the custom utility to set FontAwesome
+        btnAck.setTypeface(FontManager.getTypeface(btnAck.getContext(),FontManager.FONTAWESOME));
+        btnAck.setText(R.string.fa_icon_expand);
+        //Set onClick behaviour for the info button
+        btnAck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ackView.getText().length() == 0){
+                    btnAck.setText(R.string.fa_icon_contract);
+                    ackView.setText(R.string.acknowledgements_thanks_text);
+                }else {
+                    btnAck.setText(R.string.fa_icon_expand);
+                    ackView.setText("");
+                }
             }
         });
 

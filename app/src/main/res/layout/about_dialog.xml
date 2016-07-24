@@ -14,7 +14,7 @@
         android:layout_margin="10sp"
         android:textAlignment="center"
         android:text="stifDev_TAP: Info"
-        android:id="@+id/infoTitle"
+        android:id="@+id/infoDialogTitle"
         android:layout_gravity="center_horizontal" />
 
     <Button
@@ -34,7 +34,7 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/btnAboutClose"
-        android:layout_below="@+id/infoTitle">
+        android:layout_below="@+id/infoDialogTitle">
 
         <LinearLayout
             android:orientation="vertical"
@@ -80,6 +80,46 @@
                     android:layout_marginLeft="10sp"
                     android:textColor="@color/stifDev_TAP_Text"
                     android:autoLink="web"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acknowledgements and Thanks"
+                    android:id="@+id/ackTitle"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:layout_marginLeft="10sp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/about_headers" />
+
+                <Button
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnInfoExpand"
+                    android:textSize="@dimen/about_headers" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ackText"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:autoLink="web" />
             </LinearLayout>
 
         </LinearLayout>
