@@ -12,4 +12,5 @@
     <string name="fa_icon_question">&#xf0d4;</string>
     <string name="fa_icon_share">&#xf1e0;</string>
     <string name="fa_icon_expand">&#xf065;</string>
+    <string name="fa_icon_contract">&#xf066;</string>
 </resources>
