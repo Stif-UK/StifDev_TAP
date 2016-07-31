@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnGP;
     private Button btnInfo;
     private Intent intent;
+    private boolean shareExpanded;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,37 +44,8 @@ public class MainActivity extends AppCompatActivity {
         btnInfo.setText(R.string.fa_icon_info);
 
         //Set the right hand 'social' button with a share icon
-        btnGP.setText(R.string.fa_icon_share);
-
-        //If the share button is clicked, then set social icons:
-        btnGP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            btnFB.setText(R.string.fa_icon_facebook1);
-            btnTwit.setText(R.string.fa_icon_twitter);
-            btnGP.setText(R.string.fa_icon_gplus1);
-
-                btnGP.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(Intent.ACTION_SEND);
-                        intent.setType("text/plain");
-                        //TODO: Update the share text below with the app link and flavour text
-                        intent.putExtra(Intent.EXTRA_TEXT,
-                                "Just testing, check this out: http://stackoverflow.com/questions/28212490/");
-                        HandyUtils.filterByPackageName(btnGP.getContext(), intent, "com.google.android.apps.plus");
-                        startActivity(intent);
-                    }
-                });
-
-            }
-        });
-
-
-
-
-
-
+        hideSharing();
+        shareExpanded = false;
 
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +67,64 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*
+     * Override the onBackPressed method - if a user clicks back when the share icons have been
+     * expanded, then these should collapse first, else the app should simply exit.
+     */
+    @Override
+    public void onBackPressed(){
+        if (shareExpanded) {
+            hideSharing();
+        }
+        else {
+            super.onBackPressed();
 
+        }
+    }
 
+    /**
+     * setSharing() is a private helper method which can be used to instantiate the social share
+     * buttons on the main screen
+     */
+    private void setSharing(){
+        btnFB.setText(R.string.fa_icon_facebook1);
+        btnTwit.setText(R.string.fa_icon_twitter);
+        btnGP.setText(R.string.fa_icon_gplus1);
+        shareExpanded = true;
+
+        btnGP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                //TODO: Update the share text below with the app link and flavour text
+                intent.putExtra(Intent.EXTRA_TEXT,
+                        "Just testing, check this out: http://stackoverflow.com/questions/28212490/");
+                HandyUtils.filterByPackageName(btnGP.getContext(), intent, "com.google.android.apps.plus");
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * hideSharing() is a private helper method that clears the social share buttons and nullifies
+     * their onClickListeners, leaving the "Google plus button" with a simple share icon
+     */
+    private void hideSharing(){
+        btnGP.setText(R.string.fa_icon_share);
+        btnFB.setText("");
+        btnTwit.setText("");
+        shareExpanded = false;
+
+        //If the share button is clicked, then set social icons:
+        btnGP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSharing();
+            }
+        });
+
+        btnFB.setOnClickListener(null);
+        btnTwit.setOnClickListener(null);
+    }
 }
