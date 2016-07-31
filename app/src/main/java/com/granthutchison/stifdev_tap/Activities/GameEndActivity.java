@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.granthutchison.stifdev_tap.R;
 import com.granthutchison.stifdev_tap.Util.FontManager;
+import com.granthutchison.stifdev_tap.Util.HandyUtils;
 
 /**
  * The GameEndActivity class controls the activity_tyfp content view. The purpose of this view
@@ -53,10 +54,27 @@ public class GameEndActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Set the social sharing buttons click listeners:
+        btnGplus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                //TODO: Update the share text below with the app link and flavour text
+                intent.putExtra(Intent.EXTRA_TEXT,
+                        "Just testing, check this out: http://stackoverflow.com/questions/28212490/");
+                HandyUtils.filterByPackageName(btnGplus.getContext(), intent, "com.google.android.apps.plus");
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     //TODO: Update back button press functionality
     //What do I want the back button to do here? Some kind of 'bounce' animation on the home button?
+    //A snackbar asking if the user wishes to return to the homescreen?
 
 
 }
