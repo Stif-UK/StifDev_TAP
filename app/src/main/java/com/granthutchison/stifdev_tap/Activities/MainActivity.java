@@ -38,10 +38,31 @@ public class MainActivity extends AppCompatActivity {
         btnGP.setTypeface(FontManager.getTypeface(btnGP.getContext(),FontManager.FONTAWESOME));
         btnInfo.setTypeface(FontManager.getTypeface(btnInfo.getContext(),FontManager.FONTAWESOME));
         //Set the icons
-        btnFB.setText(R.string.fa_icon_facebook1);
-        btnTwit.setText(R.string.fa_icon_twitter);
-        btnGP.setText(R.string.fa_icon_gplus1);
+        //info buttons
         btnInfo.setText(R.string.fa_icon_info);
+
+        //Set the right hand 'social' button with a share icon
+        btnGP.setText(R.string.fa_icon_share);
+
+        //If the share button is clicked, then set social icons:
+        btnGP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            btnFB.setText(R.string.fa_icon_facebook1);
+            btnTwit.setText(R.string.fa_icon_twitter);
+            btnGP.setText(R.string.fa_icon_gplus1);
+
+                btnGP.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //do nothing yet
+                    }
+                });
+
+            }
+        });
+
+
 
 
 
