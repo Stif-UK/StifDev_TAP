@@ -54,7 +54,7 @@ public class AboutDialog extends DialogFragment {
                     //Change the 'expand' button to a 'contract' button icon
                     btnAbtExpand.setText(R.string.fa_icon_contract);
                     //Set the text of the about box
-                    abtView.setText("Some placeholder text");
+                    abtView.setText(R.string.about_text);
                 } else {
                     btnAbtExpand.setText(R.string.fa_icon_expand);
                     abtView.setText("");

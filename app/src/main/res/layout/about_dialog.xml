@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -61,9 +61,11 @@
                     android:textColor="@color/stifDev_TAP_Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/aboutTitle"
+                    android:layout_alignParentRight="true"
                     android:id="@+id/btnAbtExpand"
                     android:textSize="@dimen/about_headers"/>
-            </LinearLayout>
+            </RelativeLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -79,13 +81,15 @@
                     android:layout_marginRight="10sp"
                     android:layout_marginLeft="10sp"
                     android:textColor="@color/stifDev_TAP_Text"
-                    android:autoLink="web"/>
+                    android:autoLink="web"
+                    android:layout_marginBottom="10sp" />
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -103,8 +107,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnInfoExpand"
-                    android:textSize="@dimen/about_headers" />
-            </LinearLayout>
+                    android:textSize="@dimen/about_headers"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
