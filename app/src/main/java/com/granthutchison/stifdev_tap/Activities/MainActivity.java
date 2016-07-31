@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.granthutchison.stifdev_tap.Model.Controller;
 import com.granthutchison.stifdev_tap.R;
 import com.granthutchison.stifdev_tap.Util.FontManager;
+import com.granthutchison.stifdev_tap.Util.HandyUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,7 +56,13 @@ public class MainActivity extends AppCompatActivity {
                 btnGP.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //do nothing yet
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/plain");
+                        //TODO: Update the share text below with the app link and flavour text
+                        intent.putExtra(Intent.EXTRA_TEXT,
+                                "Just testing, check this out: http://stackoverflow.com/questions/28212490/");
+                        HandyUtils.filterByPackageName(btnGP.getContext(), intent, "com.google.android.apps.plus");
+                        startActivity(intent);
                     }
                 });
 
