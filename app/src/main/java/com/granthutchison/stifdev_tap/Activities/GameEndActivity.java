@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -49,10 +50,7 @@ public class GameEndActivity extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GameEndActivity.this, MainActivity.class);
-                //Clear this page from the back stack to prevent the user navigating back to it
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                goHome();
             }
         });
 
@@ -87,9 +85,26 @@ public class GameEndActivity extends AppCompatActivity {
 
     }
 
-    //TODO: Update back button press functionality
-    //What do I want the back button to do here? Some kind of 'bounce' animation on the home button?
-    //A snackbar asking if the user wishes to return to the homescreen?
+    /**
+     * The goHome() method changes the view back to the app landing page, whilst also clearing
+     * the top of the back stack to prevent the user moving 'back' to this page.
+     */
+    private void goHome(){
+        Intent intent = new Intent(GameEndActivity.this, MainActivity.class);
+        //Clear this page from the back stack to prevent the user navigating back to it
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
 
 
+    @Override
+    public void onBackPressed() {
+        Snackbar.make(btnHome, "Back to the landing page?", Snackbar.LENGTH_LONG).setAction("GO!", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goHome();
+            }
+        }).show();
+    }
 }
