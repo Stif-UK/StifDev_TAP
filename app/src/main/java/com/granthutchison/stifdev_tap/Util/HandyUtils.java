@@ -3,7 +3,10 @@ package com.granthutchison.stifdev_tap.Util;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
+import android.util.Log;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -30,6 +33,23 @@ public class HandyUtils {
                 intent.setPackage(info.activityInfo.packageName);
                 return;
             }
+        }
+    }
+
+    /**
+     * urlEncode is a static utility method created by StackOverflow user Jonik.
+     * It takes an input string and returns a URL encoded string, to be used where encoded
+     * strings are to be included in a url.
+     * @param s a String object to be encoded
+     * @return a URL encoded String
+     */
+    public static String urlEncode(String s) {
+        try {
+            return URLEncoder.encode(s, "UTF-8");
+        }
+        catch (UnsupportedEncodingException e) {
+            Log.wtf("Crash", "UTF-8 should always be supported", e);
+            throw new RuntimeException("URLEncoder.encode() failed for " + s);
         }
     }
 }

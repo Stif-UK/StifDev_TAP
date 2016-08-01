@@ -2,6 +2,7 @@ package com.granthutchison.stifdev_tap.Activities;
 
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -92,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
         btnGP.setText(R.string.fa_icon_gplus1);
         shareExpanded = true;
 
+        //TODO: The Twitter and G+ code here is repeated in the GameEndActivity.java class - pull out into a utility class instead.
+        //Set the Google Plus button listener with code to post to G+
         btnGP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,6 +107,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Set the Twitter button listener and code to post a Tweet
+        btnTwit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create intent using ACTION_VIEW and a normal Twitter url:
+                String tweetUrl = String.format("https://twitter.com/intent/tweet?text=%s&url=%s",
+                        //TODO: Update the Tweet text and link
+                        HandyUtils.urlEncode("Tweet text"),
+                        HandyUtils.urlEncode("https://www.google.fi/"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tweetUrl));
+                HandyUtils.filterByPackageName(btnTwit.getContext(), intent, "com.twitter");
+                startActivity(intent);
+            }
+        });
+
+
+// Narrow down to official Twitter app, if available:
     }
 
     /**
