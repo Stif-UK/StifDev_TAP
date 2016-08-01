@@ -1,6 +1,7 @@
 package com.granthutchison.stifdev_tap.Activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -67,6 +68,20 @@ public class GameEndActivity extends AppCompatActivity {
                 HandyUtils.filterByPackageName(btnGplus.getContext(), intent, "com.google.android.apps.plus");
                 startActivity(intent);
 
+            }
+        });
+
+        btnTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create intent using ACTION_VIEW and a normal Twitter url:
+                String tweetUrl = String.format("https://twitter.com/intent/tweet?text=%s&url=%s",
+                        //TODO: Update the Tweet text and link
+                        HandyUtils.urlEncode("Tweet text"),
+                        HandyUtils.urlEncode("https://www.google.fi/"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tweetUrl));
+                HandyUtils.filterByPackageName(btnTwitter.getContext(), intent, "com.twitter");
+                startActivity(intent);
             }
         });
 
