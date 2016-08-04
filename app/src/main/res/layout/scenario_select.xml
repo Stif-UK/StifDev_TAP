@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose your adventure!"
+        android:layout_marginBottom="5dp"
         android:id="@+id/scenarioSellectTitle"
         android:textColor="@color/abc_primary_text_disable_only_material_dark"
         android:layout_marginTop="71dp"
@@ -25,27 +26,39 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Project Arklay"
-        android:id="@+id/projectArkley"
-        android:textColor="@color/abc_primary_text_disable_only_material_dark"
-        android:layout_marginTop="147dp"
-        android:textSize="@dimen/abc_text_size_headline_material"
-        android:layout_below="@+id/appTitle_subheading"
-        android:layout_centerHorizontal="true"
-        android:onClick="setContentView"
-        android:clickable="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="More coming soon"
         android:id="@+id/scenario2"
         android:textColor="@color/abc_search_url_text"
-        android:layout_marginTop="200dp"
         android:textSize="@dimen/abc_text_size_headline_material"
-        android:layout_below="@+id/appTitle_subheading"
-        android:layout_centerHorizontal="true"
         android:clickable="true"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:textSize="@dimen/abc_text_size_headline_material"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/StifDev_TAP_Background"
+        android:text="Tutorial"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btnTutorial"
+        android:layout_below="@+id/scenarioSellectTitle"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:textSize="@dimen/abc_text_size_headline_material"
+        android:background="@color/StifDev_TAP_Background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Project Arklay"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btnArklay"
+        android:layout_below="@+id/btnTutorial"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
