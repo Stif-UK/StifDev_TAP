@@ -640,6 +640,9 @@ public class ProjectArklayGameScenario extends GameScenario {
                 );
         super.getMap().put(room26_laboratory, laboratory);
 
+        /*Set the starting room*/
+        super.setCurrentRoom(room1_prelude);
+
         /*Now create the game items*/
 
 
@@ -699,6 +702,20 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String failText*/"It doesn't look like it fits any of these doors."
         );
         super.getGameItems().put(item_key, key);
+
+        /*Finally, create the credits for the scenario*/
+        //Create the game credits
+        super.getCredits().put("Story", "David Nimmo & Jamie Mercer");
+        super.getCredits().put("Game Map", "David Nimmo & Jamie Mercer");
+        super.getCredits().put("Inspired by", "Project-Arklay.com");
+        super.getCredits().put("Game Engine Design","Grant Hutchison");
+        super.getCredits().put("Lead Developer","Grant Hutchison");
+        super.getCredits().put("Chief sounding board","Colin McCormick");
+        super.getCredits().put("Alpha Testers","Colin McCormick\nGrant Hutchison");
+        super.getCredits().put("Beta Testers","David Nimmo\nPaul Chisholm\nColin McCormick");
+        super.getCredits().put("Proudly built using","Android Studio");
+        super.getCredits().put("Special Thanks","David Nimmo\nThe Open University\nTim Buchalka\nJoanne & Caleb Hutchison");
+        super.getCredits().put("END","");
 
 
 

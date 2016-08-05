@@ -25,7 +25,7 @@ public class FinalRoom extends Room {
                      String roomsUnlockedDescription,
                      String bottomBtnText) {
 
-        super(title, "", "", "", "", roomsUnlockedDescription,
+        super(title, "", "", "", roomsUnlockedDescription,
                 "", "", false, bottomBtnText,
                 /*The bottom room name will always be "Credits" to enable a FinalRoom
                  * to trigger the end credits */ "Credits", false, "", "", false, "", "", false);

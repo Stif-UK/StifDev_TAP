@@ -57,9 +57,14 @@ public class Scenario {
 
 
             case "Arklay":
-                //TODO: Construct all required Room objects and add to the map attribute. All Item objects should be instantiated.
-                //and added to the gameItems Map.
-                //Can I write a JSON parser to simplify this?
+                ProjectArklayGameScenario arklay = new ProjectArklayGameScenario();
+                this.setMap(arklay.getMap());
+                this.setGameItems(arklay.getGameItems());
+                this.setInventory(arklay.getInventory());
+                this.setCurrentRoom(arklay.getCurrentRoom());
+                this.setCredits(arklay.getCredits());
+                arklay = null;
+
                 return true;
             default:
                 return false;
