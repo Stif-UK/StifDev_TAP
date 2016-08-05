@@ -696,7 +696,7 @@ public class ProjectArklayGameScenario extends GameScenario {
 
                 Item key = new Item(
                 /*String name*/item_key,
-                /*String unlocks*/room13_swimming,
+                /*String unlocks*/room12_hall_lower_east,
                 /*String description*/"A small key",
                 /*String usedText*/"You have unlocked the door to the North",
                 /*String failText*/"It doesn't look like it fits any of these doors."
