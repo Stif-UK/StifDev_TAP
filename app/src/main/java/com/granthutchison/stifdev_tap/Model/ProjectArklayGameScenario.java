@@ -36,6 +36,7 @@ public class ProjectArklayGameScenario extends GameScenario {
         String room25_study = "Study";
         String room26_laboratory = "Laboratory";
 
+        /*Next create Strings to hold all of the item names*/
         String item_paper = "A scrap of paper";
         String item_crowbar = "Crowbar";
         String item_book = "Book";
@@ -49,6 +50,10 @@ public class ProjectArklayGameScenario extends GameScenario {
         if (!super.getInventory().isEmpty()) {
             super.getInventory().clear();
         }
+
+        /*Create the rooms and populate the game map*/
+
+        //Well formatted constructor to support map creation
 
 //        Room NAME_IT = new Room(
 //                /*String title*/ NAME_STRING_HERE,
@@ -489,6 +494,178 @@ public class ProjectArklayGameScenario extends GameScenario {
 
         );
         super.getMap().put(room18_master_bedroom, master_bedroom);
+
+                Room en_suite = new Room(
+                /*String title*/ room19_en_suite,
+                /*String contains item*/ "",
+                /*String itemPickupText*/ "",
+                /*String roomLockedDescription*/ "",
+                /*String itemCollectedDescription*/ "There's a magazine rack here, which is empty except for a single book.",
+                /*String roomsUnlockedDescription*/ "A fancy en-suite. There's a bidet, so that's quite exciting.",
+                /*String topBtnText*/ "",
+                /*String topRoomName*/"",
+                /*boolean topLocked*/ false,
+                /*String bottomBtnText*/"",
+                /*String bottomRoomName*/"",
+                /*boolean bottomLocked*/false,
+                /*String leftBtnText*/"West",
+                /*String leftRoomName*/room18_master_bedroom,
+                /*boolean leftLocked*/false,
+                /*String rightBtnText*/"",
+                /*String rightRoomName*/"",
+                /*boolean rightLocked*/false
+
+        );
+        super.getMap().put(room19_en_suite, en_suite);
+
+                Room wardrobe = new Room(
+                /*String title*/ room20_wardrobe,
+                /*String contains item*/ "",
+                /*String itemPickupText*/ "",
+                /*String roomLockedDescription*/ "",
+                /*String itemCollectedDescription*/ "",
+                /*String roomsUnlockedDescription*/ "A fancy walk-in wardrobe. Most of the clothes in here have been eaten away at by moths. /n The smell of damp fills your nostrils.",
+                /*String topBtnText*/ "",
+                /*String topRoomName*/"",
+                /*boolean topLocked*/ false,
+                /*String bottomBtnText*/"South",
+                /*String bottomRoomName*/room18_master_bedroom,
+                /*boolean bottomLocked*/false,
+                /*String leftBtnText*/"",
+                /*String leftRoomName*/"",
+                /*boolean leftLocked*/false,
+                /*String rightBtnText*/"",
+                /*String rightRoomName*/"",
+                /*boolean rightLocked*/false
+
+        );
+        super.getMap().put(room20_wardrobe, wardrobe);
+
+                Room aquarium = new Room(
+                /*String title*/ room21_aquarium,
+                /*String contains item*/ "",
+                /*String itemPickupText*/ "",
+                /*String roomLockedDescription*/ "",
+                /*String itemCollectedDescription*/ "",
+                /*String roomsUnlockedDescription*/ "A large aquarium full of exotic fish. /n I'm not sure how they're still alive, but the dim blue lights of their tanks is very soothing. There's a faint whirring noise coming from the tank.",
+                /*String topBtnText*/ "",
+                /*String topRoomName*/"",
+                /*boolean topLocked*/ false,
+                /*String bottomBtnText*/"",
+                /*String bottomRoomName*/"",
+                /*boolean bottomLocked*/false,
+                /*String leftBtnText*/"",
+                /*String leftRoomName*/"",
+                /*boolean leftLocked*/false,
+                /*String rightBtnText*/"East",
+                /*String rightRoomName*/room17_hall_upper_east_two,
+                /*boolean rightLocked*/false
+
+        );
+        super.getMap().put(room21_aquarium, aquarium);
+
+                Room trophy_room = new Room(
+                /*String title*/ room22_trophy_room,
+                /*String contains item*/ "",
+                /*String itemPickupText*/ "",
+                /*String roomLockedDescription*/ "",
+                /*String itemCollectedDescription*/ "You notice that a moose head has fallen onto the floor, and it seems like a good idea to take it with you.",
+                /*String roomsUnlockedDescription*/ "A large trophy room, full of animals that have been stuffed and treated. /n It's pretty creepy in here.",
+                /*String topBtnText*/ "",
+                /*String topRoomName*/"",
+                /*boolean topLocked*/ false,
+                /*String bottomBtnText*/"South",
+                /*String bottomRoomName*/room17_hall_upper_east_two,
+                /*boolean bottomLocked*/false,
+                /*String leftBtnText*/"",
+                /*String leftRoomName*/"",
+                /*boolean leftLocked*/false,
+                /*String rightBtnText*/"",
+                /*String rightRoomName*/"",
+                /*boolean rightLocked*/false
+
+        );
+        super.getMap().put(room22_trophy_room, trophy_room);
+
+                Room hall_upper_west = new Room(
+                /*String title*/ room23_hall_upper_west,
+                /*String contains item*/ "",
+                /*String itemPickupText*/ "",
+                /*String roomLockedDescription*/ "",
+                /*String itemCollectedDescription*/ "",
+                /*String roomsUnlockedDescription*/ "You are in yet another hallway. /n No wonder it's so filthy around here! I couldn't be bothered to clean these hallways either', you think to yourself.",
+                /*String topBtnText*/ "",
+                /*String topRoomName*/"",
+                /*boolean topLocked*/ false,
+                /*String bottomBtnText*/"",
+                /*String bottomRoomName*/"",
+                /*boolean bottomLocked*/false,
+                /*String leftBtnText*/"West",
+                /*String leftRoomName*/room24_guest_bedroom,
+                /*boolean leftLocked*/false,
+                /*String rightBtnText*/"East",
+                /*String rightRoomName*/room15_upper_foyer,
+                /*boolean rightLocked*/false
+
+        );
+        super.getMap().put(room22_trophy_room, trophy_room);
+
+                Room guest_bedroom = new Room(
+                /*String title*/ room24_guest_bedroom,
+                /*String contains item*/ "",
+                /*String itemPickupText*/ "",
+                /*String roomLockedDescription*/ "A well decorated guest bedroom. /n There's an unusual-looking plaque on the wall. It looks like it's missing something. /n There's a door to the North, but it's locked.",
+                /*String itemCollectedDescription*/ "There's a small key on a bedside table.",
+                /*String roomsUnlockedDescription*/ "A well decorated guest bedroom. /n The moose's head is staring at you from its place on the wall, and the door to the North is unlocked.",
+                /*String topBtnText*/ "North",
+                /*String topRoomName*/room25_study,
+                /*boolean topLocked*/ true,
+                /*String bottomBtnText*/"",
+                /*String bottomRoomName*/"",
+                /*boolean bottomLocked*/false,
+                /*String leftBtnText*/"",
+                /*String leftRoomName*/"",
+                /*boolean leftLocked*/false,
+                /*String rightBtnText*/"East",
+                /*String rightRoomName*/room23_hall_upper_west,
+                /*boolean rightLocked*/false
+
+        );
+        super.getMap().put(room24_guest_bedroom, guest_bedroom);
+
+                Room study = new Room(
+                /*String title*/ room25_study,
+                /*String contains item*/ "",
+                /*String itemPickupText*/ "",
+                /*String roomLockedDescription*/ "You are in a study, with a desk covered in scattered papers and cut-outs from news stories. /n There's a computer on a desk, with a prompt for a password on the screen.",
+                /*String itemCollectedDescription*/ "",
+                /*String roomsUnlockedDescription*/ "You are in a study, with a desk covered in scattered papers and cut-outs from news stories. /n The computer has switched itself off, but a door to the North has revealed itself.",
+                /*String topBtnText*/ "North",
+                /*String topRoomName*/room26_laboratory,
+                /*boolean topLocked*/ true,
+                /*String bottomBtnText*/"South",
+                /*String bottomRoomName*/room24_guest_bedroom,
+                /*boolean bottomLocked*/false,
+                /*String leftBtnText*/"",
+                /*String leftRoomName*/"",
+                /*boolean leftLocked*/false,
+                /*String rightBtnText*/"",
+                /*String rightRoomName*/"",
+                /*boolean rightLocked*/false
+
+        );
+        super.getMap().put(room25_study, study);
+
+
+        /*The last room in the map should normally be a FinalRoom*/
+        FinalRoom laboratory = new FinalRoom(
+                /*String title*/room26_laboratory,
+                /*String roomUnlockedDescription*/"This is unusual. There's a laboratory here! /n Piles of papers and folders are scattered everywhere. The information held within is terrifying. This is just the beginning...",
+                /*String bottomBtnText*/ "Roll Credits"
+                );
+        super.getMap().put(room26_laboratory, laboratory);
+
+        /*Now create the game items*/
 
 
 
