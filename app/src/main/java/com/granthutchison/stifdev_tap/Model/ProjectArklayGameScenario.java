@@ -85,7 +85,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "Your head hurts. You're not sure where you are, and you definitely don't know how you got here. You can hear rain thrashing the ground outside, but the only exit is locked anyway. You figure you might as well try and understand what the Hell is going on...",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -108,7 +107,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "You are in the foyer of what appears to be a mansion. /n A vast, dimly-lit foyer, with a grand staircase and a couple of doors.",
                 /*String topBtnText*/ "Upstairs",
                 /*String topRoomName*/room15_upper_foyer,
@@ -131,7 +129,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "A large dining hall. /n A grandfather clock is steadily ticking, it's sound echoing through the room.",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room4_hall_lower_west_one,
@@ -154,7 +151,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "A hallway stretches out ahead of you. /n A number of doors line the hall.",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room6_gallery,
@@ -177,7 +173,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "An industrial looking kitchen. /n The walls, floor and work surfaces are stained an odd, brownish colour.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -200,7 +195,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "A large room full of various pieces of art. /n There's no time to look at these now.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -223,7 +217,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "A well-used lounge area. /n There's a large fireplace that looks like it hasn't been used in quite some time, and a dusty grand piano with sheet notes for The Moonlight Sonata. /n You regret never having learned to play the piano.",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room8_hall_lower_west_two,
@@ -246,7 +239,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "A large hallway, with a musty smell in the air. /n There are doors to the West, South and East.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -270,7 +262,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "A small library full of useless books. /n You notice that 'Tales of the Occult Vol. 2' is missing.",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "A small library full of useless books. /n The bookcase is full, thanks to your careful tidying up. /n The replaced book has revealed a door in the West Wall, which is an amazing feat of engineering.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -290,10 +281,9 @@ public class ProjectArklayGameScenario extends GameScenario {
 
                 Room hidden = new Room(
                 /*String title*/ room10_hidden,
-                /*String contains item*/ "",
-                /*String itemPickupText*/ "",
+                /*String contains item*/ item_paper,
+                /*String itemPickupText*/ "The room is almost completely empty, save for a piece of paper on the floor, with a series of numbers scribbled on it.",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "The room is almost completely empty, save for a piece of paper on the floor, with a series of numbers scribbled on it.",
                 /*String roomsUnlockedDescription*/ "A well hidden room.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -316,7 +306,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "A square room with a prominent centerpiece. /n It appears to be a statue of Zeus, throwing a bolt of lightening. /n Seems fitting for the weather outside.",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room12_hall_lower_east,
@@ -339,7 +328,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "A long hallway with large windows. /n The weather outside is terrible. You can't see very far into the distance at all. /n There's a locked door to the North.",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "A long hallway with large windows. /n The weather outside is terrible. You can't see very far into the distance at all. /n There are doors to the North and South.",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room13_swimming,
@@ -362,7 +350,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "An Olympic sized swimming pool. /n What kind of people live here?",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room14_garage,
@@ -382,10 +369,9 @@ public class ProjectArklayGameScenario extends GameScenario {
 
                 Room garage = new Room(
                 /*String title*/ room14_garage,
-                /*String contains item*/ "",
-                /*String itemPickupText*/ "",
+                /*String contains item*/ item_crowbar,
+                /*String itemPickupText*/ "You think that crowbar could come in handy though...",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "You think that crowbar could come in handy though...",
                 /*String roomsUnlockedDescription*/ "A large garage. /n The garage is empty, apart from a few tools. You're not entirely sure what they're for...",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -408,7 +394,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "You are at the top of a grand staircase. /n You have a good view of the foyer from the top of the staircase. /n A door to the east has been boarded shut.",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "You are at the top of a grand staircase. /n You have a good view of the foyer from the top of the staircase. /n There are doors to the East and West.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -431,7 +416,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "You are in a hallway. /n It's very dimly lit, and there are no natural sources of light in here. Your own footsteps echo behind you, and you can't be sure that you're alone.",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room17_hall_upper_east_two,
@@ -454,7 +438,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "You are in a hallway. /n How many rooms does this place have?",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room22_trophy_room,
@@ -477,7 +460,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "The master bedroom. A large four-poster bed is in the middle of the room. /n The carpet feels thick and plush beneath your feet. There's a set of French doors leading to a balcony, but it is locked.",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room20_wardrobe,
@@ -497,10 +479,9 @@ public class ProjectArklayGameScenario extends GameScenario {
 
                 Room en_suite = new Room(
                 /*String title*/ room19_en_suite,
-                /*String contains item*/ "",
-                /*String itemPickupText*/ "",
+                /*String contains item*/ item_book,
+                /*String itemPickupText*/ "There's a magazine rack here, which is empty except for a single book.",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "There's a magazine rack here, which is empty except for a single book.",
                 /*String roomsUnlockedDescription*/ "A fancy en-suite. There's a bidet, so that's quite exciting.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -523,7 +504,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "A fancy walk-in wardrobe. Most of the clothes in here have been eaten away at by moths. /n The smell of damp fills your nostrils.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -546,7 +526,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "A large aquarium full of exotic fish. /n I'm not sure how they're still alive, but the dim blue lights of their tanks is very soothing. There's a faint whirring noise coming from the tank.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -566,10 +545,9 @@ public class ProjectArklayGameScenario extends GameScenario {
 
                 Room trophy_room = new Room(
                 /*String title*/ room22_trophy_room,
-                /*String contains item*/ "",
-                /*String itemPickupText*/ "",
+                /*String contains item*/ item_moose,
+                /*String itemPickupText*/ "You notice that a moose head has fallen onto the floor, and it seems like a good idea to take it with you.",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "You notice that a moose head has fallen onto the floor, and it seems like a good idea to take it with you.",
                 /*String roomsUnlockedDescription*/ "A large trophy room, full of animals that have been stuffed and treated. /n It's pretty creepy in here.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -592,7 +570,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "You are in yet another hallway. /n No wonder it's so filthy around here! I couldn't be bothered to clean these hallways either', you think to yourself.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -613,9 +590,8 @@ public class ProjectArklayGameScenario extends GameScenario {
                 Room guest_bedroom = new Room(
                 /*String title*/ room24_guest_bedroom,
                 /*String contains item*/ "",
-                /*String itemPickupText*/ "",
+                /*String itemPickupText*/ "There's a small key on a bedside table.",
                 /*String roomLockedDescription*/ "A well decorated guest bedroom. /n There's an unusual-looking plaque on the wall. It looks like it's missing something. /n There's a door to the North, but it's locked.",
-                /*String itemCollectedDescription*/ "There's a small key on a bedside table.",
                 /*String roomsUnlockedDescription*/ "A well decorated guest bedroom. /n The moose's head is staring at you from its place on the wall, and the door to the North is unlocked.",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room25_study,
@@ -638,7 +614,6 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "You are in a study, with a desk covered in scattered papers and cut-outs from news stories. /n There's a computer on a desk, with a prompt for a password on the screen.",
-                /*String itemCollectedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "You are in a study, with a desk covered in scattered papers and cut-outs from news stories. /n The computer has switched itself off, but a door to the North has revealed itself.",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room26_laboratory,
@@ -666,6 +641,67 @@ public class ProjectArklayGameScenario extends GameScenario {
         super.getMap().put(room26_laboratory, laboratory);
 
         /*Now create the game items*/
+
+
+        /*Well formatted item constructor to support inventory generation*/
+
+//        Item NAME_IT = new Item(
+//                /*String name*/"",
+//                /*String unlocks*/"",
+//                /*String description*/"",
+//                /*String usedText*/"",
+//                /*String failText*/""
+//        );
+//        super.getGameItems().put(NAME_STRING, NAME_IT);
+
+
+                Item paper = new Item(
+                /*String name*/item_paper,
+                /*String unlocks*/room25_study,
+                /*String description*/"A piece of paper with 2407 written on it.",
+                /*String usedText*/"You type the code into the terminal.",
+                /*String failText*/"What do these numbers mean?"
+        );
+        super.getGameItems().put(item_paper, paper);
+
+                Item crowbar = new Item(
+                /*String name*/item_crowbar,
+                /*String unlocks*/room16_hall_upper_east_one,
+                /*String description*/"A sturdy crowbar.",
+                /*String usedText*/"You prise off the wooden planks.",
+                /*String failText*/"Nothing to use this on in here."
+        );
+        super.getGameItems().put(item_crowbar, crowbar);
+
+                Item book = new Item(
+                /*String name*/item_book,
+                /*String unlocks*/room9_library,
+                /*String description*/"Tales of the Occult, Vol.2",
+                /*String usedText*/"The missing book sits neatly between volumes 1 and 3.",
+                /*String failText*/"I wonder where this came from?"
+        );
+        super.getGameItems().put(item_book, book);
+
+                Item moose_head = new Item(
+                /*String name*/item_moose,
+                /*String unlocks*/room24_guest_bedroom,
+                /*String description*/"The moose's cold, dead eyes stare into your soul",
+                /*String usedText*/"You place the moose head onto the empty plaque",
+                /*String failText*/"Why did I bring this with me?"
+        );
+        super.getGameItems().put(item_moose, moose_head);
+
+                Item key = new Item(
+                /*String name*/item_key,
+                /*String unlocks*/room13_swimming,
+                /*String description*/"A small key",
+                /*String usedText*/"You have unlocked the door to the North",
+                /*String failText*/"It doesn't look like it fits any of these doors."
+        );
+        super.getGameItems().put(item_key, key);
+
+
+
 
 
 

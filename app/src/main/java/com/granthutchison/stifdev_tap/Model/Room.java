@@ -39,7 +39,7 @@ public class Room {
     private String rightRoomName;
     private boolean rightLocked;
 
-    public Room(String title, String containsItem, String itemPickupText, String roomLockedDescription, String itemCollectedDescription, String roomsUnlockedDescription, String topBtnText, String topRoomName, boolean topLocked, String bottomBtnText, String bottomRoomName, boolean bottomLocked, String leftBtnText, String leftRoomName, boolean leftLocked, String rightBtnText, String rightRoomName, boolean rightLocked) {
+    public Room(String title, String containsItem, String itemPickupText, String roomLockedDescription, String roomsUnlockedDescription, String topBtnText, String topRoomName, boolean topLocked, String bottomBtnText, String bottomRoomName, boolean bottomLocked, String leftBtnText, String leftRoomName, boolean leftLocked, String rightBtnText, String rightRoomName, boolean rightLocked) {
         this.title = title;
         this.containsItem = containsItem;
         this.itemPickupText = itemPickupText;
