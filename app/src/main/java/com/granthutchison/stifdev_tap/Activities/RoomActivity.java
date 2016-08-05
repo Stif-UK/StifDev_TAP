@@ -291,7 +291,7 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
             //Get the system end of line property to easily drop in some spacing, and create some
             //surrounding asterisks to display around the item pickup text.
             String eol = System.getProperty("line.separator");
-            String surround = "****";
+            String surround = "***************";
 
             //Set the title and description of the room
             roomTitle.setText(myCont.getRoomTitle());
@@ -299,7 +299,7 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
 
             //If an item was found, append some text to the bottom of the description
             if(itemText.length() > 1){
-                roomDesc.append(eol + eol + surround +" "+itemText + " " + surround);
+                roomDesc.append(eol + eol + surround +eol+ eol +itemText + eol+eol + surround);
             }
 
             //1. Identify the new text for the room buttons.

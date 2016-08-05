@@ -589,7 +589,7 @@ public class ProjectArklayGameScenario extends GameScenario {
 
                 Room guest_bedroom = new Room(
                 /*String title*/ room24_guest_bedroom,
-                /*String contains item*/ "",
+                /*String contains item*/ item_key,
                 /*String itemPickupText*/ "There's a small key on a bedside table.",
                 /*String roomLockedDescription*/ "A well decorated guest bedroom. \n \n There's an unusual-looking plaque on the wall. It looks like it's missing something. \n \n There's a door to the North, but it's locked.",
                 /*String roomsUnlockedDescription*/ "A well decorated guest bedroom. \n \n The moose's head is staring at you from its place on the wall, and the door to the North is unlocked.",
