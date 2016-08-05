@@ -669,7 +669,7 @@ public class ProjectArklayGameScenario extends GameScenario {
 
                 Item crowbar = new Item(
                 /*String name*/item_crowbar,
-                /*String unlocks*/room16_hall_upper_east_one,
+                /*String unlocks*/room15_upper_foyer,
                 /*String description*/"A sturdy crowbar.",
                 /*String usedText*/"You prise off the wooden planks.",
                 /*String failText*/"Nothing to use this on in here."
