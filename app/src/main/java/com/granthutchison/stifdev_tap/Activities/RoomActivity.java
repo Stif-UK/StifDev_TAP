@@ -395,4 +395,17 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
             }
         }).show();
     }
+
+    @Override
+    protected void onResume() {
+        try {
+            super.onResume();
+        } catch (Exception e) {
+            Intent intent = new Intent(RoomActivity.this, MainActivity.class);
+            //Clear this page from the back stack to prevent the user navigating back to it
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+
+    }
 }
