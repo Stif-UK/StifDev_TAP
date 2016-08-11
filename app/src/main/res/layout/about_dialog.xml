@@ -142,17 +142,19 @@
                     android:textColor="@color/stifDev_TAP_Text"
                     android:layout_marginLeft="10sp"
                     android:textStyle="bold"
-                    android:textSize="@dimen/about_headers"/>
+                    android:textSize="@dimen/about_headers"
+                    android:layout_gravity="center" />
 
                 <Button
                     style="@style/Base.Widget.AppCompat.Button.Borderless"
                     android:textColor="@color/stifDev_TAP_Text"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/historyTitle"
                     android:layout_alignParentRight="true"
                     android:id="@+id/btnHistExpand"
-                    android:textSize="@dimen/about_headers"/>
+                    android:textSize="@dimen/about_headers"
+                    android:layout_gravity="center" />
             </RelativeLayout>
 
             <LinearLayout

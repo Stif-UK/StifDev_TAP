@@ -18,6 +18,20 @@ import com.granthutchison.stifdev_tap.Util.HandyUtils;
  */
 public class AboutDialog extends DialogFragment {
 
+    //About
+    Button btnAbtExpand;
+    TextView abtView;
+    TextView abtTitle;
+
+    //Acknowledgements
+    Button btnAck;
+    TextView ackView;
+    TextView ackTitle;
+
+    //History
+    Button btnHist;
+    TextView histView;
+    TextView histTitle;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -39,9 +53,11 @@ public class AboutDialog extends DialogFragment {
         });
 
         //This dialog box is made of a series of sections, expanded by a button press.
+
         //1. The about button and page section
-        final Button btnAbtExpand = (Button) dialogView.findViewById(R.id.btnAbtExpand);
-        final TextView abtView = (TextView) dialogView.findViewById(R.id.aboutText);
+        btnAbtExpand = (Button) dialogView.findViewById(R.id.btnAbtExpand);
+        abtView = (TextView) dialogView.findViewById(R.id.aboutText);
+        abtTitle = (TextView) dialogView.findViewById(R.id.aboutTitle);
 
         //Use the custom utility to set FontAwesome fonts on buttons
         btnAbtExpand.setTypeface(FontManager.getTypeface(btnAbtExpand.getContext(),FontManager.FONTAWESOME));
@@ -50,23 +66,20 @@ public class AboutDialog extends DialogFragment {
         btnAbtExpand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (abtView.getText().length() == 0) {
-                    //Change the 'expand' button to a 'contract' button icon
-                    btnAbtExpand.setText(R.string.fa_icon_contract);
-                    //Set the text of the about box - file read in from a file in res/raw
-                    abtView.setText(HandyUtils.readRawTextFile(abtView.getContext(), R.raw.stifdev_tap_about));
-                } else {
-                    btnAbtExpand.setText(R.string.fa_icon_expand);
-                    abtView.setText("");
-                }
-
+                aboutExpand();
+            }
+        });
+        abtTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aboutExpand();
             }
         });
 
         //2. the acknowledgement button and page section
-        final Button btnAck = (Button) dialogView.findViewById(R.id.btnInfoExpand);
-        final TextView ackView = (TextView) dialogView.findViewById(R.id.ackText);
+        btnAck = (Button) dialogView.findViewById(R.id.btnInfoExpand);
+        ackView = (TextView) dialogView.findViewById(R.id.ackText);
+        ackTitle = (TextView) dialogView.findViewById(R.id.ackTitle);
 
         //Use the custom utility to set FontAwesome
         btnAck.setTypeface(FontManager.getTypeface(btnAck.getContext(),FontManager.FONTAWESOME));
@@ -75,20 +88,20 @@ public class AboutDialog extends DialogFragment {
         btnAck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ackView.getText().length() == 0){
-                    btnAck.setText(R.string.fa_icon_contract);
-                    //Read in text from a file held in res/raw
-                    ackView.setText(HandyUtils.readRawTextFile(ackView.getContext(),R.raw.stifdev_tap_thanks));
-                }else {
-                    btnAck.setText(R.string.fa_icon_expand);
-                    ackView.setText("");
-                }
+                ackExpand();
+            }
+        });
+        ackTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ackExpand();
             }
         });
 
         //3. the history button and page section
-        final Button btnHist = (Button) dialogView.findViewById(R.id.btnHistExpand);
-        final TextView histView = (TextView) dialogView.findViewById(R.id.historyText);
+        btnHist = (Button) dialogView.findViewById(R.id.btnHistExpand);
+        histView = (TextView) dialogView.findViewById(R.id.historyText);
+        histTitle = (TextView) dialogView.findViewById(R.id.historyTitle);
 
         //Use the custom utility to set FontAwesome
         btnHist.setTypeface(FontManager.getTypeface(btnAck.getContext(),FontManager.FONTAWESOME));
@@ -97,14 +110,13 @@ public class AboutDialog extends DialogFragment {
         btnHist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(histView.getText().length() == 0){
-                    btnHist.setText(R.string.fa_icon_contract);
-                    //Read in text from a file held in res/raw
-                    histView.setText(HandyUtils.readRawTextFile(histView.getContext(),R.raw.stifdev_tap_history));
-                }else {
-                    btnHist.setText(R.string.fa_icon_expand);
-                    histView.setText("");
-                }
+                histExpand();
+            }
+        });
+        histTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                histExpand();
             }
         });
 
@@ -113,5 +125,40 @@ public class AboutDialog extends DialogFragment {
         builder.getContext().getTheme().applyStyle(R.style.About_Dialog, true);
 
         return builder.create();
+    }
+
+    //Helper methods to expand/contract text sections to allow the text headers to also be clickable
+    private void aboutExpand(){
+        if (abtView.getText().length() == 0) {
+            //Change the 'expand' button to a 'contract' button icon
+            btnAbtExpand.setText(R.string.fa_icon_contract);
+            //Set the text of the about box - file read in from a file in res/raw
+            abtView.setText(HandyUtils.readRawTextFile(abtView.getContext(), R.raw.stifdev_tap_about));
+        } else {
+            btnAbtExpand.setText(R.string.fa_icon_expand);
+            abtView.setText("");
+        }
+    }
+
+    private void ackExpand(){
+        if(ackView.getText().length() == 0){
+            btnAck.setText(R.string.fa_icon_contract);
+            //Read in text from a file held in res/raw
+            ackView.setText(HandyUtils.readRawTextFile(ackView.getContext(),R.raw.stifdev_tap_thanks));
+        }else {
+            btnAck.setText(R.string.fa_icon_expand);
+            ackView.setText("");
+        }
+    }
+
+    private void histExpand(){
+        if(histView.getText().length() == 0){
+            btnHist.setText(R.string.fa_icon_contract);
+            //Read in text from a file held in res/raw
+            histView.setText(HandyUtils.readRawTextFile(histView.getContext(),R.raw.stifdev_tap_history));
+        }else {
+            btnHist.setText(R.string.fa_icon_expand);
+            histView.setText("");
+        }
     }
 }
