@@ -54,7 +54,7 @@ public class AboutDialog extends DialogFragment {
                 if (abtView.getText().length() == 0) {
                     //Change the 'expand' button to a 'contract' button icon
                     btnAbtExpand.setText(R.string.fa_icon_contract);
-                    //Set the text of the about box
+                    //Set the text of the about box - file read in from a file in res/raw
                     abtView.setText(HandyUtils.readRawTextFile(abtView.getContext(), R.raw.stifdev_tap_history));
                 } else {
                     btnAbtExpand.setText(R.string.fa_icon_expand);
@@ -77,6 +77,7 @@ public class AboutDialog extends DialogFragment {
             public void onClick(View v) {
                 if(ackView.getText().length() == 0){
                     btnAck.setText(R.string.fa_icon_contract);
+                    //Read in text from a file held in res/raw
                     ackView.setText(HandyUtils.readRawTextFile(ackView.getContext(),R.raw.stifdev_tap_thanks));
                 }else {
                     btnAck.setText(R.string.fa_icon_expand);
