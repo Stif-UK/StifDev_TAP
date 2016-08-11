@@ -54,7 +54,8 @@
                     android:textColor="@color/stifDev_TAP_Text"
                     android:layout_marginLeft="10sp"
                     android:textStyle="bold"
-                    android:textSize="@dimen/about_headers"/>
+                    android:textSize="@dimen/about_headers"
+                    android:layout_centerVertical="true" />
 
                 <Button
                     style="@style/Base.Widget.AppCompat.Button.Borderless"
@@ -64,7 +65,10 @@
                     android:layout_toRightOf="@+id/aboutTitle"
                     android:layout_alignParentRight="true"
                     android:id="@+id/btnAbtExpand"
-                    android:textSize="@dimen/about_headers"/>
+                    android:text="X"
+                    android:textSize="@dimen/about_headers"
+                    android:layout_centerVertical="true"
+                    android:gravity="right" />
             </RelativeLayout>
 
             <LinearLayout
@@ -82,7 +86,7 @@
                     android:layout_marginLeft="10sp"
                     android:textColor="@color/stifDev_TAP_Text"
                     android:autoLink="web"
-                    android:layout_marginBottom="10sp" />
+                     />
             </LinearLayout>
 
             <RelativeLayout
@@ -99,7 +103,8 @@
                     android:textColor="@color/stifDev_TAP_Text"
                     android:layout_marginLeft="10sp"
                     android:textStyle="bold"
-                    android:textSize="@dimen/about_headers" />
+                    android:textSize="@dimen/about_headers"
+                    android:layout_centerVertical="true" />
 
                 <Button
                     style="@style/Base.Widget.AppCompat.Button.Borderless"
@@ -110,7 +115,10 @@
                     android:textSize="@dimen/about_headers"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:text="X"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right" />
             </RelativeLayout>
 
             <LinearLayout
@@ -143,7 +151,8 @@
                     android:layout_marginLeft="10sp"
                     android:textStyle="bold"
                     android:textSize="@dimen/about_headers"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:layout_centerVertical="true" />
 
                 <Button
                     style="@style/Base.Widget.AppCompat.Button.Borderless"
@@ -153,8 +162,11 @@
                     android:layout_toRightOf="@+id/historyTitle"
                     android:layout_alignParentRight="true"
                     android:id="@+id/btnHistExpand"
+                    android:text="X"
                     android:textSize="@dimen/about_headers"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:layout_centerVertical="true"
+                    android:gravity="right" />
             </RelativeLayout>
 
             <LinearLayout
