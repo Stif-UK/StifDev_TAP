@@ -55,7 +55,7 @@ public class AboutDialog extends DialogFragment {
                     //Change the 'expand' button to a 'contract' button icon
                     btnAbtExpand.setText(R.string.fa_icon_contract);
                     //Set the text of the about box - file read in from a file in res/raw
-                    abtView.setText(HandyUtils.readRawTextFile(abtView.getContext(), R.raw.stifdev_tap_history));
+                    abtView.setText(HandyUtils.readRawTextFile(abtView.getContext(), R.raw.stifdev_tap_about));
                 } else {
                     btnAbtExpand.setText(R.string.fa_icon_expand);
                     abtView.setText("");
@@ -64,7 +64,7 @@ public class AboutDialog extends DialogFragment {
             }
         });
 
-        //2. the info button and page section
+        //2. the acknowledgement button and page section
         final Button btnAck = (Button) dialogView.findViewById(R.id.btnInfoExpand);
         final TextView ackView = (TextView) dialogView.findViewById(R.id.ackText);
 
@@ -82,6 +82,28 @@ public class AboutDialog extends DialogFragment {
                 }else {
                     btnAck.setText(R.string.fa_icon_expand);
                     ackView.setText("");
+                }
+            }
+        });
+
+        //3. the history button and page section
+        final Button btnHist = (Button) dialogView.findViewById(R.id.btnHistExpand);
+        final TextView histView = (TextView) dialogView.findViewById(R.id.historyText);
+
+        //Use the custom utility to set FontAwesome
+        btnHist.setTypeface(FontManager.getTypeface(btnAck.getContext(),FontManager.FONTAWESOME));
+        btnHist.setText(R.string.fa_icon_expand);
+        //Set onClick behaviour for the info button
+        btnHist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(histView.getText().length() == 0){
+                    btnHist.setText(R.string.fa_icon_contract);
+                    //Read in text from a file held in res/raw
+                    histView.setText(HandyUtils.readRawTextFile(histView.getContext(),R.raw.stifdev_tap_history));
+                }else {
+                    btnHist.setText(R.string.fa_icon_expand);
+                    histView.setText("");
                 }
             }
         });

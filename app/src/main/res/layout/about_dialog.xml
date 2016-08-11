@@ -129,6 +129,50 @@
                     android:autoLink="web" />
             </LinearLayout>
 
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="History"
+                    android:id="@+id/historyTitle"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:layout_marginLeft="10sp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/about_headers"/>
+
+                <Button
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/historyTitle"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/btnHistExpand"
+                    android:textSize="@dimen/about_headers"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/historyText"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:autoLink="web"
+                    android:layout_marginBottom="10sp" />
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
