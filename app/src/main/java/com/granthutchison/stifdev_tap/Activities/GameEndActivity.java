@@ -83,6 +83,19 @@ public class GameEndActivity extends AppCompatActivity {
             }
         });
 
+        btnFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                //TODO: update the share link to the Play Store link for the app
+                intent.putExtra(Intent.EXTRA_TEXT, "http://stackoverflow.com");
+                HandyUtils.filterByPackageName(btnFacebook.getContext(), intent, "com.facebook.katana");
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     /**
