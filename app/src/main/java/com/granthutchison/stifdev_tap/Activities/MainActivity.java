@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         btnGP.setText(R.string.fa_icon_gplus1);
         shareExpanded = true;
 
-        //TODO: The Twitter and G+ code here is repeated in the GameEndActivity.java class - pull out into a utility class instead.
+        //TODO: The social share code here is repeated in the GameEndActivity.java class - pull out into a utility class instead.
         //Set the Google Plus button listener with code to post to G+
         btnGP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +119,18 @@ public class MainActivity extends AppCompatActivity {
                         HandyUtils.urlEncode("https://www.google.fi/"));
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tweetUrl));
                 HandyUtils.filterByPackageName(btnTwit.getContext(), intent, "com.twitter");
+                startActivity(intent);
+            }
+        });
+
+        btnFB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                //TODO: update the share link to the Play Store link for the app
+                intent.putExtra(Intent.EXTRA_TEXT, "http://stackoverflow.com");
+                HandyUtils.filterByPackageName(btnFB.getContext(), intent, "com.facebook.katana");
                 startActivity(intent);
             }
         });
