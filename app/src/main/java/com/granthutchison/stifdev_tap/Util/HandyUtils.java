@@ -3,8 +3,15 @@ package com.granthutchison.stifdev_tap.Util;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.util.Log;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
@@ -52,4 +59,32 @@ public class HandyUtils {
             throw new RuntimeException("URLEncoder.encode() failed for " + s);
         }
     }
+
+    /**
+     *readRawTextFile reads in a file held in the res/raw folder (allowing it to be accessed by
+     * R.raw.filename). This allows text to be maintained in a text file and read in to display
+     * on-screen to a user.
+     */
+    public static String readRawTextFile(Context ctx, int resId)
+    {
+        InputStream inputStream = ctx.getResources().openRawResource(resId);
+
+        InputStreamReader inputreader = new InputStreamReader(inputStream);
+        BufferedReader buffreader = new BufferedReader(inputreader);
+        String line;
+        StringBuilder text = new StringBuilder();
+
+        try {
+            while (( line = buffreader.readLine()) != null) {
+                text.append(line);
+                text.append('\n');
+            }
+        } catch (IOException e) {
+            return null;
+        }
+        return text.toString();
+
+    }
 }
+
+

@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                         HandyUtils.urlEncode("Tweet text"),
                         HandyUtils.urlEncode("https://www.google.fi/"));
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tweetUrl));
+                // Narrow down to official Twitter app, if available:
                 HandyUtils.filterByPackageName(btnTwit.getContext(), intent, "com.twitter");
                 startActivity(intent);
             }
@@ -136,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-// Narrow down to official Twitter app, if available:
     }
 
     /**

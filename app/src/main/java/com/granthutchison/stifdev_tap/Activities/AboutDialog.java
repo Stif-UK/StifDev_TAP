@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.granthutchison.stifdev_tap.R;
 import com.granthutchison.stifdev_tap.Util.FontManager;
+import com.granthutchison.stifdev_tap.Util.HandyUtils;
 
 /**
  * Created by Stifler on 23/07/2016.
@@ -54,7 +55,7 @@ public class AboutDialog extends DialogFragment {
                     //Change the 'expand' button to a 'contract' button icon
                     btnAbtExpand.setText(R.string.fa_icon_contract);
                     //Set the text of the about box
-                    abtView.setText(R.string.about_text);
+                    abtView.setText(HandyUtils.readRawTextFile(abtView.getContext(), R.raw.stifdev_tap_history));
                 } else {
                     btnAbtExpand.setText(R.string.fa_icon_expand);
                     abtView.setText("");
@@ -76,7 +77,7 @@ public class AboutDialog extends DialogFragment {
             public void onClick(View v) {
                 if(ackView.getText().length() == 0){
                     btnAck.setText(R.string.fa_icon_contract);
-                    ackView.setText(R.string.acknowledgements_thanks_text);
+                    ackView.setText(HandyUtils.readRawTextFile(ackView.getContext(),R.raw.stifdev_tap_thanks));
                 }else {
                     btnAck.setText(R.string.fa_icon_expand);
                     ackView.setText("");

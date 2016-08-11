@@ -1,0 +1,10 @@
+A few years ago I undertook a degree in Software Engineering with the Open Univeristy as a way to expand my job prospects and fulfil a childhood dream of being able to code (#nerd). Since first studying Java back in 2012 I've been saying I'd like to build myself an Android application, but didn't really have a clue what to build.
+	
+In 2015 a good friend built project-arklay.com as a little side project and I really enjoyed helping him out with some testing. Then in June 2016 whilst on holiday with my family I spent a bit of time in the evenings working through an Android development course on Udemy and had the idea of trying to implement an Android version of Arklay as a little project - you hold the result of this little experiment in your hands!
+	
+stifDev_TAP was created for fun and practice - I've learnt so much building it, and whilst its a relatively simple app, I'm geniunely happy with how it's turned out. 
+	
+I hope you enjoy playing it as much as I've enjoyed making it - if you do like the app, please consider rating it on the Google Play store.
+	
+The project code is freely available on github (you can also file bug reports there if you like!):
+https://github.com/Stif-UK/StifDev_TAP
