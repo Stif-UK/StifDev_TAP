@@ -1,2 +1,4 @@
-stifDev_TAP is a simple text adventure game engine for Android.
+stifDev_TAP is a simple text adventure game engine for Android, created by Grant Hutchison (stifDev).
+
+- twitter.com/Stif_br0
 
