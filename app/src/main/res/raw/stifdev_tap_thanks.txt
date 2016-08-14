@@ -8,6 +8,9 @@ The vast majority of the code in stifDev tap has been written from scratch, howe
 
 Although this is a text adventure, there are a few icons dotted about it so another huge thank you has to go out to Font Awesome by Dave Gandy
 - http://fontawesome.io
+
+App icons were created using the Android Asset Studio tool by Roman Nurik
+- https://romannurik.github.io/AndroidAssetStudio
 	
 A shout out to my friend and colleague Colin McCormick for both his encouragement and for not telling me to get on with what I was supposed to be doing when I'd show him my meager progress in the office of a morning...I'll update this with a link when his own secret project is released!
 	
