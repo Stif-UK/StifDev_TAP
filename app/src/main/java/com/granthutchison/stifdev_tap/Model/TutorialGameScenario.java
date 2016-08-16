@@ -339,7 +339,6 @@ public class TutorialGameScenario extends GameScenario {
 //        super.getGameItems().put(NAME_STRING, NAME_IT);
 
 
-        //TODO: Update the room the item unlocks and the text
                 Item cool_item = new Item(
                 /*String name*/item_cool,
                 /*String unlocks*/room7_tutorial7,
