@@ -1,0 +1,20 @@
+I would be remiss if I didn't extend my heartfelt thanks to dnimmo, not just for allowing me to plagiarise the  project arklay (v1) story wholesale, but also for being the l33test br0 a man could ask for - love you man. 
+- http://project-arklay.com
+- http://dnimmo.co.uk
+
+The vast majority of the code in stifDev tap has been written from scratch, however credit where it's due both the official Android Developers web pages and the indispensable Stack Overflow have both been fantastic resources when I've been stuck (heck, most days I was amazed my laptop didn't grind to a halt with so many Chrome tabs open...)
+- http://developer.android.com
+- http://stackoverflow.com
+
+Although this is a text adventure, there are a few icons dotted about it so another huge thank you has to go out to Font Awesome by Dave Gandy
+- http://fontawesome.io
+
+App icons were created using the Android Asset Studio tool by Roman Nurik
+- https://romannurik.github.io/AndroidAssetStudio
+	
+A shout out to my friend and colleague Colin McCormick for both his encouragement and for not telling me to get on with what I was supposed to be doing when I'd show him my meager progress in the office of a morning...I'll update this with a link when his own secret project is released!
+	
+Unlimited high fives to the guys and gals at Megabytes cafe in Glasgow (the worlds best retro video game cafe!) for keeping me fed and cafinated all those hours I spent working on this app during my lunch break.
+- https://twitter.com/mb_glasgow
+	
+Finally, the biggest acknowledgement of all - to my beautiful wife Joanne and wonderful son Caleb - thanks for putting up with all of the late nights and times when I rushed to my notebook to scribble some notes of things I wanted to work on later. I love you both so much and couldn't wish for a better family x

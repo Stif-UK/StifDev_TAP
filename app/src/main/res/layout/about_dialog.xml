@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/About_Dialog"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/StifDev_TAP_Background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:textSize="20sp"
+        android:layout_margin="10sp"
+        android:textAlignment="center"
+        android:text="stifDev_TAP: Info"
+        android:id="@+id/infoDialogTitle"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:textColor="@color/stifDev_TAP_Text"
+        android:textAllCaps="false"
+        android:id="@+id/btnAboutClose"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/btnAboutClose"
+        android:layout_below="@+id/infoDialogTitle">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:id="@+id/aboutTitle"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:layout_marginLeft="10sp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/about_headers"
+                    android:layout_centerVertical="true" />
+
+                <Button
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/aboutTitle"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/btnAbtExpand"
+                    android:text="X"
+                    android:textSize="@dimen/about_headers"
+                    android:layout_centerVertical="true"
+                    android:gravity="right" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                            >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/aboutText"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:autoLink="web"
+                     />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acknowledgements and Thanks"
+                    android:id="@+id/ackTitle"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:layout_marginLeft="10sp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/about_headers"
+                    android:layout_centerVertical="true" />
+
+                <Button
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnInfoExpand"
+                    android:textSize="@dimen/about_headers"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:text="X"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="right" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ackText"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:autoLink="web" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="History"
+                    android:id="@+id/historyTitle"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:layout_marginLeft="10sp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/about_headers"
+                    android:layout_gravity="center"
+                    android:layout_centerVertical="true" />
+
+                <Button
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/historyTitle"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/btnHistExpand"
+                    android:text="X"
+                    android:textSize="@dimen/about_headers"
+                    android:layout_gravity="center"
+                    android:layout_centerVertical="true"
+                    android:gravity="right" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/historyText"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_marginLeft="10sp"
+                    android:textColor="@color/stifDev_TAP_Text"
+                    android:autoLink="web"
+                    android:layout_marginBottom="10sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -3,6 +3,7 @@ package com.granthutchison.stifdev_tap.Model;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -19,6 +20,9 @@ public class Scenario {
     private HashMap<String,Item> gameItems = new HashMap<>();//Contains all Items in the game
 
     private Set<Item> inventory = new HashSet<Item>(); //No need for an Inventory object type - hold all in this set.
+    private LinkedHashMap<String, String> credits = new LinkedHashMap<>();//Contains the end credits for the scenario
+    //in the form key = header, value = name, e.g. ("Designer", "Grant Hutchison")
+    private Set<String> backComments = new HashSet<>();
 
     private Room currentRoom;
 
@@ -36,85 +40,18 @@ public class Scenario {
     public Boolean startGame(String scenario){
         switch (scenario){
             case "Test":
-                //Begin by creating local variables to hold room names - this ensures that the same
-                //value can be passed to the Room titles, adjacent room links and item info.
-                String roomName1 = "Entrance Hall";
-                String roomName2 = "The Pantry";
-                String roomName3 = "The Dining Room";
-                String roomName4 = "The Servant's Quarters";
-                String roomName5 = "Entertainment Room";
-                String roomName6 = "Computer Room";
+                TestScenario test = new TestScenario();
 
-                String itemName1 = "Hammer";
-                String itemName2 = "An old Nokia N95";
+                //map, gameitems, inventory, currentRoom, credits
+                this.setMap(test.getMap());
+                this.setGameItems(test.getGameItems());
+                this.setInventory(test.getInventory());
+                this.setCurrentRoom(test.getCurrentRoom().toString());
+                this.setCredits(test.getCredits());
+                this.setBackComments(test.getBackComments());
 
-                //Next, clear the map and inventory if not already empty:
-                if(!map.isEmpty()){
-                    map.clear();
-                }
-                if (!inventory.isEmpty()) {
-                    inventory.clear();
-                }
-
-                //Room constructor:
-                // public Room(String title,
-                // String containsItem,
-                // String itemPickupText,
-                // String roomLockedDescription,
-                // String itemCollectedDescription,
-                // String roomsUnlockedDescription,
-                // String topBtnText, String topRoomName, boolean topLocked,
-                // String bottomBtnText, String bottomRoomName, boolean bottomLocked,
-                // String leftBtnText, String leftRoomName, boolean leftLocked,
-                // String rightBtnText, String rightRoomName, boolean rightLocked)
-
-
-                //Create objects for each room in the game and add all of these to the map.
-                Room room1 = new Room(roomName1, "","", "You're in a large entrance hall. There are exits to the North and East.\n\n The door to the West is boarded up.",
-                        "", "You find yourself in a large entrance hall. There are exits to the North, East and West",
-                        "Go North",roomName2,false,"","",false,"Go West",roomName3,true,"Go East",roomName5,false );
-                map.put(roomName1, room1);
-
-                Room room2 = new Room(roomName2, itemName1,"You found a Hammer!", "You're in a pantry. All of the doors are locked",
-                        "", "This appears to be a pantry. You wonder if there's any food here. There are exits to the South and East.",
-                        "","",false,"Go South",roomName1,false,"","",false,"Go East",roomName4,false );
-                map.put(roomName2, room2);
-
-                Room room3 = new Room(roomName3, "", "","You're in a dining room. All of the doors are locked",
-                        "", "What a grand dining room! The candles flicker...someone must be getting ready for dinner. There are exits to the East and North.",
-                        "Go North",roomName6,false,"","",false,"","",false,"Go East",roomName1,false );
-                map.put(roomName3, room3);
-
-                Room room4 = new Room(roomName4, "", "","You're in the servant's quarters. All of the doors are locked",
-                        "", "You find yourself in the servant's quarters. There are exits to the South and West.",
-                        "","",false,"Go South",roomName5,false,"Go West",roomName2,false,"","",false );
-                map.put(roomName4, room4);
-
-                Room room5 = new Room(roomName5, "","", "The entertainment room. All of the doors are locked",
-                        "", "I've never seen a TV that size before! Is that a Playstation Neo!. There are exits to the North and West.",
-                        "Go North",roomName4,false,"","",false,"Go West",roomName1,false,"","",false );
-                map.put(roomName5, room5);
-
-                Room room6 = new Room(roomName6, itemName2, "You've found a Nokia N95!","This room is tiny. All of the doors are locked",
-                        "", "This room is tiny. A small computer sits in the corner, the monitors green glow illuminating a small desk. There is an exit to the South.",
-                        "","",false,"Go South",roomName3,false,"","",false,"","",false );
-                map.put(roomName6, room6);
-
-                //Set the starting room
-                this.setCurrentRoom(roomName1);
-
-                //Item constructor:
-                // public Item(String name,
-                // String unlocks,
-                // String description,
-                // String usedText,
-                // String failText) {
-
-                //Create the items
-                Item item1 = new Item(itemName1,roomName1,"A claw hammer. The head is coated in dried blood...","You used the hammer to prise the boards from the door...\n\n...That was both surprisingly easy, and fun!","This item can't be used here");
-                gameItems.put(itemName1, item1);
-                Item item2 = new Item(itemName2, roomName4, "An old Nokia phone...the battery still holds a charge!", "You try to call for help...", "No signal...typical!");
-                gameItems.put(itemName2, item2);
+                //Re-assign the variable to null so that it is garbage collected and frees memory
+                test = null;
 
 
                 return true;
@@ -122,9 +59,30 @@ public class Scenario {
 
 
             case "Arklay":
-                //TODO: Construct all required Room objects and add to the map attribute. All Item objects should be instantiated
-                //and added to the gameItems Map.
+                ProjectArklayGameScenario arklay = new ProjectArklayGameScenario();
+                this.setMap(arklay.getMap());
+                this.setGameItems(arklay.getGameItems());
+                this.setInventory(arklay.getInventory());
+                this.setCurrentRoom(arklay.getCurrentRoom());
+                this.setCredits(arklay.getCredits());
+                this.setBackComments(arklay.getBackComments());
+                arklay = null;
+
                 return true;
+
+            case "Tutorial":
+                TutorialGameScenario tutorial = new TutorialGameScenario();
+                this.setMap(tutorial.getMap());
+                this.setGameItems(tutorial.getGameItems());
+                this.setInventory(tutorial.getInventory());
+                this.setCurrentRoom(tutorial.getCurrentRoom());
+                this.setCredits(tutorial.getCredits());
+                this.setBackComments(tutorial.getBackComments());
+                tutorial = null;
+
+                return true;
+
+
             default:
                 return false;
         }
@@ -145,7 +103,7 @@ public class Scenario {
 
             case "bottom":
                 newRoomTitle = currentRoom.getBottomRoomName();
-                if(!currentRoom.isTopLocked()){
+                if(!currentRoom.isBottomLocked()){
                     this.setCurrentRoom(newRoomTitle);
                     return true;
                 }else{
@@ -153,7 +111,7 @@ public class Scenario {
                 }
             case "left":
                 newRoomTitle = currentRoom.getLeftRoomName();
-                if(!currentRoom.isTopLocked()){
+                if(!currentRoom.isLeftLocked()){
                     this.setCurrentRoom(newRoomTitle);
                     return true;
                 }else{
@@ -161,7 +119,7 @@ public class Scenario {
                 }
             case "right":
                 newRoomTitle = currentRoom.getRightRoomName();
-                if(!currentRoom.isTopLocked()){
+                if(!currentRoom.isRightLocked()){
                     this.setCurrentRoom(newRoomTitle);
                     return true;
                 }else{
@@ -228,11 +186,48 @@ public class Scenario {
 
     }
 
+    protected Set<String> getBackComments() {return new HashSet<String>(backComments);}
+
+    /**
+     * The getCredits method returns the game credits as an unmodifiable LinkedHashMap (thus the order
+     * is retained). Each key in the map is the header/type of credits (e.g. "Game Designer") while
+     * the associated value is the credits entry (e.g. "Grant Hutchison").
+     * @return An unmodifiable LinkedHashMap<String, String> containing credits header/content info
+     */
+    protected LinkedHashMap<String,String> getCredits(){
+        //Return a COPY of the credits to maintain the originals integrity
+        return new LinkedHashMap<>(credits);
+    }
+
     protected String useItem(String itemName){
         //Get the item object
         Item usedItem = gameItems.get(itemName);
         String returnText = usedItem.useItem(currentRoom);
         return returnText;
 
+    }
+
+    private void setMap(HashMap<String, Room> map) {
+        this.map = map;
+    }
+
+    private void setGameItems(HashMap<String, Item> gameItems) {
+        this.gameItems = gameItems;
+    }
+
+    private void setInventory(Set<Item> inventory) {
+        this.inventory = inventory;
+    }
+
+    private void setCredits(LinkedHashMap<String, String> credits) {
+        this.credits = credits;
+    }
+
+    private void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
+    public void setBackComments(HashSet<String> backComments) {
+        this.backComments = backComments;
     }
 }

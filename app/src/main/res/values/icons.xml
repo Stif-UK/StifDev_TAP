@@ -2,4 +2,15 @@
 <resources>
     <string name="fa_icon_folder">&#xf114;</string>
     <string name="fa_icon_folder_open">&#xf115;</string>
+    <string name="fa_icon_home">&#xf015;</string>
+    <string name="fa_icon_facebook1">&#xf09a;</string>
+    <string name="fa_icon_facebook2">&#xf082;</string>
+    <string name="fa_icon_twitter">&#xf099;</string>
+    <string name="fa_icon_gplus1">&#xf0d5;</string>
+    <string name="fa_icon_gplus2">&#xf0d4;</string>
+    <string name="fa_icon_info">&#xf05a;</string>
+    <string name="fa_icon_question">&#xf0d4;</string>
+    <string name="fa_icon_share">&#xf1e0;</string>
+    <string name="fa_icon_expand">&#xf065;</string>
+    <string name="fa_icon_contract">&#xf066;</string>
 </resources>

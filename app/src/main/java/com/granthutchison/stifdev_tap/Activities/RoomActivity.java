@@ -1,10 +1,10 @@
 package com.granthutchison.stifdev_tap.Activities;
 
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -30,7 +30,7 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
 
     //Reference the Controller that manages the game
     private Controller myCont;
-    //Elements of the 'Room' view - descriptions and buttons
+    //Elements of the 'Room' view - description fields and buttons
     private TextView roomTitle;
     private TextView roomDesc;
     private Button btnTop;
@@ -47,12 +47,16 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
     private DrawerLayout inventoryDrawerLayout;
     private ListView inventoryListView;
     private Button btnInventoryClose;
+    //Back button comments
+    private HashSet<String> backComments;
     ArrayAdapter<Item> itemArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Get details of the Controller singleton object
         myCont = Controller.getInstance();
+        //Link to the Room activity
         setContentView(R.layout.activity_room);
         //Link the elements of the view.
         roomTitle = (TextView) findViewById(R.id.roomTitle);
@@ -65,18 +69,22 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
         roomTitle.setText(myCont.getRoomTitle());
         roomDesc.setText(myCont.getRoomDescription());
 
-        //Get the button text values and store as variables
+        //Get the button text values of the current room object and store as variables
         btnTopTxt = myCont.getTopBtnTxt();
         btnBottomTxt = myCont.getBottomBtnTxt();
         btnLeftTxt = myCont.getLeftBtnTxt();
         btnRightTxt = myCont.getRightBtnTxt();
 
+        //Set the on-screen text of the buttons to those defined above.
         btnTop.setText(btnTopTxt);
         btnBottom.setText(btnBottomTxt);
         btnLeft.setText(btnLeftTxt);
         btnRight.setText(btnRightTxt);
 
-        //Get the elements for the inventory
+        //Get the back comments for the scenario
+        backComments = (HashSet<String>) myCont.getBackComments();
+
+        //Get the elements for the inventory drawer
         inventoryDrawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
         inventoryListView = (ListView) findViewById(R.id.inventory_drawer);
         //Convert the inventory Set to a List to allow it to be displayed in order
@@ -153,8 +161,13 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
 
 
 
-        //Set listeners for the various navigation buttons and implement code to
-        //traverse rooms
+        /*Set listeners for the various navigation buttons and implement code to
+        *traverse rooms. When a button is clicked it invokes the moveRoom() method on the
+        * Controller object with either "Top", "Bottom", "Left" or "Right" as it's argument.
+        * If this method returns true, this confirms that the current room has been changed,
+        * and so the refreshView() method is invoked to change the on screen text and buttons
+        * in line with the new current Room object.
+         */
         btnTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -247,54 +260,103 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
      * icon is displayed onscreen to trigger it.
      */
     protected void refreshView(){
-        String itemText = myCont.checkRoom();
-        String eol = System.getProperty("line.separator");
-        String surround = "****";
-        roomTitle.setText(myCont.getRoomTitle());
-        roomDesc.setText(myCont.getRoomDescription());
+        if(myCont.inFinalRoom()){
+            //TODO: This code here is duplicated - separate into helper methods.
+            //Set the title and description of the room
+            roomTitle.setText(myCont.getRoomTitle());
+            roomDesc.setText(myCont.getRoomDescription());
+            btnBottomTxt = myCont.getBottomBtnTxt();
+            btnBottom.setText(btnBottomTxt);
 
-        if(itemText.length() > 1){
-            roomDesc.append(eol + eol + surround +" "+itemText + " " + surround);
-        }
+            //Clear the text from all of the other buttons and null their click listeners to disable them
+            btnTop.setText("");
+            btnTop.setOnClickListener(null);
+            btnLeft.setText("");
+            btnLeft.setOnClickListener(null);
+            btnRight.setText("");
+            btnRight.setOnClickListener(null);
 
-        btnTopTxt = myCont.getTopBtnTxt();
-        btnBottomTxt = myCont.getBottomBtnTxt();
-        btnLeftTxt = myCont.getLeftBtnTxt();
-        btnRightTxt = myCont.getRightBtnTxt();
-
-        btnTop.setText(btnTopTxt);
-        btnBottom.setText(btnBottomTxt);
-        btnLeft.setText(btnLeftTxt);
-        btnRight.setText(btnRightTxt);
-        //Get the inventory again Convert the inventory Set to a List to allow it to be displayed in order
-        inventoryList = new ArrayList<Item>();
-        //TODO: Replace line below with a loop which only adds inventory items where the item is unused.
-        inventoryList.addAll(myCont.getInventory());
-        Collections.sort(inventoryList);
-        int itemCount = inventoryList.size();
-
-        //Set FontAwesome icon font
-        btnInventory.setTypeface(FontManager.getTypeface(btnInventory.getContext(),FontManager.FONTAWESOME));
-
-        if(itemCount > 0){
-            btnInventory.setText(R.string.fa_icon_folder);
-            btnInventory.setOnClickListener(new View.OnClickListener() {
+            //Replace the onClickListener on the bottom button to change its function
+            btnBottom.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    inventoryDrawerLayout.openDrawer(Gravity.RIGHT);
+                    Intent intent = new Intent(RoomActivity.this, CreditsActivity.class);
+                    startActivity(intent);
+
                 }
             });
         }
-        //Refresh the inventory view
-        try {
-            itemArrayAdapter.clear();
-            itemArrayAdapter.addAll(inventoryList);
-        } catch (Exception e) {
-            Log.d("RefreshInventory", "An exception was thrown");
-            e.printStackTrace();
+        else{
+            /*
+            * First, check the room for items. If a new item (i.e. one not already held or found)
+            * is contained in the room then this returns the name of the item in the room, else it
+            * returns an empty string.
+             */
+            String itemText = myCont.checkRoom();
+            //Get the system end of line property to easily drop in some spacing, and create some
+            //surrounding asterisks to display around the item pickup text.
+            String eol = System.getProperty("line.separator");
+            String prefix = "******ITEM******";
+            String suffix = "****************";
+
+            //Set the title and description of the room
+            roomTitle.setText(myCont.getRoomTitle());
+            roomDesc.setText(myCont.getRoomDescription());
+
+            //If an item was found, append some text to the bottom of the description
+            if(itemText.length() > 1){
+                roomDesc.append(eol + eol + prefix +eol+ eol +itemText + eol+eol + suffix);
+            }
+
+            //1. Identify the new text for the room buttons.
+            btnTopTxt = myCont.getTopBtnTxt();
+            btnBottomTxt = myCont.getBottomBtnTxt();
+            btnLeftTxt = myCont.getLeftBtnTxt();
+            btnRightTxt = myCont.getRightBtnTxt();
+
+            //2. Assign this text to the buttons
+            btnTop.setText(btnTopTxt);
+            btnBottom.setText(btnBottomTxt);
+            btnLeft.setText(btnLeftTxt);
+            btnRight.setText(btnRightTxt);
+
+            //Get the inventory again Convert the inventory Set to a List to allow it to be displayed in order
+            inventoryList = new ArrayList<Item>();
+            //Populate the list by iterating over the inventory and only add items that have not been used.
+            for (Item  i: myCont.getInventory()) {
+                if(!i.getUsed()){
+                    inventoryList.add(i);
+                }
+
+            }
+            Collections.sort(inventoryList);
+            int itemCount = inventoryList.size();
+
+            //Set FontAwesome icon font
+            btnInventory.setTypeface(FontManager.getTypeface(btnInventory.getContext(),FontManager.FONTAWESOME));
+
+            //Only display the inventory if it isn't empty (Note, if the item is populated, then becomes
+            //empty the on-screen button remains active.
+            if(itemCount > 0){
+                btnInventory.setText(R.string.fa_icon_folder);
+                btnInventory.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        inventoryDrawerLayout.openDrawer(Gravity.RIGHT);
+                    }
+                });
+            }
+            //Refresh the inventory view - clear the screen, then re-populate
+            try {
+                itemArrayAdapter.clear();
+                itemArrayAdapter.addAll(inventoryList);
+            } catch (Exception e) {
+                Log.d("RefreshInventory", "An exception was thrown");
+                e.printStackTrace();
+            }
+
+
         }
-
-
     }
 
     //Private method which works like a normal back button press - this will be used in the
@@ -302,16 +364,23 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
     private void privateBackPress(){
         super.onBackPressed();
     }
+
+    /**
+     * The onBackPressed() method is overridden in RoomActivity to prevent a user from accidentally
+     * exiting the game. Some on-screen text is presented to the user instead, along with an
+     * 'exit game' button which calls the privateBackPress() method to exit back to the scenario
+     * select screen.
+     */
     @Override
     public void onBackPressed() {
-        HashSet<String> backComments = new HashSet<>();
-        backComments.add("You can't navigate using the back button");
-        backComments.add("When we get to 88mph, you're going to see some serious shit!");
-        backComments.add("Oh, no no no!");
-        backComments.add("Something tells you that you should press on");
-        backComments.add("I think I'll just keep going forwards...");
-        backComments.add("Aww, please stay a while longer!");
-        backComments.add("What's the matter, not l33t enough?");
+//        HashSet<String> backComments = new HashSet<>();
+//        backComments.add("You can't navigate using the back button");
+//        backComments.add("When we get to 88mph, you're going to see some serious shit!");
+//        backComments.add("Oh, no no no!");
+//        backComments.add("Something tells you that you should press on");
+//        backComments.add("I think I'll just keep going forwards...");
+//        backComments.add("Aww, please stay a while longer!");
+//        backComments.add("What's the matter, not l33t enough?");
 
         int size = backComments.size();
         int item = new Random().nextInt(size); // In real life, the Random object should be rather more shared than this
@@ -331,5 +400,18 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
                 privateBackPress();
             }
         }).show();
+    }
+
+    @Override
+    protected void onResume() {
+        try {
+            super.onResume();
+        } catch (Exception e) {
+            Intent intent = new Intent(RoomActivity.this, MainActivity.class);
+            //Clear this page from the back stack to prevent the user navigating back to it
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+
     }
 }
