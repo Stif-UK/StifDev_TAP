@@ -19,9 +19,14 @@ public abstract class GameScenario {
     private LinkedHashMap<String, String> credits = new LinkedHashMap<>();//Contains the end credits for the scenario
     //in the form key = header, value = name, e.g. ("Designer", "Grant Hutchison")
 
+    private HashSet<String> backComments = new HashSet<>();//Contains any comments for the back button to show.
+
     private Room currentRoom;
 
 
+    protected void setBackComments(HashSet<String> bc){
+        this.backComments = bc;
+    }
     protected void setMap(HashMap<String, Room> map) {
         this.map = map;
     }
@@ -47,6 +52,8 @@ public abstract class GameScenario {
     protected HashMap<String, Room> getMap() {
         return map;
     }
+
+    protected HashSet<String> getBackComments() {return backComments;}
 
     protected HashMap<String, Item> getGameItems() {
         return gameItems;

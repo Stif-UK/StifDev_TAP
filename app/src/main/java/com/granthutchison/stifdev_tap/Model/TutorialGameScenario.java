@@ -1,5 +1,7 @@
 package com.granthutchison.stifdev_tap.Model;
 
+import java.util.HashSet;
+
 /**
  * Created by Stifler on 04/08/2016.
  */
@@ -67,7 +69,7 @@ public class TutorialGameScenario extends GameScenario {
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "Hi there! \n \n" +
-                "Welcome to stifDev_TAP. \nCan I interest you in a game tutorial?",
+                "Welcome to stifDev_TAP. \n\nCan I interest you in a game tutorial?",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
                 /*boolean topLocked*/ false,
@@ -89,7 +91,7 @@ public class TutorialGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String roomsUnlockedDescription*/ "Great! \nThere's nothing too complicated " +
+                /*String roomsUnlockedDescription*/ "Great! \n\nThere's nothing too complicated " +
                         "about it, but let's take a walk around the " +
                         "game engine and see what's what...",
                 /*String topBtnText*/ "",
@@ -114,7 +116,7 @@ public class TutorialGameScenario extends GameScenario {
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "Right now you're looking at a \"Room\" in the " +
-                        "game map (or you could think of it as a page of a story). \n" +
+                        "game map (or you could think of it as a page of a story). \n\n" +
                         "Every room has a title, a description (this bit!) and some " +
                         "navigation buttons.",
                 /*String topBtnText*/ "",
@@ -140,7 +142,7 @@ public class TutorialGameScenario extends GameScenario {
                 /*String roomLockedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "Me too! I like to map them all to fierce " +
                         "punch and mash! \n \n If there are any adjacent rooms " +
-                        "(and they're unlocked...) then a button for that direction is active.\n " +
+                        "(and they're unlocked...) then a button for that direction is active.\n\n " +
                         "(choose any button to continue)",
                 /*String topBtnText*/ "Ooh, fancy!",
                 /*String topRoomName*/room5_tutorial5,
@@ -164,7 +166,7 @@ public class TutorialGameScenario extends GameScenario {
                 /*String itemPickupText*/ "When you pick up an item, some text like this " +
                         "appears on screen - cool, eh?",
                 /*String roomLockedDescription*/ "",
-                /*String roomsUnlockedDescription*/ "Some rooms contain items. \n " +
+                /*String roomsUnlockedDescription*/ "Some rooms contain items. \n\n " +
                         "If you enter a room with an item, you automatically pick it up " +
                         "and it's added to your inventory.",
                 /*String topBtnText*/ "",
@@ -190,14 +192,14 @@ public class TutorialGameScenario extends GameScenario {
                 /*String roomLockedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "You might have noticed a folder icon appear in" +
                         " the top right corner - that's how you access your inventory! " +
-                        "(or you can swipe in from the right at any time). \n" +
+                        "(or you can swipe in from the right at any time).\n \n" +
                         "Why not try it and check what's in there - " +
                         "click any item to see it's detail, before moving to the next room.",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
                 /*boolean topLocked*/ false,
                 /*String bottomBtnText*/"Next please!",
-                /*String bottomRoomName*/"",
+                /*String bottomRoomName*/room7_tutorial7,
                 /*boolean bottomLocked*/false,
                 /*String leftBtnText*/"",
                 /*String leftRoomName*/"",
@@ -213,18 +215,18 @@ public class TutorialGameScenario extends GameScenario {
                 /*String title*/ room7_tutorial7,
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
-                /*String roomLockedDescription*/ "Wait, this room has no exit buttons!\n" +
-                        "Better try to use that item from before! \n " +
+                /*String roomLockedDescription*/ "Wait, this room has no exit buttons!\n\n" +
+                        "Better try to use that item from before! \n\n " +
                         "Click into your inventory and give it a go.",
-                /*String roomsUnlockedDescription*/ "Pretty cool eh?\n" +
-                        "You've unlocked this room and enabled the next button! \n" +
+                /*String roomsUnlockedDescription*/ "Pretty cool eh?\n\n" +
+                        "You've unlocked this room and enabled the next button! \n\n" +
                         "You're so awesome!",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
                 /*boolean topLocked*/ false,
                 /*String bottomBtnText*/"I know!",
                 /*String bottomRoomName*/room8_tutorial8,
-                /*boolean bottomLocked*/false,
+                /*boolean bottomLocked*/true,
                 /*String leftBtnText*/"",
                 /*String leftRoomName*/"",
                 /*boolean leftLocked*/false,
@@ -265,7 +267,7 @@ public class TutorialGameScenario extends GameScenario {
                 /*String roomLockedDescription*/ "",
                 /*String roomsUnlockedDescription*/ "Once last thing...\n" +
                         "The game doesn't have a visible map (because I haven't figured out how to " +
-                        "make one yet...)\n" +
+                        "make one yet...)\n\n" +
                         "So you should pay attention to where you're going, or y'know, draw your own" +
                         " as you go...that's how we did it in the 80s!",
                 /*String topBtnText*/ "",
@@ -289,11 +291,11 @@ public class TutorialGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String roomsUnlockedDescription*/ "I know, right!\n" +
-                        "Anyway, that's us done.\n" +
+                /*String roomsUnlockedDescription*/ "I know, right!\n\n" +
+                        "Anyway, that's us done.\n\n" +
                         "You can't navigate backwards through the map with the Android back " +
                         "button, but pressing it does provide a nice little shortcut to exit to the " +
-                        "main memu.\n" +
+                        "main memu.\n\n" +
                         "Why not try it now?...Have fun playing stifDev_TAP!",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
@@ -348,6 +350,11 @@ public class TutorialGameScenario extends GameScenario {
                 /*String failText*/"You can't use this yet though!"
         );
         super.getGameItems().put(item_cool, cool_item);
+
+        /*Return a collection of strings to display when the back button is pressed*/
+        HashSet<String> backComments = super.getBackComments();
+        backComments.add("That's it! See you soon");
+
 
 
         /*Finally, create the credits for the scenario*/

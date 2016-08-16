@@ -246,4 +246,8 @@ public class Controller {
     public boolean inFinalRoom(){
         return (currentGame.getCurrentRoom().getClass() == FinalRoom.class);
     }
+
+    public Set<String> getBackComments(){
+        return currentGame.getBackComments();
+    }
 }

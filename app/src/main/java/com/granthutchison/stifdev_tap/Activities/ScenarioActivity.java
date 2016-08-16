@@ -27,7 +27,7 @@ public class ScenarioActivity extends AppCompatActivity {
         btnTutorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myCont.startGame("Test");
+                myCont.startGame("Tutorial");
                 startGame();
             }
         });

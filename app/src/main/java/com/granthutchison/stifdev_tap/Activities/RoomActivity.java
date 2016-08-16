@@ -47,6 +47,8 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
     private DrawerLayout inventoryDrawerLayout;
     private ListView inventoryListView;
     private Button btnInventoryClose;
+    //Back button comments
+    private HashSet<String> backComments;
     ArrayAdapter<Item> itemArrayAdapter;
 
     @Override
@@ -78,6 +80,9 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
         btnBottom.setText(btnBottomTxt);
         btnLeft.setText(btnLeftTxt);
         btnRight.setText(btnRightTxt);
+
+        //Get the back comments for the scenario
+        backComments = (HashSet<String>) myCont.getBackComments();
 
         //Get the elements for the inventory drawer
         inventoryDrawerLayout = (DrawerLayout) findViewById(R.id.DrawerLayout);
@@ -368,14 +373,14 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
      */
     @Override
     public void onBackPressed() {
-        HashSet<String> backComments = new HashSet<>();
-        backComments.add("You can't navigate using the back button");
-        backComments.add("When we get to 88mph, you're going to see some serious shit!");
-        backComments.add("Oh, no no no!");
-        backComments.add("Something tells you that you should press on");
-        backComments.add("I think I'll just keep going forwards...");
-        backComments.add("Aww, please stay a while longer!");
-        backComments.add("What's the matter, not l33t enough?");
+//        HashSet<String> backComments = new HashSet<>();
+//        backComments.add("You can't navigate using the back button");
+//        backComments.add("When we get to 88mph, you're going to see some serious shit!");
+//        backComments.add("Oh, no no no!");
+//        backComments.add("Something tells you that you should press on");
+//        backComments.add("I think I'll just keep going forwards...");
+//        backComments.add("Aww, please stay a while longer!");
+//        backComments.add("What's the matter, not l33t enough?");
 
         int size = backComments.size();
         int item = new Random().nextInt(size); // In real life, the Random object should be rather more shared than this

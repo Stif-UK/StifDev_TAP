@@ -5,6 +5,8 @@ import com.granthutchison.stifdev_tap.Model.GameScenario;
 import com.granthutchison.stifdev_tap.Model.Item;
 import com.granthutchison.stifdev_tap.Model.Room;
 
+import java.util.HashSet;
+
 /**
  * Created by Stifler on 22/07/2016.
  */
@@ -114,6 +116,17 @@ public class TestScenario extends GameScenario {
         super.getGameItems().put(itemName1, item1);
         Item item2 = new Item(itemName2, roomName6, "An old Nokia phone...the battery still holds a charge!", "You try to call for help...", "No signal...typical!");
         super.getGameItems().put(itemName2, item2);
+
+         /*Return a collection of strings to display when the back button is pressed*/
+        HashSet<String> backComments = super.getBackComments();
+        backComments.add("You can't navigate using the back button");
+        backComments.add("When we get to 88mph, you're going to see some serious shit!");
+        backComments.add("Oh, no no no!");
+        backComments.add("Something tells you that you should press on");
+        backComments.add("I think I'll just keep going forwards...");
+        backComments.add("Aww, please stay a while longer!");
+        backComments.add("What's the matter, not l33t enough?");
+
 
         //Create the game credits
         super.getCredits().put("Story", "David Nimmo & Jamie Mercer");

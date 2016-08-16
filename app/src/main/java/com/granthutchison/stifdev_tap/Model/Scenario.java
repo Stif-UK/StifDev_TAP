@@ -22,6 +22,7 @@ public class Scenario {
     private Set<Item> inventory = new HashSet<Item>(); //No need for an Inventory object type - hold all in this set.
     private LinkedHashMap<String, String> credits = new LinkedHashMap<>();//Contains the end credits for the scenario
     //in the form key = header, value = name, e.g. ("Designer", "Grant Hutchison")
+    private Set<String> backComments = new HashSet<>();
 
     private Room currentRoom;
 
@@ -47,6 +48,7 @@ public class Scenario {
                 this.setInventory(test.getInventory());
                 this.setCurrentRoom(test.getCurrentRoom().toString());
                 this.setCredits(test.getCredits());
+                this.setBackComments(test.getBackComments());
 
                 //Re-assign the variable to null so that it is garbage collected and frees memory
                 test = null;
@@ -63,9 +65,24 @@ public class Scenario {
                 this.setInventory(arklay.getInventory());
                 this.setCurrentRoom(arklay.getCurrentRoom());
                 this.setCredits(arklay.getCredits());
+                this.setBackComments(arklay.getBackComments());
                 arklay = null;
 
                 return true;
+
+            case "Tutorial":
+                TutorialGameScenario tutorial = new TutorialGameScenario();
+                this.setMap(tutorial.getMap());
+                this.setGameItems(tutorial.getGameItems());
+                this.setInventory(tutorial.getInventory());
+                this.setCurrentRoom(tutorial.getCurrentRoom());
+                this.setCredits(tutorial.getCredits());
+                this.setBackComments(tutorial.getBackComments());
+                tutorial = null;
+
+                return true;
+
+
             default:
                 return false;
         }
@@ -169,6 +186,8 @@ public class Scenario {
 
     }
 
+    protected Set<String> getBackComments() {return new HashSet<String>(backComments);}
+
     /**
      * The getCredits method returns the game credits as an unmodifiable LinkedHashMap (thus the order
      * is retained). Each key in the map is the header/type of credits (e.g. "Game Designer") while
@@ -206,5 +225,9 @@ public class Scenario {
 
     private void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
+    }
+
+    public void setBackComments(HashSet<String> backComments) {
+        this.backComments = backComments;
     }
 }

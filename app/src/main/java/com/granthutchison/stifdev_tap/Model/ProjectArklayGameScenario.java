@@ -1,5 +1,7 @@
 package com.granthutchison.stifdev_tap.Model;
 
+import java.util.HashSet;
+
 /**
  * Created by Stifler on 04/08/2016.
  */
@@ -702,6 +704,15 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String failText*/"It doesn't look like it fits any of these doors."
         );
         super.getGameItems().put(item_key, key);
+
+         /*Return a collection of strings to display when the back button is pressed*/
+        HashSet<String> backComments = super.getBackComments();
+        backComments.add("You can't navigate using the back button");
+        backComments.add("Itchy, scratchy...scratchy, itchy!");
+        backComments.add("Something tells you that you should press on");
+        backComments.add("I think I'll just keep going forwards...");
+        backComments.add("Wait,did you hear that?");
+        backComments.add("Am I lost?");
 
         /*Finally, create the credits for the scenario*/
         //Create the game credits
