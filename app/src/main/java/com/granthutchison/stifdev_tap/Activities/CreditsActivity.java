@@ -156,13 +156,13 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
                         fadePreviousView(previousView, anim);
                         credit = (Map.Entry) it.next();
                         creditHeader = credit.getKey();
-                        Log.d("rollCredits","In tick, assigning Header value: "+creditHeader);
+//                        Log.d("rollCredits","In tick, assigning Header value: "+creditHeader);
                         creditBody = credit.getValue();
-                        Log.d("rollCredits","In tick, assigning Body value: "+creditBody);
+//                        Log.d("rollCredits","In tick, assigning Body value: "+creditBody);
                         currentView = viewList.get(counter);
-                        Log.d("rollCredits","Clearing previous view");
+//                        Log.d("rollCredits","Clearing previous view");
                         writeCreditsHeader(currentView, creditHeader);
-                        Log.d("rollCredits","Writing Header: "+creditHeader);
+//                        Log.d("rollCredits","Writing Header: "+creditHeader);
                         headerBody = false;
                         if(!it.hasNext()){
                             lastEntry = true;
@@ -170,7 +170,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
                     }else{
                         //clearPreviousView(previousView);
                         writeCreditsBody(currentView,creditBody);
-                        Log.d("rollCredits","Writing Body: " +creditBody);
+//                        Log.d("rollCredits","Writing Body: " +creditBody);
 
                         /*
                          * Check if the iterator has finished - if so set the cont boolean to
@@ -178,7 +178,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
                          * and body have been written before finishing.
                          */
                         if(lastEntry){
-                            Log.d("rollCredits","Assigning 'continue' as false");
+//                            Log.d("rollCredits","Assigning 'continue' as false");
                             cont = false;
                         }
                         headerBody = true;
@@ -188,9 +188,9 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
                          * Again carried out within the else clause to ensure it happens after the
                          * credits body has been written.
                          */
-                        Log.d("rollCredits","Setting the value of the previous view");
+//                        Log.d("rollCredits","Setting the value of the previous view");
                         previousView = currentView;
-                        Log.d("rollCredits","Incrementing counter");
+//                        Log.d("rollCredits","Incrementing counter");
                         counter++;
                         counter2++;
                     }
@@ -217,7 +217,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
 
     private void fadePreviousView(TextView previousView, Animation anim){
         if(previousView != null){
-            Log.d("rollCredits","Calling fadeout animation on "+previousView.toString());
+//            Log.d("rollCredits","Calling fadeout animation on "+previousView.toString());
             previousView.startAnimation(anim);
             anim.setRepeatCount(0);
             onAnimationEnd(anim);
@@ -249,7 +249,7 @@ public class CreditsActivity extends AppCompatActivity implements Animation.Anim
     @Override
     public void onAnimationEnd(Animation animation) {
         animation.cancel();
-        Log.d("rollCredits","Animation cancelled "+animation.getRepeatCount());
+//        Log.d("rollCredits","Animation cancelled "+animation.getRepeatCount());
     }
 
     @Override

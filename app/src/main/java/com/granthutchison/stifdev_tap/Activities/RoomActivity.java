@@ -172,10 +172,10 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
             @Override
             public void onClick(View v) {
                 if(!btnTopTxt.equals("")) {
-                    Log.d("MovingRoom","TopButton clicked in "+myCont.getRoomTitle());
+//                    Log.d("MovingRoom","TopButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("Top")) {
                         refreshView();
-                        Log.d("MovingRoom","View refreshed");
+//                        Log.d("MovingRoom","View refreshed");
                     }
                 }
 
@@ -187,10 +187,10 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
             @Override
             public void onClick(View v) {
                 if(!btnBottomTxt.equals("")) {
-                    Log.d("MovingRoom","BottomButton clicked in "+myCont.getRoomTitle());
+//                    Log.d("MovingRoom","BottomButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("bottom")) {
                         refreshView();
-                        Log.d("MovingRoom","View refreshed");
+//                        Log.d("MovingRoom","View refreshed");
                     }
                 }
             }
@@ -200,10 +200,10 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
             @Override
             public void onClick(View v) {
                 if(!btnLeftTxt.equals("")) {
-                    Log.d("MovingRoom","LeftButton clicked in "+myCont.getRoomTitle());
+//                    Log.d("MovingRoom","LeftButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("left")) {
                         refreshView();
-                        Log.d("MovingRoom","View refreshed");
+//                        Log.d("MovingRoom","View refreshed");
                     }
                 }
             }
@@ -213,10 +213,10 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
             @Override
             public void onClick(View v) {
                 if(!btnRightTxt.equals("")) {
-                    Log.d("MovingRoom","RightButton clicked in "+myCont.getRoomTitle());
+//                    Log.d("MovingRoom","RightButton clicked in "+myCont.getRoomTitle());
                     if (myCont.moveRoom("right")) {
                         refreshView();
-                        Log.d("MovingRoom","View refreshed");
+//                        Log.d("MovingRoom","View refreshed");
                     }
                 }
             }
@@ -351,7 +351,7 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
                 itemArrayAdapter.clear();
                 itemArrayAdapter.addAll(inventoryList);
             } catch (Exception e) {
-                Log.d("RefreshInventory", "An exception was thrown");
+//                Log.d("RefreshInventory", "An exception was thrown");
                 e.printStackTrace();
             }
 
