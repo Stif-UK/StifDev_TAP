@@ -308,7 +308,7 @@ public class ProjectArklayGameScenario extends GameScenario {
                 /*String contains item*/ "",
                 /*String itemPickupText*/ "",
                 /*String roomLockedDescription*/ "",
-                /*String roomsUnlockedDescription*/ "A square room with a prominent centerpiece. \n \n It appears to be a statue of Zeus, throwing a bolt of lightening. \n \n Seems fitting for the weather outside.",
+                /*String roomsUnlockedDescription*/ "A square room with a prominent centrepiece. \n \n It appears to be a statue of Zeus, throwing a bolt of lightening. \n \n Seems fitting for the weather outside.",
                 /*String topBtnText*/ "North",
                 /*String topRoomName*/room12_hall_lower_east,
                 /*boolean topLocked*/ false,
