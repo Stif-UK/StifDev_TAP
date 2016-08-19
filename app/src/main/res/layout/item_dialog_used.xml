@@ -13,7 +13,7 @@
         android:textColor="@color/stifDev_TAP_Text"
         android:textSize="20sp"
         android:padding="20dp"
-        />
+        android:textAlignment="center" />
 
     <RelativeLayout
         android:layout_width="match_parent"
