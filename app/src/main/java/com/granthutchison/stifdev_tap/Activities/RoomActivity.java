@@ -4,6 +4,7 @@ import android.app.DialogFragment;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.util.Log;
@@ -370,18 +371,22 @@ public class RoomActivity extends FragmentActivity implements UseItemDialog.UseI
      * exiting the game. Some on-screen text is presented to the user instead, along with an
      * 'exit game' button which calls the privateBackPress() method to exit back to the scenario
      * select screen.
+     * This method calls the roomBackMethod() helper method to achieve this.
      */
     @Override
     public void onBackPressed() {
-//        HashSet<String> backComments = new HashSet<>();
-//        backComments.add("You can't navigate using the back button");
-//        backComments.add("When we get to 88mph, you're going to see some serious shit!");
-//        backComments.add("Oh, no no no!");
-//        backComments.add("Something tells you that you should press on");
-//        backComments.add("I think I'll just keep going forwards...");
-//        backComments.add("Aww, please stay a while longer!");
-//        backComments.add("What's the matter, not l33t enough?");
+       if(inventoryDrawerLayout.isDrawerOpen(Gravity.RIGHT)){
+           inventoryDrawerLayout.closeDrawer(Gravity.RIGHT);
+       }else {
+           roomBackMethod();
+       }
+    }
 
+    /**
+     * roomBackMethod() is a helper method which takes a collection of strings, and displays one of
+     * these at random, along with an exit button to allow the user to exit the game.
+     */
+    private void roomBackMethod(){
         int size = backComments.size();
         int item = new Random().nextInt(size); // In real life, the Random object should be rather more shared than this
         int i = 0;
