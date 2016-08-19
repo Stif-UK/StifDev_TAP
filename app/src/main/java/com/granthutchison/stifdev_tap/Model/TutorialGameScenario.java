@@ -295,7 +295,7 @@ public class TutorialGameScenario extends GameScenario {
                         "Anyway, that's us done.\n\n" +
                         "You can't navigate backwards through the map with the Android back " +
                         "button, but pressing it does provide a nice little shortcut to exit to the " +
-                        "main memu.\n\n" +
+                        "main menu.\n\n" +
                         "Why not try it now?...Have fun playing stifDev_TAP!",
                 /*String topBtnText*/ "",
                 /*String topRoomName*/"",
