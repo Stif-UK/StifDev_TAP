@@ -60,9 +60,8 @@ public class GameEndActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                //TODO: Update the share text below with the app link and flavour text
                 intent.putExtra(Intent.EXTRA_TEXT,
-                        "Just testing, check this out: http://stackoverflow.com/questions/28212490/");
+                        "I've just completed a scenario on #stifDev_TAP! https://play.google.com/store/apps/details?id=com.granthutchison.stifdev_tap");
                 HandyUtils.filterByPackageName(btnGplus.getContext(), intent, "com.google.android.apps.plus");
                 startActivity(intent);
 
@@ -74,9 +73,8 @@ public class GameEndActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Create intent using ACTION_VIEW and a normal Twitter url:
                 String tweetUrl = String.format("https://twitter.com/intent/tweet?text=%s&url=%s",
-                        //TODO: Update the Tweet text and link
-                        HandyUtils.urlEncode("Tweet text"),
-                        HandyUtils.urlEncode("https://www.google.fi/"));
+                        HandyUtils.urlEncode("I've just completed a scenario on #stifDev_TAP!"),
+                        HandyUtils.urlEncode("https://play.google.com/store/apps/details?id=com.granthutchison.stifdev_tap"));
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tweetUrl));
                 HandyUtils.filterByPackageName(btnTwitter.getContext(), intent, "com.twitter");
                 startActivity(intent);
@@ -88,8 +86,7 @@ public class GameEndActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                //TODO: update the share link to the Play Store link for the app
-                intent.putExtra(Intent.EXTRA_TEXT, "http://stackoverflow.com");
+                intent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.granthutchison.stifdev_tap");
                 HandyUtils.filterByPackageName(btnFacebook.getContext(), intent, "com.facebook.katana");
                 startActivity(intent);
             }
